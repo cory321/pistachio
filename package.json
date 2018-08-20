@@ -1,0 +1,54 @@
+{
+  "name": "pistachio",
+  "private": true,
+  "version": "0.0.1",
+  "description": "The Green Nut",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "greenhouse.io"
+  ],
+  "author": "",
+  "license": "GPL-2.0+",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.6",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.11",
+    "eslint": "^5.4.0",
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-config-wpcalypso": "^4.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^21.21.0",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-wpcalypso": "^4.0.2",
+    "lodash.at": "^4.6.0",
+    "lodash.findindex": "^4.6.0",
+    "lodash.topath": "^4.5.2",
+    "lodash.xor": "^4.5.0",
+    "random-fixture-data": "^2.0.19",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "style-loader": "^0.21.0",
+    "unescape-html": "^1.1.0"
+  },
+  "dependencies": {
+    "@wordpress/compose": "^1.0.4",
+    "@wordpress/core-data": "^1.1.1",
+    "addressparser": "^1.0.1",
+    "file-size": "^1.0.0",
+    "lodash": "^4.17.10",
+    "moment": "^2.22.2",
+    "title-case": "^2.1.1",
+    "webpack": "^4.11.1",
+    "webpack-cli": "^3.1.0"
+  }
+}

@@ -1,0 +1,375 @@
+/* https://css-tricks.com/snippets/css/system-font-stack/ */
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	padding: 0% 5% 2% 5%;
+	background-color: #e6e6e6;
+}
+
+#container {
+	background-color: #ffffff;
+	padding: 5px 50px 50px 50px;
+	border: 1px solid black;
+	mid-width: 1200px;
+}
+
+.auths {
+	list-style: none;
+	float: right;
+	background-color: #fff;
+}
+
+.auths li {
+	margin-bottom: 0.5em;
+	float: right;
+	clear: right;
+}
+
+.auths li:last-child {
+	margin-bottom: 0;
+}
+
+.auths li.toggle {
+	float: left;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+}
+
+.auths li.toggle span {
+	display: block;
+	padding: 2px 0;
+}
+
+.auths li:after {
+	content: " ";
+	visibility: hidden;
+	height: 0;
+	clear: both;
+	display: block;
+}
+
+.auth {
+	float: right;
+	display: inline-block;
+	min-width: 140px;
+	height: 26px;
+	line-height: 26px;
+	padding: 6px 4px 6px 40px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background-repeat: no-repeat;
+}
+
+.collapsed {
+	border: none;
+}
+
+.collapsed li {
+	float: left;
+}
+
+.collapsed .auth {
+	min-width: auto;
+	padding: 6px 0px 6px 40px;
+	margin-right: 6px;
+}
+
+.collapsed li:last-child .auth {
+	margin-right: 0;
+}
+.collapsed .auth * {
+	display: none;
+}
+
+.slack-auth {
+	background-image: url( /slack@2x.png );
+	background-size: 50px 50px;
+	background-position: -5px -5px;
+}
+
+.slack-auth a:hover {
+	color: red;
+}
+
+.greenhouse-auth {
+	border-color: transparent;
+	background-color: rgb( 13, 179, 168 );
+	background-image: url( /greenhouse@2x.png );
+	background-size: 40px 40px;
+}
+
+.greenhouse-auth a {
+	color: white;
+}
+
+.greenhouse-auth a:hover {
+	color: rgb( 255, 232, 41 );
+}
+
+.wpcom-auth {
+	border-color: transparent;
+	background-color: rgb( 0, 135, 190 );
+	background-image: url( /wpcom@2x.png );
+	background-size: 40px 40px;
+}
+
+.wpcom-auth a {
+	color: white;
+}
+
+.wpcom-auth a:hover {
+	color: rgb(240, 130, 30);
+}
+
+.github-auth {
+	background-color: black;
+	background-image: url( /github@2x.png );
+	background-size: 26px 26px;
+	background-position: 6px 6px;
+}
+
+.github-auth a {
+	color: white;
+}
+
+.github-auth a:hover {
+	color: #c9510c;
+}
+
+.logout:before {
+	content: attr( data-user )
+}
+
+.logout:hover:before {
+	display: inline-block;
+	min-width: 100%;
+	content: "Log Out";
+	text-decoration: underline;
+}
+
+.collapsed .logged-out {
+	filter: grayscale( 100% ) opacity( 25% )
+}
+
+.logout:hover ~ span {
+	display: none;
+}
+
+table {
+	border-collapse: collapse;
+}
+th, td {
+	border: 1px solid #ccc;
+}
+table td, table th {
+	text-align: center;
+}
+
+th.actions, td.actions {
+	border: none;
+	visibility: hidden;
+}
+
+tr:hover th.actions, tr:hover td.actions {
+	visibility: visible;
+}
+
+th.actions a, td.actions a {
+	text-decoration: none;
+}
+ul {
+	padding: 0;
+	list-style: none;
+}
+
+.needs-action {
+	overflow: hidden;
+}
+
+.needs-action label {
+	margin: -2em;
+	padding: 2em;
+}
+
+.a8c {
+	color: rgb( 0, 135, 190 );
+	font-weight: bold;
+}
+
+.primary {
+	font-size: 1.2em;
+	padding: .4em;
+	width: auto;
+	white-space: nowrap; /* Safari! */
+}
+
+.error {
+	color: red;
+}
+
+.danger {
+	padding: .4em;
+	border: 0;
+	outline: 0;
+	background: none;
+	color: red;
+	text-decoration: underline;
+}
+
+.danger[disabled] {
+	color: grey !important;
+	cursor: auto !important;
+	background-color: transparent !important;
+	text-decoration: none;
+}
+
+.danger:hover {
+	color: white;
+	cursor: pointer;
+	background-color: maroon;
+}
+
+.danger:active {
+	color: white;
+	background-color: red;
+}
+
+button.primary ~ button.danger {
+	margin-left: 2em;
+}
+
+.messages {
+	display: grid;
+	grid-template-columns: min-content auto min-content min-content;
+}
+
+.messages > li {
+	grid-column-start: 1;
+	grid-column-end: 5;
+	display: contents;
+	white-space: nowrap;
+	width: 100%;
+}
+
+.messages > li > span,
+.messages > li > label,
+.messages > li > time {
+	padding: .3em 0;
+	border-top: 1px solid #ddd;
+}
+
+.messages {
+	border-bottom: 1px solid #ddd;
+}
+
+.messages li > ul {
+	grid-column-start: 2;
+	grid-column-end: 5;
+	padding: 0 0 0.3em;
+	margin: 0;
+}
+
+.messages ul li {
+	padding-left: 1em;
+	display: inline;
+}
+
+.messages li > span.message {
+	color: #666;
+	padding-left: 1em;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+}
+
+.imported {
+	background-color: rgb( 13, 179, 168 );
+	color: white;
+	font-size: 0.8em;
+	padding: 2px 5px;
+	margin-right: 0.3em;
+}
+
+svg {
+	vertical-align: middle;
+}
+
+svg path {
+	fill: blue;
+}
+
+svg:active path {
+	fill: lightblue;
+}
+
+form.fn {
+	display: inline;
+}
+
+span.fn {
+	cursor: context-menu;
+}
+
+.email-address {
+	font-family: monospace;
+}
+
+.subject {
+	color: black;
+}
+
+.snippet {
+	color: #666;
+	font-size: 0.8em;
+}
+
+#attachments-toggle {
+	float: right;
+}
+
+.filters ul.filters-main li {
+	display: inline;
+	padding-right: 0.5em;
+}
+
+@keyframes woah {
+	0%   { background-position-x: 0px }
+	100% { background-position-x: -98.995px }
+}
+
+.fetching {
+	background: repeating-linear-gradient(
+		135deg,
+		/* G */
+		rgba( 52, 109, 242, .1 ) 0px,
+		rgba( 52, 109, 242, .1 ) 10px,
+
+		/* o */
+		rgba( 225, 43, 41, .1 ) 10px,
+		rgba( 225, 43, 41, .1 ) 20px,
+
+		/* o */
+		rgba( 249, 176, 11, .1 ) 20px,
+		rgba( 249, 176, 11, .1 ) 30px,
+
+		/* g */
+		rgba( 52, 109, 242, .1 ) 30px,
+		rgba( 52, 109, 242, .1 ) 40px,
+
+		/* l */
+		rgba( 45, 155, 65, .1 ) 40px,
+		rgba( 45, 155, 65, .1 ) 50px,
+
+		/* e */
+		rgba( 225, 43, 41, .1 ) 50px,
+		rgba( 225, 43, 41, .1 ) 60px,
+
+		rgba( 255, 255, 255, .1 ) 60px,
+		rgba( 255, 255, 255, .1 ) 70px
+	);
+	animation: woah 3s linear infinite;
+}
+
+input[type=search] {
+	min-width: 50%;
+}

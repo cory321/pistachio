@@ -1,0 +1,28 @@
+module.exports = {
+	root: true,
+	extends: [
+		'wpcalypso/react',
+		'plugin:jest/recommended',
+		'prettier',
+		'prettier/react',
+	],
+	parser: 'babel-eslint',
+	env: {
+		browser: true,
+		'jest/globals': true,
+		node: true,
+	},
+	globals: {
+		wp: true,
+	},
+	plugins: [ 'jest', 'import' ],
+	rules: {
+		// REST API objects include underscores
+		camelcase: 0,
+
+		'wpcalypso/import-docblock': 0,
+		'wpcalypso/jsx-classname-namespace': 0,
+
+		'import/no-extraneous-dependencies': [ 'error', { packageDir: './' } ],
+	},
+};
