@@ -6,7 +6,9 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint-js": "./node_modules/.bin/eslint .",
+    "lint-js:fix": "./node_modules/.bin/eslint . --fix"
   },
   "keywords": [
     "greenhouse.io"
