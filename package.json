@@ -34,6 +34,7 @@
     "lodash.findindex": "^4.6.0",
     "lodash.topath": "^4.5.2",
     "lodash.xor": "^4.5.0",
+    "prettier": "github:automattic/wp-prettier#wp-prettier-1.14.0",
     "random-fixture-data": "^2.0.19",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
