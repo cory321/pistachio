@@ -1,38 +1,40 @@
-import { combineReducers } from 'redux'
+/** @format */
 
-import { jobs, candidates, users, messages, labels } from '../actions'
+import { combineReducers } from 'redux';
+
+import { jobs, candidates, users, messages, labels } from '../actions';
 
 function fetcher( FETCH, SUCCESS, ERROR ) {
 	function isFetching( state = false, action ) {
 		switch ( action.type ) {
-		case FETCH :
-			return true
-		case SUCCESS :
-			return false
-		case ERROR :
-			return false
+			case FETCH:
+				return true;
+			case SUCCESS:
+				return false;
+			case ERROR:
+				return false;
 		}
 
-		return state
+		return state;
 	}
 
 	function error( state = '', action ) {
 		switch ( action.type ) {
-		case FETCH :
-			return ''
-		case SUCCESS :
-			return ''
-		case ERROR :
-			return action.payload
+			case FETCH:
+				return '';
+			case SUCCESS:
+				return '';
+			case ERROR:
+				return action.payload;
 		}
 
-		return state
+		return state;
 	}
 
 	return combineReducers( {
 		isFetching,
-		error
-	} )
+		error,
+	} );
 }
 
 export default combineReducers( {
@@ -41,4 +43,4 @@ export default combineReducers( {
 	users: fetcher( users.FETCH, users.SUCCESS, users.ERROR ),
 	messages: fetcher( messages.FETCH, messages.SUCCESS, messages.ERROR ),
 	labels: fetcher( labels.FETCH, labels.SUCCESS, labels.ERROR ),
-} )
+} );

@@ -1,40 +1,44 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+/** @format */
 
-import { auth } from '../actions'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import Auth from '../components/Auth'
+import { auth } from '../actions';
+
+import Auth from '../components/Auth';
 
 class AuthContainer extends Component {
 	componentDidMount() {
-		window.authReceiver = this.props.logIn
+		window.authReceiver = this.props.logIn;
 	}
 
 	componentDidUpdate() {
-		window.authReceiver = this.props.logIn
+		window.authReceiver = this.props.logIn;
 	}
 
 	componentWillUnmount() {
-		delete window.authReceiver
+		delete window.authReceiver;
 	}
 
 	render() {
-		return <Auth auth={this.props.auth} logOut={this.props.logOut} />
+		return <Auth auth={ this.props.auth } logOut={ this.props.logOut } />;
 	}
 }
-
 
 function mapStateToProps( state ) {
 	return {
 		auth: state.auth,
-	}
+	};
 }
 
 function mapDispatchToProps( dispatch ) {
 	return {
 		logIn: ( service, data ) => dispatch( auth.logIn( service, data ) ),
-		logOut: service => dispatch( auth.logOut( service ) )
-	}
+		logOut: service => dispatch( auth.logOut( service ) ),
+	};
 }
 
-export default connect( mapStateToProps, mapDispatchToProps )( AuthContainer )
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)( AuthContainer );

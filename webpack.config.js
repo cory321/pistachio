@@ -1,10 +1,10 @@
+/** @format */
+
 const path = require( 'path' );
 const webpack = require( 'webpack' );
 
 module.exports = {
-	entry: [
-		'./index.js',
-	],
+	entry: [ './index.js' ],
 
 	mode: 'development',
 	devtool: 'source-map',
@@ -19,7 +19,7 @@ module.exports = {
 				test: /\.css$/,
 				use: [ 'style-loader', 'css-loader' ],
 			},
-		]
+		],
 	},
 
 	output: {
