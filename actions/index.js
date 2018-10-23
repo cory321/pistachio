@@ -1,3 +1,5 @@
+/** @format */
+
 import * as candidates from './candidates';
 import * as jobs from './jobs';
 import * as users from './users';
@@ -12,7 +14,14 @@ import * as auth from './auth';
 import * as route from './route';
 
 export {
-	candidates, jobs, users,
-	messageQuery, messages, senderCounts, labels,
-	filters, auth, route,
-}
+	candidates,
+	jobs,
+	users,
+	messageQuery,
+	messages,
+	senderCounts,
+	labels,
+	filters,
+	auth,
+	route,
+};

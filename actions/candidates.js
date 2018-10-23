@@ -1,3 +1,5 @@
+/** @format */
+
 export const ADD = 'CANDIDATES_ADD';
 export const ADD_MANY = 'CANDIDATES_ADD_MANY';
 export const REMOVE = 'CANDIDATES_REMOVE';
@@ -16,7 +18,7 @@ export function add( candidate ) {
 export function remove( candidateId ) {
 	return {
 		type: REMOVE,
-		payload: candidateId
+		payload: candidateId,
 	};
 }
 
@@ -31,23 +33,23 @@ export function success( fetchStart ) {
 	return {
 		type: SUCCESS,
 		payload: fetchStart,
-	}
+	};
 }
 
 export function error( err ) {
 	return {
 		type: ERROR,
-		payload: err.toString()
-	}
+		payload: err.toString(),
+	};
 }
 
 export function uploadCoverLetter() {
-	throw( 'Not implemented' )
+	throw 'Not implemented';
 }
 
 export function toggleNeedsAction( candidateId ) {
 	return {
 		type: TOGGLE_NEEDS_ACTION,
-		payload: candidateId
-	}
+		payload: candidateId,
+	};
 }
