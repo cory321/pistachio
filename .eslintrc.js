@@ -15,7 +15,7 @@ module.exports = {
 	globals: {
 		wp: true,
 	},
-	plugins: [ 'jest', 'import' ],
+	plugins: [ 'jest', 'import', 'prettier' ],
 	rules: {
 		// REST API objects include underscores
 		camelcase: 0,
@@ -24,5 +24,6 @@ module.exports = {
 		'wpcalypso/jsx-classname-namespace': 0,
 
 		'import/no-extraneous-dependencies': [ 'error', { packageDir: './' } ],
+		'prettier/prettier': 'warn',
 	},
 };
