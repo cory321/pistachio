@@ -8,7 +8,7 @@ services:
       - db
     links:
       - db:mysql
-    image: wordpress
+    image: andreccosta/wordpress-xdebug
     ports:
       - "8082:80"
     env_file:
@@ -23,3 +23,10 @@ services:
       - "3306:3306"
     env_file:
       - default.env
+
+  composer:
+    restart: "no"
+    image: composer
+    command: install
+    volumes:
+      - .:/app

@@ -31,6 +31,10 @@ echo "Installing and activating Gutenberg…"
 cli wp plugin install gutenberg
 cli wp plugin activate gutenberg
 
+echo "Installing and activating Keyring…"
+cli wp plugin install keyring
+cli wp plugin activate keyring
+
 echo "Activating the Pistachio plugin…"
 cli wp plugin activate pistachio
 

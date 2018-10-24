@@ -8,7 +8,12 @@
     "build": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint-js": "./node_modules/.bin/eslint .",
-    "lint-js:fix": "./node_modules/.bin/eslint . --fix"
+    "lint-js:fix": "./node_modules/.bin/eslint . --fix",
+		"lint-php": "docker-compose run --rm composer run-script lint || true",
+		"lint-php:fix": "docker-compose run --rm composer run-script format || true",
+		"test-unit-php:run-docker": "docker-compose -f docker-compose.yml -f docker-compose.phpunit.yml up -d",
+		"test-unit-php:setup": "docker-compose -f docker-compose.phpunit.yml run --rm wordpress_phpunit /app/bin/install-wp-tests.sh wordpress_test root '' mysql_phpunit latest true",
+		"test-unit-php": "docker-compose -f docker-compose.phpunit.yml run --rm wordpress_phpunit phpunit --debug || true"
   },
   "keywords": [
     "greenhouse.io"

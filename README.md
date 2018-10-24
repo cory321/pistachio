@@ -20,20 +20,29 @@ Doing
 
 Visit http://localhost:8082/wp-admin/admin.php?page=pistachio — you should see the UI.
 
-Cover Letters
--------------
+Tests
+-----
 
-Some people attach a Résumé PDF *and* a Cover Letter PDF to their email
-message. For these people, we still want to capture the contents of the
-email message, which we'll store as a generic attachment rather than an
-attachment in Greenhouse's Cover Letter slot.
+We like tests :)
 
-That means we can't depend on the Cover Letter slot to tell us whether or
-not we've attached the email message's contents.
+PHP unit tests can be run with:
 
-Instead, we define a Cover Letter by convention: a Cover Letter is an
-attachment with a filename matching `/Cover.Letter.Intro/`.
+`npm run test-unit-php`, before you do this you should run the Docker containers in
+which these tests will be run by using: `npm run test-unit-php:run-docker`
 
-The "Upload" button just grabs the oldest email message in the candidate's
-activity feed, and uploads its contents as a file with filename
-`{Name} - Cover Letter Intro.txt`.
+JavaScript unit tests can be run with:
+
+`npm run test-unit-js`
+
+Coding standards
+----------------
+
+For PHP, we use PHP Code Sniffer with the WordPress coding standards. You can run the linter
+with: `npm run lint-php`. You can attempt to fix any standard violations `phpcs` finds with
+`npm run lint-php:fix`.
+
+The PHP linter runs in a Docker container, but you can always install `phpcs` with the WordPress
+coding standards locally, for integration with your IDE or text editor.
+
+For JavaScript, we use `eslint`. You can run `npm run lint-js`, or set up `eslint` to be run in your
+text editor/IDE.

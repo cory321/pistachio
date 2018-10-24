@@ -3,3 +3,4 @@ dist/
 node_modules/
 wordpress/
 npm-debug.log
+vendor/
