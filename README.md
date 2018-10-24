@@ -28,7 +28,7 @@ We like tests :)
 PHP unit tests can be run with:
 
 `npm run test-unit-php`, before you do this you should run the Docker containers in
-which these tests will be run by using: `npm run test-unit-php:run-docker`
+which these tests will be run in, by using: `npm run test-unit-php:run-docker`
 
 JavaScript unit tests can be run with:
 

@@ -19,6 +19,7 @@ module.exports = {
 
 		'wpcalypso/import-docblock': 0,
 		'wpcalypso/jsx-classname-namespace': 0,
+		'jest/no-disabled-tests': 0,
 
 		'import/no-extraneous-dependencies': [ 'error', { packageDir: './' } ],
 		'prettier/prettier': 'warn',

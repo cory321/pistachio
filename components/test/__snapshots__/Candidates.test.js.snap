@@ -1,0 +1,1607 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Candidates should display a "no candidates found" message when candidates = [] 1`] = `
+<p>
+  No matching candidates.
+</p>
+`;
+
+exports[`Candidates should display all candidates grouped by stage when no filter is given 1`] = `
+Array [
+  <p
+    key="0"
+  >
+    Active: 
+    4
+  </p>,
+  <table
+    key="1"
+  >
+    <tbody>
+      <tr
+        key="Application Review"
+      >
+        <td
+          colSpan="5"
+        >
+          <h2>
+            Application Review
+             (
+            2
+            )
+          </h2>
+        </td>
+      </tr>
+      <tr
+        key="Application Reviewths"
+      >
+        <th>
+          Act?
+        </th>
+        <th>
+          Jobs
+        </th>
+        <th>
+          Name
+        </th>
+        <th>
+          Ref
+        </th>
+        <th>
+          Coordinator
+        </th>
+        <th>
+          Last Activity
+        </th>
+        <th>
+          Cover
+        </th>
+        <th>
+          E-mail
+        </th>
+        <th>
+          Gender
+        </th>
+        <th>
+          Region
+        </th>
+        <th
+          className="actions"
+        />
+      </tr>
+      <Candidate
+        candidate={
+          Object {
+            "application_ids": Array [
+              1,
+            ],
+            "applications": Array [
+              Object {
+                "applied_at": "2018-08-13T06:34:19.993Z",
+                "candidate_id": 1,
+                "credited_to": null,
+                "current_stage": Object {
+                  "id": 1,
+                  "name": "Application Review",
+                },
+                "id": 1,
+                "jobs": Array [
+                  Object {
+                    "departments": Array [
+                      Object {
+                        "child_ids": Array [],
+                        "external_id": null,
+                        "id": 45284,
+                        "name": "Web",
+                        "parent_id": 44211,
+                      },
+                    ],
+                    "id": 2,
+                    "name": "Code Wrangler",
+                    "offices": Array [
+                      Object {
+                        "child_ids": Array [],
+                        "external_id": null,
+                        "id": 44811,
+                        "location": Object {
+                          "name": null,
+                        },
+                        "name": "Web",
+                        "parent_id": 43792,
+                      },
+                    ],
+                    "status": "open",
+                  },
+                ],
+                "last_activity_at": "2018-08-15T06:32:00.565Z",
+                "location": null,
+                "prospect": false,
+                "source": null,
+                "status": "active",
+              },
+            ],
+            "attachments": Array [],
+            "coordinator": Object {
+              "created_at": "1993-01-03T03:36:48.00-06:00",
+              "disabled": false,
+              "emails": Array [
+                "Bettye.Greenfelder@email.com",
+              ],
+              "employee_id": null,
+              "first_name": "Bettye",
+              "id": 1,
+              "last_name": "Greenfelder",
+              "name": "Bettye Greenfelder",
+              "site_admin": true,
+              "updated_at": "1989-01-09T17:24:34.00-06:00",
+            },
+            "created_at": "2018-08-15T06:02:57.176Z",
+            "email_addresses": Array [
+              Object {
+                "type": "personal",
+                "value": "AppReview.CodeWrangler@email.com",
+              },
+            ],
+            "first_name": "Active_AppReview",
+            "id": 1,
+            "is_private": false,
+            "keyed_custom_fields": Object {
+              "gender": Object {
+                "name": "Gender",
+                "type": "short_text",
+                "value": "Other/Not Sure",
+              },
+              "git_hub_username": Object {
+                "name": "GitHub Username",
+                "type": "short_text",
+                "value": null,
+              },
+              "job_source": null,
+              "region": Object {
+                "name": "Region",
+                "type": "short_text",
+                "value": undefined,
+              },
+              "slack_channel": Object {
+                "name": "Slack Channel",
+                "type": "short_text",
+                "value": null,
+              },
+              "word_press_com_username": "acodew",
+            },
+            "last_activity": "2018-08-15T06:02:58.054Z",
+            "last_name": "CodeWrangler",
+            "name": "Active_AppReview CodeWrangler",
+            "updated_at": "2018-08-15T06:02:58.075Z",
+          }
+        }
+        filters={Array []}
+        key="1"
+        stage="Application Review"
+      />
+      <Candidate
+        candidate={
+          Object {
+            "application_ids": Array [
+              1,
+            ],
+            "applications": Array [
+              Object {
+                "applied_at": "2018-08-13T06:34:19.993Z",
+                "candidate_id": 1,
+                "credited_to": null,
+                "current_stage": Object {
+                  "id": 1,
+                  "name": "Application Review",
+                },
+                "id": 1,
+                "jobs": Array [
+                  Object {
+                    "departments": Array [
+                      Object {
+                        "child_ids": Array [],
+                        "external_id": null,
+                        "id": 45284,
+                        "name": "Web",
+                        "parent_id": 44211,
+                      },
+                    ],
+                    "id": 3,
+                    "name": "JavaScript Engineer",
+                    "offices": Array [
+                      Object {
+                        "child_ids": Array [],
+                        "external_id": null,
+                        "id": 44811,
+                        "location": Object {
+                          "name": null,
+                        },
+                        "name": "Web",
+                        "parent_id": 43792,
+                      },
+                    ],
+                    "status": "open",
+                  },
+                ],
+                "last_activity_at": "2018-08-15T06:32:00.565Z",
+                "location": null,
+                "prospect": false,
+                "source": null,
+                "status": "active",
+              },
+            ],
+            "attachments": Array [],
+            "coordinator": Object {
+              "created_at": "1993-01-03T03:36:48.00-06:00",
+              "disabled": false,
+              "emails": Array [
+                "Bettye.Greenfelder@email.com",
+              ],
+              "employee_id": null,
+              "first_name": "Bettye",
+              "id": 1,
+              "last_name": "Greenfelder",
+              "name": "Bettye Greenfelder",
+              "site_admin": true,
+              "updated_at": "1989-01-09T17:24:34.00-06:00",
+            },
+            "created_at": "2018-08-15T06:02:57.176Z",
+            "email_addresses": Array [
+              Object {
+                "type": "personal",
+                "value": "AppReview.JavaScriptEngineer@email.com",
+              },
+            ],
+            "first_name": "Active_AppReview",
+            "id": 2,
+            "is_private": false,
+            "keyed_custom_fields": Object {
+              "gender": Object {
+                "name": "Gender",
+                "type": "short_text",
+                "value": "Other/Not Sure",
+              },
+              "git_hub_username": Object {
+                "name": "GitHub Username",
+                "type": "short_text",
+                "value": null,
+              },
+              "job_source": null,
+              "region": Object {
+                "name": "Region",
+                "type": "short_text",
+                "value": undefined,
+              },
+              "slack_channel": Object {
+                "name": "Slack Channel",
+                "type": "short_text",
+                "value": null,
+              },
+              "word_press_com_username": "jcodew",
+            },
+            "last_activity": "2018-08-15T06:02:58.054Z",
+            "last_name": "JavaScriptEngineer",
+            "name": "Active_AppReview JavaScriptEngineer",
+            "updated_at": "2018-08-15T06:02:58.075Z",
+          }
+        }
+        filters={Array []}
+        key="2"
+        stage="Application Review"
+      />
+      <tr
+        key="Pre-Interview Form"
+      >
+        <td
+          colSpan="5"
+        >
+          <h2>
+            Pre-Interview Form
+             (
+            1
+            )
+          </h2>
+        </td>
+      </tr>
+      <tr
+        key="Pre-Interview Formths"
+      >
+        <th>
+          Act?
+        </th>
+        <th>
+          Jobs
+        </th>
+        <th>
+          Name
+        </th>
+        <th>
+          Ref
+        </th>
+        <th>
+          Coordinator
+        </th>
+        <th>
+          Last Activity
+        </th>
+        <th>
+          Cover
+        </th>
+        <th>
+          E-mail
+        </th>
+        <th>
+          Gender
+        </th>
+        <th>
+          Region
+        </th>
+        <th
+          className="actions"
+        />
+      </tr>
+      <Candidate
+        candidate={
+          Object {
+            "application_ids": Array [
+              1,
+            ],
+            "applications": Array [
+              Object {
+                "applied_at": "2018-08-13T06:34:19.993Z",
+                "candidate_id": 1,
+                "credited_to": null,
+                "current_stage": Object {
+                  "id": 1,
+                  "name": "Pre-Interview Form",
+                },
+                "id": 1,
+                "jobs": Array [
+                  Object {
+                    "departments": Array [
+                      Object {
+                        "child_ids": Array [],
+                        "external_id": null,
+                        "id": 45284,
+                        "name": "Web",
+                        "parent_id": 44211,
+                      },
+                    ],
+                    "id": 2,
+                    "name": "Code Wrangler",
+                    "offices": Array [
+                      Object {
+                        "child_ids": Array [],
+                        "external_id": null,
+                        "id": 44811,
+                        "location": Object {
+                          "name": null,
+                        },
+                        "name": "Web",
+                        "parent_id": 43792,
+                      },
+                    ],
+                    "status": "open",
+                  },
+                ],
+                "last_activity_at": "2018-08-15T06:32:00.565Z",
+                "location": null,
+                "prospect": false,
+                "source": null,
+                "status": "active",
+              },
+            ],
+            "attachments": Array [],
+            "coordinator": Object {
+              "created_at": "1993-01-03T03:36:48.00-06:00",
+              "disabled": false,
+              "emails": Array [
+                "Bettye.Greenfelder@email.com",
+              ],
+              "employee_id": null,
+              "first_name": "Bettye",
+              "id": 1,
+              "last_name": "Greenfelder",
+              "name": "Bettye Greenfelder",
+              "site_admin": true,
+              "updated_at": "1989-01-09T17:24:34.00-06:00",
+            },
+            "created_at": "2018-08-15T06:02:57.176Z",
+            "email_addresses": Array [
+              Object {
+                "type": "personal",
+                "value": "PreInterviewForm.CodeWrangler@email.com",
+              },
+            ],
+            "first_name": "Active_PreInterviewForm",
+            "id": 3,
+            "is_private": false,
+            "keyed_custom_fields": Object {
+              "gender": Object {
+                "name": "Gender",
+                "type": "short_text",
+                "value": "Other/Not Sure",
+              },
+              "git_hub_username": Object {
+                "name": "GitHub Username",
+                "type": "short_text",
+                "value": null,
+              },
+              "job_source": null,
+              "region": Object {
+                "name": "Region",
+                "type": "short_text",
+                "value": undefined,
+              },
+              "slack_channel": Object {
+                "name": "Slack Channel",
+                "type": "short_text",
+                "value": null,
+              },
+              "word_press_com_username": "pcodew",
+            },
+            "last_activity": "2018-08-15T06:02:58.054Z",
+            "last_name": "CodeWrangler",
+            "name": "Active_PreInterviewForm CodeWrangler",
+            "updated_at": "2018-08-15T06:02:58.075Z",
+          }
+        }
+        filters={Array []}
+        key="3"
+        stage="Pre-Interview Form"
+      />
+      <tr
+        key="Interview"
+      >
+        <td
+          colSpan="5"
+        >
+          <h2>
+            Interview
+             (
+            1
+            )
+          </h2>
+        </td>
+      </tr>
+      <tr
+        key="Interviewths"
+      >
+        <th>
+          Act?
+        </th>
+        <th>
+          Jobs
+        </th>
+        <th>
+          Name
+        </th>
+        <th>
+          Ref
+        </th>
+        <th>
+          Coordinator
+        </th>
+        <th>
+          Last Activity
+        </th>
+        <th>
+          Cover
+        </th>
+        <th>
+          E-mail
+        </th>
+        <th>
+          Gender
+        </th>
+        <th>
+          Region
+        </th>
+        <th
+          className="actions"
+        />
+      </tr>
+      <Candidate
+        candidate={
+          Object {
+            "application_ids": Array [
+              1,
+            ],
+            "applications": Array [
+              Object {
+                "applied_at": "2018-08-13T06:34:19.993Z",
+                "candidate_id": 1,
+                "credited_to": null,
+                "current_stage": Object {
+                  "id": 1,
+                  "name": "Interview",
+                },
+                "id": 1,
+                "jobs": Array [
+                  Object {
+                    "departments": Array [
+                      Object {
+                        "child_ids": Array [],
+                        "external_id": null,
+                        "id": 45284,
+                        "name": "Web",
+                        "parent_id": 44211,
+                      },
+                    ],
+                    "id": 2,
+                    "name": "Code Wrangler",
+                    "offices": Array [
+                      Object {
+                        "child_ids": Array [],
+                        "external_id": null,
+                        "id": 44811,
+                        "location": Object {
+                          "name": null,
+                        },
+                        "name": "Web",
+                        "parent_id": 43792,
+                      },
+                    ],
+                    "status": "open",
+                  },
+                ],
+                "last_activity_at": "2018-08-15T06:32:00.565Z",
+                "location": null,
+                "prospect": false,
+                "source": null,
+                "status": "active",
+              },
+            ],
+            "attachments": Array [],
+            "coordinator": Object {
+              "created_at": "1993-01-03T03:36:48.00-06:00",
+              "disabled": false,
+              "emails": Array [
+                "Bettye.Greenfelder@email.com",
+              ],
+              "employee_id": null,
+              "first_name": "Bettye",
+              "id": 1,
+              "last_name": "Greenfelder",
+              "name": "Bettye Greenfelder",
+              "site_admin": true,
+              "updated_at": "1989-01-09T17:24:34.00-06:00",
+            },
+            "created_at": "2018-08-15T06:02:57.176Z",
+            "email_addresses": Array [
+              Object {
+                "type": "personal",
+                "value": "Interview.CodeWrangler@email.com",
+              },
+            ],
+            "first_name": "Active_Interview",
+            "id": 4,
+            "is_private": false,
+            "keyed_custom_fields": Object {
+              "gender": Object {
+                "name": "Gender",
+                "type": "short_text",
+                "value": "Other/Not Sure",
+              },
+              "git_hub_username": Object {
+                "name": "GitHub Username",
+                "type": "short_text",
+                "value": null,
+              },
+              "job_source": null,
+              "region": Object {
+                "name": "Region",
+                "type": "short_text",
+                "value": undefined,
+              },
+              "slack_channel": Object {
+                "name": "Slack Channel",
+                "type": "short_text",
+                "value": null,
+              },
+              "word_press_com_username": "icodew",
+            },
+            "last_activity": "2018-08-15T06:02:58.054Z",
+            "last_name": "CodeWrangler",
+            "name": "Active_Interview CodeWrangler",
+            "updated_at": "2018-08-15T06:02:58.075Z",
+          }
+        }
+        filters={Array []}
+        key="4"
+        stage="Interview"
+      />
+      <tr
+        key="Hired"
+      >
+        <td
+          colSpan="5"
+        >
+          <h2>
+            Hired
+             (
+            2
+            )
+          </h2>
+        </td>
+      </tr>
+      <tr
+        key="Hiredths"
+      >
+        <th>
+          Act?
+        </th>
+        <th>
+          Jobs
+        </th>
+        <th>
+          Name
+        </th>
+        <th>
+          Ref
+        </th>
+        <th>
+          Coordinator
+        </th>
+        <th>
+          Last Activity
+        </th>
+        <th>
+          Cover
+        </th>
+        <th>
+          E-mail
+        </th>
+        <th>
+          Gender
+        </th>
+        <th>
+          Region
+        </th>
+        <th
+          className="actions"
+        />
+      </tr>
+      <Candidate
+        candidate={
+          Object {
+            "application_ids": Array [
+              1,
+            ],
+            "applications": Array [
+              Object {
+                "applied_at": "2018-08-13T06:34:19.993Z",
+                "candidate_id": 1,
+                "credited_to": null,
+                "current_stage": Object {
+                  "id": 1,
+                  "name": "Hired",
+                },
+                "id": 1,
+                "jobs": Array [
+                  Object {
+                    "departments": Array [
+                      Object {
+                        "child_ids": Array [],
+                        "external_id": null,
+                        "id": 45284,
+                        "name": "Web",
+                        "parent_id": 44211,
+                      },
+                    ],
+                    "id": 2,
+                    "name": "Code Wrangler",
+                    "offices": Array [
+                      Object {
+                        "child_ids": Array [],
+                        "external_id": null,
+                        "id": 44811,
+                        "location": Object {
+                          "name": null,
+                        },
+                        "name": "Web",
+                        "parent_id": 43792,
+                      },
+                    ],
+                    "status": "open",
+                  },
+                ],
+                "last_activity_at": "2018-08-15T06:32:00.565Z",
+                "location": null,
+                "prospect": false,
+                "source": null,
+                "status": "hired",
+              },
+            ],
+            "attachments": Array [],
+            "coordinator": Object {
+              "created_at": "1993-01-03T03:36:48.00-06:00",
+              "disabled": false,
+              "emails": Array [
+                "Bettye.Greenfelder@email.com",
+              ],
+              "employee_id": null,
+              "first_name": "Bettye",
+              "id": 1,
+              "last_name": "Greenfelder",
+              "name": "Bettye Greenfelder",
+              "site_admin": true,
+              "updated_at": "1989-01-09T17:24:34.00-06:00",
+            },
+            "created_at": "2018-08-15T06:02:57.176Z",
+            "email_addresses": Array [
+              Object {
+                "type": "personal",
+                "value": "Hired.CodeWrangler@email.com",
+              },
+            ],
+            "first_name": "Hired_Hired",
+            "id": 5,
+            "is_private": false,
+            "keyed_custom_fields": Object {
+              "gender": Object {
+                "name": "Gender",
+                "type": "short_text",
+                "value": "Other/Not Sure",
+              },
+              "git_hub_username": Object {
+                "name": "GitHub Username",
+                "type": "short_text",
+                "value": null,
+              },
+              "job_source": null,
+              "region": Object {
+                "name": "Region",
+                "type": "short_text",
+                "value": undefined,
+              },
+              "slack_channel": Object {
+                "name": "Slack Channel",
+                "type": "short_text",
+                "value": null,
+              },
+              "word_press_com_username": "hcodew",
+            },
+            "last_activity": "2018-08-15T06:02:58.054Z",
+            "last_name": "CodeWrangler",
+            "name": "Hired_Hired CodeWrangler",
+            "updated_at": "2018-08-15T06:02:58.075Z",
+          }
+        }
+        filters={Array []}
+        key="5"
+        stage="Hired"
+      />
+      <Candidate
+        candidate={
+          Object {
+            "application_ids": Array [
+              1,
+            ],
+            "applications": Array [
+              Object {
+                "applied_at": "2018-08-13T06:34:19.993Z",
+                "candidate_id": 1,
+                "credited_to": null,
+                "current_stage": Object {
+                  "id": 1,
+                  "name": "Matt Chat",
+                },
+                "id": 1,
+                "jobs": Array [
+                  Object {
+                    "departments": Array [
+                      Object {
+                        "child_ids": Array [],
+                        "external_id": null,
+                        "id": 45284,
+                        "name": "Web",
+                        "parent_id": 44211,
+                      },
+                    ],
+                    "id": 2,
+                    "name": "Code Wrangler",
+                    "offices": Array [
+                      Object {
+                        "child_ids": Array [],
+                        "external_id": null,
+                        "id": 44811,
+                        "location": Object {
+                          "name": null,
+                        },
+                        "name": "Web",
+                        "parent_id": 43792,
+                      },
+                    ],
+                    "status": "open",
+                  },
+                ],
+                "last_activity_at": "2018-08-15T06:32:00.565Z",
+                "location": null,
+                "prospect": false,
+                "source": null,
+                "status": "hired",
+              },
+            ],
+            "attachments": Array [],
+            "coordinator": Object {
+              "created_at": "1993-01-03T03:36:48.00-06:00",
+              "disabled": false,
+              "emails": Array [
+                "Bettye.Greenfelder@email.com",
+              ],
+              "employee_id": null,
+              "first_name": "Bettye",
+              "id": 1,
+              "last_name": "Greenfelder",
+              "name": "Bettye Greenfelder",
+              "site_admin": true,
+              "updated_at": "1989-01-09T17:24:34.00-06:00",
+            },
+            "created_at": "2018-08-15T06:02:57.176Z",
+            "email_addresses": Array [
+              Object {
+                "type": "personal",
+                "value": "HiredMattChat.CodeWrangler@email.com",
+              },
+            ],
+            "first_name": "Hired_MattChat",
+            "id": 6,
+            "is_private": false,
+            "keyed_custom_fields": Object {
+              "gender": Object {
+                "name": "Gender",
+                "type": "short_text",
+                "value": "Other/Not Sure",
+              },
+              "git_hub_username": Object {
+                "name": "GitHub Username",
+                "type": "short_text",
+                "value": null,
+              },
+              "job_source": null,
+              "region": Object {
+                "name": "Region",
+                "type": "short_text",
+                "value": undefined,
+              },
+              "slack_channel": Object {
+                "name": "Slack Channel",
+                "type": "short_text",
+                "value": null,
+              },
+              "word_press_com_username": "hcodew",
+            },
+            "last_activity": "2018-08-15T06:02:58.054Z",
+            "last_name": "CodeWrangler",
+            "name": "Hired_MattChat CodeWrangler",
+            "updated_at": "2018-08-15T06:02:58.075Z",
+          }
+        }
+        filters={Array []}
+        key="6"
+        stage="Hired"
+      />
+      <tr
+        key="Rejected"
+      >
+        <td
+          colSpan="5"
+        >
+          <h2>
+            Rejected
+             (
+            2
+            )
+          </h2>
+        </td>
+      </tr>
+      <tr
+        key="Rejectedths"
+      >
+        <th>
+          Act?
+        </th>
+        <th>
+          Jobs
+        </th>
+        <th>
+          Name
+        </th>
+        <th>
+          Ref
+        </th>
+        <th>
+          Coordinator
+        </th>
+        <th>
+          Last Activity
+        </th>
+        <th>
+          Cover
+        </th>
+        <th>
+          E-mail
+        </th>
+        <th>
+          Gender
+        </th>
+        <th>
+          Region
+        </th>
+        <th
+          className="actions"
+        />
+      </tr>
+      <Candidate
+        candidate={
+          Object {
+            "application_ids": Array [
+              1,
+            ],
+            "applications": Array [
+              Object {
+                "applied_at": "2018-08-13T06:34:19.993Z",
+                "candidate_id": 1,
+                "credited_to": null,
+                "current_stage": Object {
+                  "id": 1,
+                  "name": "Interview",
+                },
+                "id": 1,
+                "jobs": Array [
+                  Object {
+                    "departments": Array [
+                      Object {
+                        "child_ids": Array [],
+                        "external_id": null,
+                        "id": 45284,
+                        "name": "Web",
+                        "parent_id": 44211,
+                      },
+                    ],
+                    "id": 2,
+                    "name": "Code Wrangler",
+                    "offices": Array [
+                      Object {
+                        "child_ids": Array [],
+                        "external_id": null,
+                        "id": 44811,
+                        "location": Object {
+                          "name": null,
+                        },
+                        "name": "Web",
+                        "parent_id": 43792,
+                      },
+                    ],
+                    "status": "open",
+                  },
+                ],
+                "last_activity_at": "2018-08-15T06:32:00.565Z",
+                "location": null,
+                "prospect": false,
+                "source": null,
+                "status": "rejected",
+              },
+            ],
+            "attachments": Array [],
+            "coordinator": Object {
+              "created_at": "1993-01-03T03:36:48.00-06:00",
+              "disabled": false,
+              "emails": Array [
+                "Bettye.Greenfelder@email.com",
+              ],
+              "employee_id": null,
+              "first_name": "Bettye",
+              "id": 1,
+              "last_name": "Greenfelder",
+              "name": "Bettye Greenfelder",
+              "site_admin": true,
+              "updated_at": "1989-01-09T17:24:34.00-06:00",
+            },
+            "created_at": "2018-08-15T06:02:57.176Z",
+            "email_addresses": Array [
+              Object {
+                "type": "personal",
+                "value": "RejectedInterview.CodeWrangler@email.com",
+              },
+            ],
+            "first_name": "Rejected_Interview",
+            "id": 7,
+            "is_private": false,
+            "keyed_custom_fields": Object {
+              "gender": Object {
+                "name": "Gender",
+                "type": "short_text",
+                "value": "Other/Not Sure",
+              },
+              "git_hub_username": Object {
+                "name": "GitHub Username",
+                "type": "short_text",
+                "value": null,
+              },
+              "job_source": null,
+              "region": Object {
+                "name": "Region",
+                "type": "short_text",
+                "value": undefined,
+              },
+              "slack_channel": Object {
+                "name": "Slack Channel",
+                "type": "short_text",
+                "value": null,
+              },
+              "word_press_com_username": "rcodew",
+            },
+            "last_activity": "2018-08-15T06:02:58.054Z",
+            "last_name": "CodeWrangler",
+            "name": "Rejected_Interview CodeWrangler",
+            "updated_at": "2018-08-15T06:02:58.075Z",
+          }
+        }
+        filters={Array []}
+        key="7"
+        stage="Rejected"
+      />
+      <Candidate
+        candidate={
+          Object {
+            "application_ids": Array [
+              1,
+            ],
+            "applications": Array [
+              Object {
+                "applied_at": "2018-08-13T06:34:19.993Z",
+                "candidate_id": 1,
+                "credited_to": null,
+                "current_stage": Object {
+                  "id": 1,
+                  "name": "Code Test",
+                },
+                "id": 1,
+                "jobs": Array [
+                  Object {
+                    "departments": Array [
+                      Object {
+                        "child_ids": Array [],
+                        "external_id": null,
+                        "id": 45284,
+                        "name": "Web",
+                        "parent_id": 44211,
+                      },
+                    ],
+                    "id": 2,
+                    "name": "Code Wrangler",
+                    "offices": Array [
+                      Object {
+                        "child_ids": Array [],
+                        "external_id": null,
+                        "id": 44811,
+                        "location": Object {
+                          "name": null,
+                        },
+                        "name": "Web",
+                        "parent_id": 43792,
+                      },
+                    ],
+                    "status": "open",
+                  },
+                ],
+                "last_activity_at": "2018-08-15T06:32:00.565Z",
+                "location": null,
+                "prospect": false,
+                "source": null,
+                "status": "rejected",
+              },
+            ],
+            "attachments": Array [],
+            "coordinator": Object {
+              "created_at": "1993-01-03T03:36:48.00-06:00",
+              "disabled": false,
+              "emails": Array [
+                "Bettye.Greenfelder@email.com",
+              ],
+              "employee_id": null,
+              "first_name": "Bettye",
+              "id": 1,
+              "last_name": "Greenfelder",
+              "name": "Bettye Greenfelder",
+              "site_admin": true,
+              "updated_at": "1989-01-09T17:24:34.00-06:00",
+            },
+            "created_at": "2018-08-15T06:02:57.176Z",
+            "email_addresses": Array [
+              Object {
+                "type": "personal",
+                "value": "RejectedCodeTest.CodeWrangler@email.com",
+              },
+            ],
+            "first_name": "Rejected_CodeTest",
+            "id": 8,
+            "is_private": false,
+            "keyed_custom_fields": Object {
+              "gender": Object {
+                "name": "Gender",
+                "type": "short_text",
+                "value": "Other/Not Sure",
+              },
+              "git_hub_username": Object {
+                "name": "GitHub Username",
+                "type": "short_text",
+                "value": null,
+              },
+              "job_source": null,
+              "region": Object {
+                "name": "Region",
+                "type": "short_text",
+                "value": undefined,
+              },
+              "slack_channel": Object {
+                "name": "Slack Channel",
+                "type": "short_text",
+                "value": null,
+              },
+              "word_press_com_username": "rcodew",
+            },
+            "last_activity": "2018-08-15T06:02:58.054Z",
+            "last_name": "CodeWrangler",
+            "name": "Rejected_CodeTest CodeWrangler",
+            "updated_at": "2018-08-15T06:02:58.075Z",
+          }
+        }
+        filters={Array []}
+        key="8"
+        stage="Rejected"
+      />
+    </tbody>
+  </table>,
+]
+`;
+
+exports[`Candidates should group candidates into hired regardless of status when no filter is given 1`] = `
+<div>
+  <Candidates
+    candidates={
+      Array [
+        Object {
+          "id": 5,
+          "json": Object {
+            "application_ids": Array [
+              1,
+            ],
+            "applications": Array [
+              Object {
+                "applied_at": "2018-08-13T06:34:19.993Z",
+                "candidate_id": 1,
+                "credited_to": null,
+                "current_stage": Object {
+                  "id": 1,
+                  "name": "Hired",
+                },
+                "id": 1,
+                "jobs": Array [
+                  Object {
+                    "departments": Array [
+                      Object {
+                        "child_ids": Array [],
+                        "external_id": null,
+                        "id": 45284,
+                        "name": "Web",
+                        "parent_id": 44211,
+                      },
+                    ],
+                    "id": 2,
+                    "name": "Code Wrangler",
+                    "offices": Array [
+                      Object {
+                        "child_ids": Array [],
+                        "external_id": null,
+                        "id": 44811,
+                        "location": Object {
+                          "name": null,
+                        },
+                        "name": "Web",
+                        "parent_id": 43792,
+                      },
+                    ],
+                    "status": "open",
+                  },
+                ],
+                "last_activity_at": "2018-08-15T06:32:00.565Z",
+                "location": null,
+                "prospect": false,
+                "source": null,
+                "status": "hired",
+              },
+            ],
+            "attachments": Array [],
+            "coordinator": Object {
+              "created_at": "1993-01-03T03:36:48.00-06:00",
+              "disabled": false,
+              "emails": Array [
+                "Bettye.Greenfelder@email.com",
+              ],
+              "employee_id": null,
+              "first_name": "Bettye",
+              "id": 1,
+              "last_name": "Greenfelder",
+              "name": "Bettye Greenfelder",
+              "site_admin": true,
+              "updated_at": "1989-01-09T17:24:34.00-06:00",
+            },
+            "created_at": "2018-08-15T06:02:57.176Z",
+            "email_addresses": Array [
+              Object {
+                "type": "personal",
+                "value": "Hired.CodeWrangler@email.com",
+              },
+            ],
+            "first_name": "Hired_Hired",
+            "id": undefined,
+            "is_private": false,
+            "keyed_custom_fields": Object {
+              "gender": Object {
+                "name": "Gender",
+                "type": "short_text",
+                "value": "Other/Not Sure",
+              },
+              "git_hub_username": Object {
+                "name": "GitHub Username",
+                "type": "short_text",
+                "value": null,
+              },
+              "job_source": null,
+              "region": Object {
+                "name": "Region",
+                "type": "short_text",
+                "value": undefined,
+              },
+              "slack_channel": Object {
+                "name": "Slack Channel",
+                "type": "short_text",
+                "value": null,
+              },
+              "word_press_com_username": "hcodew",
+            },
+            "last_activity": "2018-08-15T06:02:58.054Z",
+            "last_name": "CodeWrangler",
+            "name": "Hired_Hired CodeWrangler",
+            "updated_at": "2018-08-15T06:02:58.075Z",
+          },
+        },
+        Object {
+          "id": 6,
+          "json": Object {
+            "application_ids": Array [
+              1,
+            ],
+            "applications": Array [
+              Object {
+                "applied_at": "2018-08-13T06:34:19.993Z",
+                "candidate_id": 1,
+                "credited_to": null,
+                "current_stage": Object {
+                  "id": 1,
+                  "name": "Matt Chat",
+                },
+                "id": 1,
+                "jobs": Array [
+                  Object {
+                    "departments": Array [
+                      Object {
+                        "child_ids": Array [],
+                        "external_id": null,
+                        "id": 45284,
+                        "name": "Web",
+                        "parent_id": 44211,
+                      },
+                    ],
+                    "id": 2,
+                    "name": "Code Wrangler",
+                    "offices": Array [
+                      Object {
+                        "child_ids": Array [],
+                        "external_id": null,
+                        "id": 44811,
+                        "location": Object {
+                          "name": null,
+                        },
+                        "name": "Web",
+                        "parent_id": 43792,
+                      },
+                    ],
+                    "status": "open",
+                  },
+                ],
+                "last_activity_at": "2018-08-15T06:32:00.565Z",
+                "location": null,
+                "prospect": false,
+                "source": null,
+                "status": "hired",
+              },
+            ],
+            "attachments": Array [],
+            "coordinator": Object {
+              "created_at": "1993-01-03T03:36:48.00-06:00",
+              "disabled": false,
+              "emails": Array [
+                "Bettye.Greenfelder@email.com",
+              ],
+              "employee_id": null,
+              "first_name": "Bettye",
+              "id": 1,
+              "last_name": "Greenfelder",
+              "name": "Bettye Greenfelder",
+              "site_admin": true,
+              "updated_at": "1989-01-09T17:24:34.00-06:00",
+            },
+            "created_at": "2018-08-15T06:02:57.176Z",
+            "email_addresses": Array [
+              Object {
+                "type": "personal",
+                "value": "HiredMattChat.CodeWrangler@email.com",
+              },
+            ],
+            "first_name": "Hired_MattChat",
+            "id": undefined,
+            "is_private": false,
+            "keyed_custom_fields": Object {
+              "gender": Object {
+                "name": "Gender",
+                "type": "short_text",
+                "value": "Other/Not Sure",
+              },
+              "git_hub_username": Object {
+                "name": "GitHub Username",
+                "type": "short_text",
+                "value": null,
+              },
+              "job_source": null,
+              "region": Object {
+                "name": "Region",
+                "type": "short_text",
+                "value": undefined,
+              },
+              "slack_channel": Object {
+                "name": "Slack Channel",
+                "type": "short_text",
+                "value": null,
+              },
+              "word_press_com_username": "hcodew",
+            },
+            "last_activity": "2018-08-15T06:02:58.054Z",
+            "last_name": "CodeWrangler",
+            "name": "Hired_MattChat CodeWrangler",
+            "updated_at": "2018-08-15T06:02:58.075Z",
+          },
+        },
+      ]
+    }
+    filters={Array []}
+  />
+</div>
+`;
+
+exports[`Candidates should group candidates into rejected regardless of status when no filter is given 1`] = `
+<div>
+  <Candidates
+    candidates={
+      Array [
+        Object {
+          "id": 7,
+          "json": Object {
+            "application_ids": Array [
+              1,
+            ],
+            "applications": Array [
+              Object {
+                "applied_at": "2018-08-13T06:34:19.993Z",
+                "candidate_id": 1,
+                "credited_to": null,
+                "current_stage": Object {
+                  "id": 1,
+                  "name": "Interview",
+                },
+                "id": 1,
+                "jobs": Array [
+                  Object {
+                    "departments": Array [
+                      Object {
+                        "child_ids": Array [],
+                        "external_id": null,
+                        "id": 45284,
+                        "name": "Web",
+                        "parent_id": 44211,
+                      },
+                    ],
+                    "id": 2,
+                    "name": "Code Wrangler",
+                    "offices": Array [
+                      Object {
+                        "child_ids": Array [],
+                        "external_id": null,
+                        "id": 44811,
+                        "location": Object {
+                          "name": null,
+                        },
+                        "name": "Web",
+                        "parent_id": 43792,
+                      },
+                    ],
+                    "status": "open",
+                  },
+                ],
+                "last_activity_at": "2018-08-15T06:32:00.565Z",
+                "location": null,
+                "prospect": false,
+                "source": null,
+                "status": "rejected",
+              },
+            ],
+            "attachments": Array [],
+            "coordinator": Object {
+              "created_at": "1993-01-03T03:36:48.00-06:00",
+              "disabled": false,
+              "emails": Array [
+                "Bettye.Greenfelder@email.com",
+              ],
+              "employee_id": null,
+              "first_name": "Bettye",
+              "id": 1,
+              "last_name": "Greenfelder",
+              "name": "Bettye Greenfelder",
+              "site_admin": true,
+              "updated_at": "1989-01-09T17:24:34.00-06:00",
+            },
+            "created_at": "2018-08-15T06:02:57.176Z",
+            "email_addresses": Array [
+              Object {
+                "type": "personal",
+                "value": "RejectedInterview.CodeWrangler@email.com",
+              },
+            ],
+            "first_name": "Rejected_Interview",
+            "id": undefined,
+            "is_private": false,
+            "keyed_custom_fields": Object {
+              "gender": Object {
+                "name": "Gender",
+                "type": "short_text",
+                "value": "Other/Not Sure",
+              },
+              "git_hub_username": Object {
+                "name": "GitHub Username",
+                "type": "short_text",
+                "value": null,
+              },
+              "job_source": null,
+              "region": Object {
+                "name": "Region",
+                "type": "short_text",
+                "value": undefined,
+              },
+              "slack_channel": Object {
+                "name": "Slack Channel",
+                "type": "short_text",
+                "value": null,
+              },
+              "word_press_com_username": "rcodew",
+            },
+            "last_activity": "2018-08-15T06:02:58.054Z",
+            "last_name": "CodeWrangler",
+            "name": "Rejected_Interview CodeWrangler",
+            "updated_at": "2018-08-15T06:02:58.075Z",
+          },
+        },
+        Object {
+          "id": 8,
+          "json": Object {
+            "application_ids": Array [
+              1,
+            ],
+            "applications": Array [
+              Object {
+                "applied_at": "2018-08-13T06:34:19.993Z",
+                "candidate_id": 1,
+                "credited_to": null,
+                "current_stage": Object {
+                  "id": 1,
+                  "name": "Code Test",
+                },
+                "id": 1,
+                "jobs": Array [
+                  Object {
+                    "departments": Array [
+                      Object {
+                        "child_ids": Array [],
+                        "external_id": null,
+                        "id": 45284,
+                        "name": "Web",
+                        "parent_id": 44211,
+                      },
+                    ],
+                    "id": 2,
+                    "name": "Code Wrangler",
+                    "offices": Array [
+                      Object {
+                        "child_ids": Array [],
+                        "external_id": null,
+                        "id": 44811,
+                        "location": Object {
+                          "name": null,
+                        },
+                        "name": "Web",
+                        "parent_id": 43792,
+                      },
+                    ],
+                    "status": "open",
+                  },
+                ],
+                "last_activity_at": "2018-08-15T06:32:00.565Z",
+                "location": null,
+                "prospect": false,
+                "source": null,
+                "status": "rejected",
+              },
+            ],
+            "attachments": Array [],
+            "coordinator": Object {
+              "created_at": "1993-01-03T03:36:48.00-06:00",
+              "disabled": false,
+              "emails": Array [
+                "Bettye.Greenfelder@email.com",
+              ],
+              "employee_id": null,
+              "first_name": "Bettye",
+              "id": 1,
+              "last_name": "Greenfelder",
+              "name": "Bettye Greenfelder",
+              "site_admin": true,
+              "updated_at": "1989-01-09T17:24:34.00-06:00",
+            },
+            "created_at": "2018-08-15T06:02:57.176Z",
+            "email_addresses": Array [
+              Object {
+                "type": "personal",
+                "value": "RejectedCodeTest.CodeWrangler@email.com",
+              },
+            ],
+            "first_name": "Rejected_CodeTest",
+            "id": undefined,
+            "is_private": false,
+            "keyed_custom_fields": Object {
+              "gender": Object {
+                "name": "Gender",
+                "type": "short_text",
+                "value": "Other/Not Sure",
+              },
+              "git_hub_username": Object {
+                "name": "GitHub Username",
+                "type": "short_text",
+                "value": null,
+              },
+              "job_source": null,
+              "region": Object {
+                "name": "Region",
+                "type": "short_text",
+                "value": undefined,
+              },
+              "slack_channel": Object {
+                "name": "Slack Channel",
+                "type": "short_text",
+                "value": null,
+              },
+              "word_press_com_username": "rcodew",
+            },
+            "last_activity": "2018-08-15T06:02:58.054Z",
+            "last_name": "CodeWrangler",
+            "name": "Rejected_CodeTest CodeWrangler",
+            "updated_at": "2018-08-15T06:02:58.075Z",
+          },
+        },
+      ]
+    }
+    filters={Array []}
+  />
+</div>
+`;
