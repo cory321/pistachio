@@ -23,7 +23,7 @@ Visit http://localhost:8082/wp-admin/admin.php?page=pistachio — you should see
 Tests
 -----
 
-We like tests :)
+We like tests :) Make sure you run them before starting out!
 
 PHP unit tests can be run with:
 
