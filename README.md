@@ -1,5 +1,6 @@
-Pistachio
-=========
+<!-- @format -->
+
+# Pistachio
 
 The Green Nut.
 
@@ -7,21 +8,36 @@ Displays Greenhouse candidates by department/job.
 
 Displays recent Gmail messages and imports them into Greenhouse.
 
-Installing
-----------
+## Installing
+
 1. `npm install`
 2. `npm run build`
 3. Install `docker`
 4. `docker-compose up`
 5. `bin/setup.sh`
 
-Doing
------
+### Note for Windows users
+
+Make sure you have **Linux line endings** and that Git doesn't convert them. Command `git config core.autocrlf` should return `false`. Shell scripts will not work in Linux containers if you use Windows line endings!
+If you already cloned repository with `autocrlf` = true, follow [this article](https://help.github.com/en/articles/dealing-with-line-endings#refreshing-a-repository-after-changing-line-endings) to change them.
+Alternatively, it's easier to just:
+
+```
+rm -rf <repo>
+mkdir <repo>
+cd <repo>
+git init
+git config core.autocrlf false
+git remote add origin <url>
+git fetch origin
+git checkout -b master --track origin/master
+```
+
+## Doing
 
 Visit http://localhost:8082/wp-admin/admin.php?page=pistachio — you should see the UI.
 
-Tests
------
+## Tests
 
 We like tests :) Make sure you run them before starting out!
 
@@ -35,8 +51,7 @@ JavaScript unit tests can be run with:
 
 `npm run test-unit-js`
 
-Coding standards
-----------------
+## Coding standards
 
 For PHP, we use PHP Code Sniffer with the WordPress coding standards. You can run the linter
 with: `npm run lint-php`. You can attempt to fix any standard violations `phpcs` finds with
