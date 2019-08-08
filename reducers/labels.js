@@ -1,5 +1,3 @@
-/** @format */
-
 import { ADD, ADD_MANY } from '../actions/labels';
 
 export default function labels( state = [], action ) {

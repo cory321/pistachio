@@ -1,5 +1,3 @@
-/** @format */
-
 const { Candidate } = require( './fixture-generators' );
 const {
 	allCandidates,

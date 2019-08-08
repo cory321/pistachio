@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { Component } from 'react';
 import { compose } from '@wordpress/compose';
 import { merge } from 'lodash';

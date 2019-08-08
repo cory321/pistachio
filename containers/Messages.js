@@ -1,5 +1,3 @@
-/** @format */
-
 import addressparser from 'addressparser';
 
 import React, { Component } from 'react';

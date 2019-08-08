@@ -1,5 +1,3 @@
-/** @format */
-
 export const SET = 'MESSAGE_QUERY_SET';
 
 export function set( query ) {

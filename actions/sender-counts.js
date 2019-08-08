@@ -1,5 +1,3 @@
-/** @format */
-
 export const SET = 'SENDER_COUNTS_SET';
 export const FETCH = 'SENDER_COUNTS_FETCH';
 export const SUCCESS = 'SENDER_COUNTS_SUCCESS';

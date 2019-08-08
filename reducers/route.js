@@ -1,5 +1,3 @@
-/** @format */
-
 import { CHANGE } from '../actions/route';
 
 export default function route( state = '', action ) {

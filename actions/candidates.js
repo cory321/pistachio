@@ -1,5 +1,3 @@
-/** @format */
-
 export const ADD = 'CANDIDATES_ADD';
 export const ADD_MANY = 'CANDIDATES_ADD_MANY';
 export const REMOVE = 'CANDIDATES_REMOVE';

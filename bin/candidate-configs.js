@@ -1,4 +1,3 @@
-/** @format */
 const { jobs, stages, application_statuses, genders, regions } = require( './fixture-data' );
 
 let id = 0;

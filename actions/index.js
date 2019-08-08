@@ -1,5 +1,3 @@
-/** @format */
-
 import * as candidates from './candidates';
 import * as jobs from './jobs';
 import * as users from './users';

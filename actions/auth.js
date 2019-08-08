@@ -1,5 +1,3 @@
-/** @format */
-
 export const LOG_IN = 'AUTH_LOG_IN';
 export const LOG_OUT = 'AUTH_LOG_OUT';
 

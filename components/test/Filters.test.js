@@ -1,5 +1,3 @@
-/** @format */
-
 describe( 'Filters component', () => {
 	it( "remove me, i'm only here to display skipped tests", () => expect( true ).toEqual( true ) );
 	it.skip( 'displays a dropdown of departments and their jobs to select from', () => {} );

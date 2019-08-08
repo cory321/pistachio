@@ -1,5 +1,3 @@
-/** @format */
-
 const application_statuses = {
 	active: 'active',
 	hired: 'hired',

@@ -1,4 +1,3 @@
-/** @format */
 import { Candidate } from './fixture-generators';
 
 const candidateConfigs = require( './candidate-configs' );

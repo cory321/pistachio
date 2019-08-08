@@ -1,5 +1,3 @@
-/** @format */
-
 import { combineReducers } from 'redux';
 
 import { jobs, candidates, users, labels } from '../actions';

@@ -1,5 +1,3 @@
-/** @format */
-
 export const ADD = 'MESSAGES_ADD';
 export const ADD_MANY = 'MESSAGES_ADD_MANY';
 export const SET_MANY = 'MESSAGES_SET_MANY';

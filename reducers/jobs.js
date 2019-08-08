@@ -1,5 +1,3 @@
-/** @format */
-
 import { ADD, ADD_MANY } from '../actions/jobs';
 
 export default function jobs( state = [], action ) {

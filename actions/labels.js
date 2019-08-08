@@ -1,5 +1,3 @@
-/** @format */
-
 export const ADD = 'LABELS_ADD';
 export const ADD_MANY = 'LABELS_ADD_MANY';
 export const FETCH = 'LABELS_FETCH';

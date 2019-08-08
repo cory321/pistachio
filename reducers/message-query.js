@@ -1,5 +1,3 @@
-/** @format */
-
 import { SET } from '../actions/message-query';
 
 const twoWeeksAgo = new Date( Date.now() - 1000 * 3600 * 24 * 14 ).toISOString().split( 'T' )[ 0 ];

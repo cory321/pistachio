@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { Component } from 'react';
 
 import { ChevronDown, ChevronRight } from '../lib/grid-icons';
