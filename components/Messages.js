@@ -317,8 +317,8 @@ export default class Messages extends Component {
 		const meta = greenhouseId
 			? greenhouseLink
 			: failedImport
-				? failedImportMessage( failedImport )
-				: null;
+			? failedImportMessage( failedImport )
+			: null;
 
 		const imported = raw.labelIds.includes( importedLabelId ) ? (
 			<span className="imported">Imported</span>

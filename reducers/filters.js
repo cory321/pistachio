@@ -81,8 +81,8 @@ export default function filter( state = [], action ) {
 							1 === action.payload[ 0 ]
 								? 'any'
 								: 0 === action.payload[ 0 ]
-									? 'empty'
-									: 'intersection',
+								? 'empty'
+								: 'intersection',
 					},
 				];
 			}
