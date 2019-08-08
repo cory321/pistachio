@@ -1,5 +1,3 @@
-/** @format */
-
 export const ADD = 'USERS_ADD';
 export const ADD_MANY = 'USERS_ADD_MANY';
 export const FETCH = 'USERS_FETCH';

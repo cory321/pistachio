@@ -1,5 +1,3 @@
-/** @format */
-
 import React from 'react';
 
 export default function A8cBadge( { emails } ) {

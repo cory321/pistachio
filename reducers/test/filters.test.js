@@ -1,5 +1,3 @@
-/** @format */
-
 import filterReducer, {
 	JOBS_PATH,
 	STATUS_PATH,

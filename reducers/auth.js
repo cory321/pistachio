@@ -1,5 +1,3 @@
-/** @format */
-
 import { LOG_IN, LOG_OUT } from '../actions/auth';
 
 export default function auth( state = {}, action ) {

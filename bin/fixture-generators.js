@@ -1,5 +1,3 @@
-/** @format */
-
 const data = require( 'random-fixture-data' );
 const { jobs, application_statuses, genders, regions } = require( './fixture-data' );
 

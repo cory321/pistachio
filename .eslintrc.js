@@ -1,5 +1,3 @@
-/** @format */
-
 module.exports = {
 	root: true,
 	extends: [ 'wpcalypso/react', 'plugin:jest/recommended', 'prettier', 'prettier/react' ],

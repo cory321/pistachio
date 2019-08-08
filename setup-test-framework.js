@@ -1,5 +1,3 @@
-/** @format */
-
 import '@wordpress/jest-preset-default';
 
 import Enzyme from 'enzyme';

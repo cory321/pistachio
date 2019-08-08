@@ -1,5 +1,3 @@
-/** @format */
-
 import { SET } from '../actions/sender-counts';
 
 export default function senderCounts( state = {}, action ) {

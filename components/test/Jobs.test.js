@@ -1,5 +1,3 @@
-/** @format */
-
 describe( 'Jobs component', () => {
 	it.skip( 'renders 1 department with 2 jobs', () => {} );
 	it.skip( 'renders 2 departments with 2 jobs each', () => {} );

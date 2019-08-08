@@ -1,5 +1,3 @@
-/** @format */
-
 export const CLEAR = 'FILTER_CLEAR';
 export const JOBS = 'FILTER_JOBS';
 export const STATUS = 'FILTER_STATUS';

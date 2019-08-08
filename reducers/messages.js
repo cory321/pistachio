@@ -1,5 +1,3 @@
-/** @format */
-
 import findIndex from 'lodash.findindex';
 import addressparser from 'addressparser';
 

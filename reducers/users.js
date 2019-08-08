@@ -1,5 +1,3 @@
-/** @format */
-
 import { ADD, ADD_MANY } from '../actions/users';
 
 export default function users( state = [], action ) {

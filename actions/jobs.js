@@ -1,5 +1,3 @@
-/** @format */
-
 export const ADD = 'JOBS_ADD';
 export const ADD_MANY = 'JOBS_ADD_MANY';
 export const FETCH = 'JOBS_FETCH';

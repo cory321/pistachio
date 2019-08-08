@@ -1,5 +1,3 @@
-/** @format */
-
 import findIndex from 'lodash.findindex';
 
 import { ADD, ADD_MANY, REMOVE, TOGGLE_NEEDS_ACTION } from '../actions/candidates';

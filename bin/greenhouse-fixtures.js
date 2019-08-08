@@ -1,5 +1,3 @@
-/** @format */
-
 const _ = require( 'lodash' );
 
 const { RandomCandidate } = require( './fixture-generators' );
