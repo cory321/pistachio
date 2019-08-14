@@ -5,7 +5,8 @@
   "description": "The Green Nut",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --watch",
+    "build": "SOURCEMAP=source-map NODE_ENV=development calypso-build index=./index.js --env.WP ",
+    "start": "npm run build -- --watch",
     "test": "npm run test-unit-js ; npm run test-unit-php",
     "test-unit-js": "./node_modules/.bin/jest --verbose --expand",
     "lint-js": "./node_modules/.bin/eslint .",
@@ -22,14 +23,9 @@
   "author": "",
   "license": "GPL-2.0+",
   "devDependencies": {
+    "@automattic/calypso-build": "^3.0.0",
     "@wordpress/jest-preset-default": "^2.0.6",
-    "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.6",
-    "babel-loader": "^7.1.4",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "css-loader": "^0.28.11",
     "enzyme": "^3.7.0",
     "eslint": "^5.4.0",
     "eslint-config-prettier": "^3.0.1",
@@ -40,28 +36,23 @@
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-wpcalypso": "^4.0.2",
     "jest": "^23.6.0",
-    "lodash.at": "^4.6.0",
-    "lodash.findindex": "^4.6.0",
-    "lodash.topath": "^4.5.2",
-    "lodash.xor": "^4.5.0",
     "prettier": "https://github.com/Automattic/wp-prettier/releases/download/wp-1.17.0/wp-prettier-1.17.0.tgz",
     "random-fixture-data": "^2.0.19",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
-    "style-loader": "^0.21.0",
     "unescape-html": "^1.1.0"
   },
   "dependencies": {
+    "@wordpress/api-fetch": "^3.4.0",
     "@wordpress/compose": "^1.0.4",
     "@wordpress/core-data": "^1.1.1",
+    "@wordpress/data": "^4.7.0",
     "addressparser": "^1.0.1",
     "file-size": "^1.0.0",
     "lodash": "^4.17.10",
     "moment": "^2.22.2",
-    "title-case": "^2.1.1",
-    "webpack": "^4.11.1",
-    "webpack-cli": "^3.1.0"
+    "title-case": "^2.1.1"
   }
 }

@@ -5,8 +5,9 @@ import { merge } from 'lodash';
 import { candidates } from '../actions';
 import Candidates from '../components/Candidates';
 
-const { withSelect } = wp.data;
-const { apiFetch } = wp;
+import '@wordpress/core-data';
+import { withSelect } from '@wordpress/data';
+import apiFetch from '@wordpress/api-fetch';
 
 class CandidateContainer extends Component {
 	render() {

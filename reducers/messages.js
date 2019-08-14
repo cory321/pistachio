@@ -1,4 +1,4 @@
-import findIndex from 'lodash.findindex';
+import { findIndex } from 'lodash';
 import addressparser from 'addressparser';
 
 import { ADD, ADD_MANY, SET_MANY, SET_NAME, SET_META } from '../actions/messages';

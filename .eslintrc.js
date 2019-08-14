@@ -7,9 +7,6 @@ module.exports = {
 		'jest/globals': true,
 		node: true,
 	},
-	globals: {
-		wp: true,
-	},
 	plugins: [ 'jest', 'import', 'prettier' ],
 	rules: {
 		// REST API objects include underscores

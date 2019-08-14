@@ -47,10 +47,15 @@ add_action( 'admin_menu', 'pistachio_menu' );
  * Enqueue our scripts and styles.
  */
 function pistachio_enqueue() {
+	$dependencies_file = plugin_dir_path( __FILE__ ) . '/dist/index.deps.json';
+	$script_dependencies = $dependencies = is_readable( $dependencies_file )
+		? json_decode( file_get_contents( $dependencies_file ) )
+		: array();
+
 	// TODO: Don't load for every page.
-	wp_enqueue_script( 'pistachio', plugin_dir_url( __FILE__ ) . '/dist/index.js', [ 'wp-api-fetch', 'wp-element', 'wp-core-data', 'wp-data' ] );
+	wp_enqueue_script( 'pistachio', plugin_dir_url( __FILE__ ) . 'dist/index.js', $script_dependencies );
 	// TODO: Figure out whether we want to put this through webpack or not.
-	wp_enqueue_style( 'pistachio', plugin_dir_url( __FILE__ ) . '/style.css' );
+	wp_enqueue_style( 'pistachio', plugin_dir_url( __FILE__ ) . 'style.css' );
 }
 add_action( 'admin_enqueue_scripts', 'pistachio_enqueue', 10 );
 

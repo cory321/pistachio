@@ -3,8 +3,6 @@ import addressparser from 'addressparser';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import diff from 'lodash.xor';
-
 import { messageQuery, messages, senderCounts } from '../actions';
 
 import Messages from '../components/Messages';
