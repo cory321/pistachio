@@ -12,7 +12,7 @@ normal=$(tput sgr0)
 # TODO: Using --user xfs is a hack, we need to ensure we share the correct UID across both cli and wordpress containers
 cli()
 {
-	docker run -it --rm --user xfs --volumes-from pistachio_wordpress --network container:pistachio_wordpress "wordpress:cli${PINNED_IMAGE}" "$@" > /dev/null
+	docker run -it --rm --user xfs -e WP_CLI_CACHE_DIR=/var/www/html/.wp-cli/cache --volumes-from pistachio_wordpress --network container:pistachio_wordpress "wordpress:cli${PINNED_IMAGE}" "$@" > /dev/null
 }
 
 echo "${bold}Hello!${normal} Let's get this thing set up for you"
@@ -20,6 +20,10 @@ echo
 
 echo "Pulling the WordPress CLI docker image…"
 docker pull "wordpress:cli${PINNED_IMAGE}" > /dev/null
+
+echo "Setting some WordPress volume permissions…"
+# Note: This is not a recursive chown because we don't want the permissions for the whole pistachio repo to change
+docker run -it --rm --user root --volumes-from pistachio_wordpress --network container:pistachio_wordpress "wordpress:cli${PINNED_IMAGE}" chown xfs:xfs /var/www/html/wp-content /var/www/html/wp-content/plugins
 
 echo "Setting up WordPress…"
 cli wp core install --path=/var/www/html --url=localhost:8082 --title=Pistachio --admin_name=pistachio --admin_password=pistachio --admin_email=pistachio@example.com --skip-email
