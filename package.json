@@ -5,7 +5,7 @@
   "description": "The Green Nut",
   "main": "index.js",
   "scripts": {
-    "build": "SOURCEMAP=source-map NODE_ENV=development calypso-build index=./index.js --env.WP ",
+    "build": "cross-env SOURCEMAP=source-map NODE_ENV=development calypso-build index=./index.js --env.WP ",
     "start": "npm run build -- --watch",
     "test": "npm run test-unit-js ; npm run test-unit-php",
     "test-unit-js": "./node_modules/.bin/jest --verbose --expand",
@@ -26,6 +26,7 @@
     "@automattic/calypso-build": "^4.0.1",
     "babel-eslint": "^8.2.6",
     "enzyme-to-json": "^3.4.0",
+    "cross-env": "^5.2.1",
     "eslint": "^5.4.0",
     "eslint-config-prettier": "^3.0.1",
     "eslint-config-wpcalypso": "^4.0.1",
