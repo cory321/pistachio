@@ -1,6 +1,6 @@
 module.exports = {
 	clearMocks: true,
-	coverageDirectory: 'coverage',
-	setupTestFrameworkScriptFile: '<rootDir>/setup-test-framework.js',
-	testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.jsx?$',
+	preset: '@automattic/calypso-build',
+	rootDir: __dirname,
+	snapshotSerializers: [ '<rootDir>/node_modules/enzyme-to-json/serializer.js' ],
 };
