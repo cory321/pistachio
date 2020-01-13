@@ -23,7 +23,7 @@
   "author": "",
   "license": "GPL-2.0+",
   "devDependencies": {
-    "@automattic/calypso-build": "^4.0.1",
+    "@automattic/calypso-build": "^5.1.0",
     "babel-eslint": "^8.2.6",
     "enzyme-to-json": "^3.4.0",
     "cross-env": "^5.2.1",
