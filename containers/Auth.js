@@ -36,7 +36,4 @@ function mapDispatchToProps( dispatch ) {
 	};
 }
 
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps
-)( AuthContainer );
+export default connect( mapStateToProps, mapDispatchToProps )( AuthContainer );

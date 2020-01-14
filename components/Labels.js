@@ -111,7 +111,7 @@ export default class Labels extends Component {
 		return (
 			<ul>
 				<li>
-					Position{' '}
+					Position{ ' ' }
 					<select value={ currentLabel } onChange={ this.change }>
 						{ Object.keys( groupedByDepartment ).map( departmentId => (
 							<optgroup key={ departmentId } label={ groupedByDepartment[ departmentId ].name }>
@@ -122,7 +122,7 @@ export default class Labels extends Component {
 								) ) }
 							</optgroup>
 						) ) }
-					</select>{' '}
+					</select>{ ' ' }
 					<button
 						title="Use when Job or Label IDs change in lib/job-id-from-label-id.js"
 						onClick={ this.refresh }
@@ -133,7 +133,7 @@ export default class Labels extends Component {
 				<li>
 					<form onSubmit={ this.submitQuery } onReset={ this.resetQuery }>
 						<label>
-							Search{' '}
+							Search{ ' ' }
 							<input type="search" defaultValue={ query } ref={ me => ( this.queryInput = me ) } />
 						</label>
 						<input type="submit" value="Search" />

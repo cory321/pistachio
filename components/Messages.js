@@ -284,7 +284,7 @@ export default class Messages extends Component {
 		const greenhouseId = 'meta' in raw && 'greenhouse' in raw.meta && raw.meta.greenhouse;
 		const greenhouseLink = greenhouseId ? (
 			<strong className="error">
-				Finish Import Manually:{' '}
+				Finish Import Manually:{ ' ' }
 				<a href={ `https://app.greenhouse.io/people/${ greenhouseId }` } target="_blank">
 					Greenhouse Details
 				</a>
@@ -333,9 +333,9 @@ export default class Messages extends Component {
 						checked={ !! this.state.checked[ message.id ] }
 						onChange={ this.change }
 						disabled={ imported }
-					/>{' '}
-					<A8cBadge emails={ message.from.address } />{' '}
-					<MessageName name={ message.from.name } setName={ name => setName( message.id, name ) } />{' '}
+					/>{ ' ' }
+					<A8cBadge emails={ message.from.address } />{ ' ' }
+					<MessageName name={ message.from.name } setName={ name => setName( message.id, name ) } />{ ' ' }
 					{ emailAddress }
 				</label>
 				<span className="message">

@@ -3,3 +3,6 @@
 /wordpress/**
 /vendor/
 !.eslintrc.js
+
+# Not linted, but for prettier formatting
+/candidates.json

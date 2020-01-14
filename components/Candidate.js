@@ -155,7 +155,7 @@ export default class Candidate extends Component {
 		const gender = ( candidate.keyed_custom_fields.gender &&
 			candidate.keyed_custom_fields.gender.value ) || (
 			<button name="gender" onClick={ this.addGender }>
-				{' '}
+				{ ' ' }
 				Add Gender
 			</button>
 		);

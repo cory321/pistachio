@@ -102,7 +102,7 @@ export default class Filters extends Component {
 					</li>
 					<li>
 						<label>
-							Status{' '}
+							Status{ ' ' }
 							<select name="status" value={ status } onChange={ this.select }>
 								<option value="">Any</option>
 								<option value="active">Active</option>
@@ -114,7 +114,7 @@ export default class Filters extends Component {
 
 					<li>
 						<label>
-							Coordinator{' '}
+							Coordinator{ ' ' }
 							<select name="coordinator" value={ coordinator } onChange={ this.select }>
 								<option value="">Any</option>
 								{ coordinators.map( ( { id, name } ) => (
@@ -123,7 +123,7 @@ export default class Filters extends Component {
 									</option>
 								) ) }
 							</select>
-						</label>{' '}
+						</label>{ ' ' }
 						{ meButton } { anyButton }
 					</li>
 				</ul>
@@ -137,7 +137,7 @@ export default class Filters extends Component {
 									name="needsAction"
 									checked={ this.state.needsAction }
 									onChange={ this.checkbox }
-								/>{' '}
+								/>{ ' ' }
 								Needs Action
 							</label>
 						</li>
@@ -149,7 +149,7 @@ export default class Filters extends Component {
 									name="missingCoverLetter"
 									checked={ this.state.missingCoverLetter }
 									onChange={ this.checkbox }
-								/>{' '}
+								/>{ ' ' }
 								Missing Cover Letter
 							</label>
 						</li>
@@ -161,7 +161,7 @@ export default class Filters extends Component {
 									name="missingEmailAddress"
 									checked={ this.state.missingEmailAddress }
 									onChange={ this.checkbox }
-								/>{' '}
+								/>{ ' ' }
 								Missing Email Address
 							</label>
 						</li>
@@ -173,7 +173,7 @@ export default class Filters extends Component {
 									name="missingDemographics"
 									checked={ this.state.missingDemographics }
 									onChange={ this.checkbox }
-								/>{' '}
+								/>{ ' ' }
 								Missing Gender/Region
 							</label>
 						</li>
