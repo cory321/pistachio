@@ -1,6 +1,8 @@
+CONTAINER_NAME=$(docker inspect -f '{{.Name}}' $(docker-compose ps -q wordpress) | cut -c2-)
+
 cli()
 {
-	docker run -it --rm --user xfs --volumes-from pistachio_wordpress --network container:pistachio_wordpress wordpress:cli "$@"
+	docker run -it --rm --user xfs --volumes-from ${CONTAINER_NAME} --network container:${CONTAINER_NAME} wordpress:cli "$@"
 }
 
 echo "Deleting existing candidates..."
