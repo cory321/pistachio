@@ -38,8 +38,7 @@ cli wp plugin install gutenberg
 cli wp plugin activate gutenberg
 
 echo "Installing and activating Keyring…"
-cli wp plugin install keyring
-cli wp plugin activate keyring
+cli wp plugin install https://github.com/beaulebens/keyring/archive/master.zip --activate --force
 
 echo "Activating the Pistachio plugin…"
 cli wp plugin activate pistachio
