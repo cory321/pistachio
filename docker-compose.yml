@@ -7,7 +7,7 @@ services:
       - db
     links:
       - db:mysql
-    image: automattic/wordpress-xdebug:5.5.1-php7.3
+    image: automattic/wordpress-xdebug
     ports:
       - "8082:80"
     env_file:
