@@ -14,7 +14,7 @@ CONTAINER_NAME=$(docker inspect -f '{{.Name}}' $(docker-compose ps -q wordpress)
 # TODO: Using --user xfs is a hack, we need to ensure we share the correct UID across both cli and wordpress containers
 cli()
 {
-	docker run -it --rm --user xfs -e WP_CLI_CACHE_DIR=/var/www/html/.wp-cli/cache --volumes-from ${CONTAINER_NAME} --network container:${CONTAINER_NAME} "wordpress:cli${PINNED_IMAGE}" "$@"
+	docker run -it --rm --user xfs -e WP_CLI_CACHE_DIR=/var/www/html/.wp-cli/cache --volumes-from ${CONTAINER_NAME} --network container:${CONTAINER_NAME} "wordpress:cli${PINNED_IMAGE}" "$@" --env-file default.env
 }
 
 echo "${bold}Hello!${normal} Let's get this thing set up for you"
