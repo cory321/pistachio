@@ -13,7 +13,7 @@ Displays recent Gmail messages and imports them into Greenhouse.
 1. `npm install`
 2. `npm start`
 3. Install `docker`
-4. `docker-compose up`
+4. Run `docker-compose up` and wait until it's ready
 5. `bin/setup.sh`
 
 ### Note for Windows users
