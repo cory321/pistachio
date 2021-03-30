@@ -14,14 +14,14 @@ CONTAINER_NAME=$(docker inspect -f '{{.Name}}' $(docker-compose ps -q wordpress)
 # TODO: Using --user xfs is a hack, we need to ensure we share the correct UID across both cli and wordpress containers
 cli()
 {
-	docker run -it --rm --user xfs -e WP_CLI_CACHE_DIR=/var/www/html/.wp-cli/cache --volumes-from ${CONTAINER_NAME} --network container:${CONTAINER_NAME} "wordpress:cli${PINNED_IMAGE}" "$@" > /dev/null
+	docker run -it --rm --user xfs -e WP_CLI_CACHE_DIR=/var/www/html/.wp-cli/cache --volumes-from ${CONTAINER_NAME} --network container:${CONTAINER_NAME} --env-file default.env "wordpress:cli${PINNED_IMAGE}" "$@"
 }
 
 echo "${bold}Hello!${normal} Let's get this thing set up for you"
 echo
 
 echo "Pulling the WordPress CLI docker image…"
-docker pull "wordpress:cli${PINNED_IMAGE}" > /dev/null
+docker pull "wordpress:cli${PINNED_IMAGE}"
 
 echo "Setting some WordPress volume permissions…"
 # Note: This is not a recursive chown because we don't want the permissions for the whole pistachio repo to change
