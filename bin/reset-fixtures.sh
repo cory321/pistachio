@@ -2,7 +2,7 @@ CONTAINER_NAME=$(docker inspect -f '{{.Name}}' $(docker-compose ps -q wordpress)
 
 cli()
 {
-	docker run -it --rm --user xfs --volumes-from ${CONTAINER_NAME} --network container:${CONTAINER_NAME} wordpress:cli "$@"
+	docker run -it --rm --user xfs --volumes-from ${CONTAINER_NAME} --network container:${CONTAINER_NAME} --env-file default.env wordpress:cli "$@"
 }
 
 echo "Deleting existing candidates..."
