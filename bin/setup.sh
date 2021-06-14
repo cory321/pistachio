@@ -9,7 +9,7 @@ normal=$(tput sgr0)
 # Issue: https://github.com/docker-library/official-images/issues/3835
 #PINNED_IMAGE='@sha256:6719c1a21007b9c5f33045d7552ff5df5a85bb0eacecf3ac23134c158e9cadb1'
 
-CONTAINER_NAME=$(docker inspect -f '{{.Name}}' $(docker-compose ps -q wordpress) | cut -c2-)
+CONTAINER_NAME=$(docker inspect -f '{{.Name}}' $(docker-compose ps -q wordpress) | tr -d '\r' | cut -c2-)
 
 # TODO: Using --user xfs is a hack, we need to ensure we share the correct UID across both cli and wordpress containers
 cli()
