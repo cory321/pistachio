@@ -1,4 +1,4 @@
-const { jobs, stages, application_statuses, genders, regions } = require( './fixture-data' );
+const { jobs, stages, application_statuses, genders, pronouns, regions } = require( './fixture-data' );
 
 let id = 0;
 
@@ -28,7 +28,8 @@ function candidateConfig( props ) {
 		status: props.status,
 		stage: props.stage,
 		coordinator: coordinator,
-		gender: genders.other,
+		gender: genders.non_binary,
+		pronouns: pronouns.they_them,
 		region: regions.americas,
 		addCoverLetter: false,
 		addResume: false,

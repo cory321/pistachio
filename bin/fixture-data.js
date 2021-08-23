@@ -114,9 +114,27 @@ const jobs = {
 	},
 };
 module.exports.jobs = jobs;
-
-const genders = { female: 'Female', male: 'Male', other: 'Other/Not Sure' };
+const genders = {
+	female: 'Female',
+	genderqueer: 'Genderqueer',
+	intersex: 'Intersex',
+	male: 'Male',
+	non_binary: 'Non-binary',
+	prefer_not_to_say: 'Prefer not to say',
+	questioning: 'Questioning',
+	transgender: 'Transgender',
+};
 module.exports.genders = genders;
+
+const pronouns = {
+	he_him: 'He/Him',
+	he_they: 'He/They',
+	no_pronouns: 'No pronouns (use name)',
+	she_her: 'She/Her',
+	she_they: 'She/They',
+	they_them: 'They/Them',
+};
+module.exports.pronouns = pronouns;
 
 const regions = {
 	americas: 'Americas',

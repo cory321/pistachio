@@ -41,7 +41,7 @@ export default class Candidate extends Component {
 			'toggleNeedsAction',
 			'uploadCoverLetter',
 			'uploadTranscript',
-			'addGender',
+			'addPronouns',
 		] ) {
 			this[ func ] = this[ func ].bind( this );
 		}
@@ -69,10 +69,10 @@ export default class Candidate extends Component {
 		this.props.uploadCoverLetter( this.props.candidate );
 	}
 
-	addGender( event ) {
+	addPronouns( event ) {
 		event.preventDefault();
-		const gender = window.prompt( 'Gender?', '' ); // obviously we want to show a dropdown here :)
-		this.props.addGender( this.props.candidate, gender );
+		const pronouns = window.prompt( 'Pronouns?', '' ); // obviously we want to show a dropdown here :)
+		this.props.addPronouns( this.props.candidate, pronouns );
 	}
 
 	uploadTranscript( event ) {
@@ -152,11 +152,11 @@ export default class Candidate extends Component {
 		const emails = candidate.email_addresses.length
 			? candidate.email_addresses.map( e => e.value ).join( ', ' )
 			: add( candidate );
-		const gender = ( candidate.keyed_custom_fields.gender &&
-			candidate.keyed_custom_fields.gender.value ) || (
-			<button name="gender" onClick={ this.addGender }>
+		const pronouns = ( candidate.keyed_custom_fields.pronouns &&
+			candidate.keyed_custom_fields.pronouns.value ) || (
+			<button name="pronouns" onClick={ this.addPronouns }>
 				{ ' ' }
-				Add Gender
+				Add Pronouns
 			</button>
 		);
 		const region =
@@ -180,7 +180,7 @@ export default class Candidate extends Component {
 				<td style={ { backgroundColor: activityHsl } }>{ daysSinceLastActivity }</td>
 				<td>{ coverLetter }</td>
 				<td>{ emails }</td>
-				<td>{ gender }</td>
+				<td>{ pronouns }</td>
 				<td>{ region }</td>
 			</tr>
 		);

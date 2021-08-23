@@ -174,7 +174,7 @@ export default class Filters extends Component {
 									checked={ this.state.missingDemographics }
 									onChange={ this.checkbox }
 								/>{ ' ' }
-								Missing Gender/Region
+								Missing Pronouns/Region
 							</label>
 						</li>
 					</ul>

@@ -19,21 +19,21 @@ class CandidateContainer extends Component {
 				currentUser={ this.props.currentUser }
 				refresh={ this.props.fetchOne }
 				uploadCoverLetter={ this.props.uploadCoverLetter }
-				addGender={ this.addGender }
+				addPronouns={ this.addPronouns }
 				toggleNeedsAction={ this.props.toggleNeedsAction }
 			/>
 		);
 	}
 
-	addGender( candidate, gender ) {
+	addPronouns( candidate, pronouns ) {
 		apiFetch( {
 			path: '/wp/v2/candidates/' + candidate.id,
 			method: 'POST',
 			data: {
 				json: merge( {}, candidate, {
 					keyed_custom_fields: {
-						gender: {
-							value: gender,
+						pronouns: {
+							value: pronouns,
 						},
 					},
 				} ),

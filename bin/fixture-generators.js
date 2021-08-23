@@ -1,5 +1,5 @@
 const data = require( 'random-fixture-data' );
-const { jobs, application_statuses, genders, regions } = require( './fixture-data' );
+const { jobs, application_statuses, genders, pronouns, regions } = require( './fixture-data' );
 
 let user_id = 0;
 function User() {
@@ -42,6 +42,7 @@ function RandomCandidate() {
 		] ),
 		coordinator: data.random_element( coordinators ),
 		gender: data.random_element( Object.values( genders ).concat( [ null ] ) ),
+		pronouns: data.random_element( Object.values( pronouns ).concat( [ null ] ) ),
 		region: data.random_element( Object.values( regions ).concat( [ null ] ) ),
 		addCoverLetter: Math.random() >= 0.5,
 		addResume: Math.random() >= 0.5,
@@ -112,6 +113,10 @@ function Candidate( props ) {
 			gender: generateCustomField( {
 				name: 'Gender',
 				value: props.gender,
+			} ),
+			pronouns: generateCustomField( {
+				name: 'Pronouns',
+				value: props.pronouns,
 			} ),
 			git_hub_username: generateCustomField( { name: 'GitHub Username', value: null } ),
 			job_source: null,

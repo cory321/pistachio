@@ -16,7 +16,7 @@ export const STATUS_PATH = 'applications.status';
 export const MISSING_COVER_LETTER_PATH =
 	'attachments.filename./Cover[\\s\\S]Letter[\\s\\S]Intro/|attachments.filename./^cover_letter\\Stxt$/';
 export const MISSING_EMAIL_ADDRESS_PATH = 'email_addresses.value';
-export const MISSING_DEMOGRAPHICS_PATH = 'keyed_custom_fields.gender|keyed_custom_fields.region';
+export const MISSING_DEMOGRAPHICS_PATH = 'keyed_custom_fields.pronouns|keyed_custom_fields.region';
 export const COORDINATOR_PATH = 'coordinator.id';
 export const NEEDS_ACTION_PATH = 'needsAction';
 

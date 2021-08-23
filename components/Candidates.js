@@ -56,7 +56,7 @@ function columnHeaders( stage ) {
 			<th>Last Activity</th>
 			<th>Cover</th>
 			<th>E-mail</th>
-			<th>Gender</th>
+			<th>Pronouns</th>
 			<th>Region</th>
 			<th className="actions" />
 		</tr>

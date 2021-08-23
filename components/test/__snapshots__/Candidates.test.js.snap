@@ -60,7 +60,7 @@ Array [
           E-mail
         </th>
         <th>
-          Gender
+          Pronouns
         </th>
         <th>
           Region
@@ -149,7 +149,7 @@ Array [
               "gender": Object {
                 "name": "Gender",
                 "type": "short_text",
-                "value": "Other/Not Sure",
+                "value": "Non-binary",
               },
               "git_hub_username": Object {
                 "name": "GitHub Username",
@@ -157,6 +157,11 @@ Array [
                 "value": null,
               },
               "job_source": null,
+              "pronouns": Object {
+                "name": "Pronouns",
+                "type": "short_text",
+                "value": "They/Them",
+              },
               "region": Object {
                 "name": "Region",
                 "type": "short_text",
@@ -259,7 +264,7 @@ Array [
               "gender": Object {
                 "name": "Gender",
                 "type": "short_text",
-                "value": "Other/Not Sure",
+                "value": "Non-binary",
               },
               "git_hub_username": Object {
                 "name": "GitHub Username",
@@ -267,6 +272,11 @@ Array [
                 "value": null,
               },
               "job_source": null,
+              "pronouns": Object {
+                "name": "Pronouns",
+                "type": "short_text",
+                "value": "They/Them",
+              },
               "region": Object {
                 "name": "Region",
                 "type": "short_text",
@@ -331,7 +341,7 @@ Array [
           E-mail
         </th>
         <th>
-          Gender
+          Pronouns
         </th>
         <th>
           Region
@@ -420,7 +430,7 @@ Array [
               "gender": Object {
                 "name": "Gender",
                 "type": "short_text",
-                "value": "Other/Not Sure",
+                "value": "Non-binary",
               },
               "git_hub_username": Object {
                 "name": "GitHub Username",
@@ -428,6 +438,11 @@ Array [
                 "value": null,
               },
               "job_source": null,
+              "pronouns": Object {
+                "name": "Pronouns",
+                "type": "short_text",
+                "value": "They/Them",
+              },
               "region": Object {
                 "name": "Region",
                 "type": "short_text",
@@ -492,7 +507,7 @@ Array [
           E-mail
         </th>
         <th>
-          Gender
+          Pronouns
         </th>
         <th>
           Region
@@ -581,7 +596,7 @@ Array [
               "gender": Object {
                 "name": "Gender",
                 "type": "short_text",
-                "value": "Other/Not Sure",
+                "value": "Non-binary",
               },
               "git_hub_username": Object {
                 "name": "GitHub Username",
@@ -589,6 +604,11 @@ Array [
                 "value": null,
               },
               "job_source": null,
+              "pronouns": Object {
+                "name": "Pronouns",
+                "type": "short_text",
+                "value": "They/Them",
+              },
               "region": Object {
                 "name": "Region",
                 "type": "short_text",
@@ -653,7 +673,7 @@ Array [
           E-mail
         </th>
         <th>
-          Gender
+          Pronouns
         </th>
         <th>
           Region
@@ -742,7 +762,7 @@ Array [
               "gender": Object {
                 "name": "Gender",
                 "type": "short_text",
-                "value": "Other/Not Sure",
+                "value": "Non-binary",
               },
               "git_hub_username": Object {
                 "name": "GitHub Username",
@@ -750,6 +770,11 @@ Array [
                 "value": null,
               },
               "job_source": null,
+              "pronouns": Object {
+                "name": "Pronouns",
+                "type": "short_text",
+                "value": "They/Them",
+              },
               "region": Object {
                 "name": "Region",
                 "type": "short_text",
@@ -852,7 +877,7 @@ Array [
               "gender": Object {
                 "name": "Gender",
                 "type": "short_text",
-                "value": "Other/Not Sure",
+                "value": "Non-binary",
               },
               "git_hub_username": Object {
                 "name": "GitHub Username",
@@ -860,6 +885,11 @@ Array [
                 "value": null,
               },
               "job_source": null,
+              "pronouns": Object {
+                "name": "Pronouns",
+                "type": "short_text",
+                "value": "They/Them",
+              },
               "region": Object {
                 "name": "Region",
                 "type": "short_text",
@@ -924,7 +954,7 @@ Array [
           E-mail
         </th>
         <th>
-          Gender
+          Pronouns
         </th>
         <th>
           Region
@@ -1013,7 +1043,7 @@ Array [
               "gender": Object {
                 "name": "Gender",
                 "type": "short_text",
-                "value": "Other/Not Sure",
+                "value": "Non-binary",
               },
               "git_hub_username": Object {
                 "name": "GitHub Username",
@@ -1021,6 +1051,11 @@ Array [
                 "value": null,
               },
               "job_source": null,
+              "pronouns": Object {
+                "name": "Pronouns",
+                "type": "short_text",
+                "value": "They/Them",
+              },
               "region": Object {
                 "name": "Region",
                 "type": "short_text",
@@ -1123,7 +1158,7 @@ Array [
               "gender": Object {
                 "name": "Gender",
                 "type": "short_text",
-                "value": "Other/Not Sure",
+                "value": "Non-binary",
               },
               "git_hub_username": Object {
                 "name": "GitHub Username",
@@ -1131,6 +1166,11 @@ Array [
                 "value": null,
               },
               "job_source": null,
+              "pronouns": Object {
+                "name": "Pronouns",
+                "type": "short_text",
+                "value": "They/Them",
+              },
               "region": Object {
                 "name": "Region",
                 "type": "short_text",
@@ -1243,7 +1283,7 @@ exports[`Candidates should group candidates into hired regardless of status when
               "gender": Object {
                 "name": "Gender",
                 "type": "short_text",
-                "value": "Other/Not Sure",
+                "value": "Non-binary",
               },
               "git_hub_username": Object {
                 "name": "GitHub Username",
@@ -1251,6 +1291,11 @@ exports[`Candidates should group candidates into hired regardless of status when
                 "value": null,
               },
               "job_source": null,
+              "pronouns": Object {
+                "name": "Pronouns",
+                "type": "short_text",
+                "value": "They/Them",
+              },
               "region": Object {
                 "name": "Region",
                 "type": "short_text",
@@ -1349,7 +1394,7 @@ exports[`Candidates should group candidates into hired regardless of status when
               "gender": Object {
                 "name": "Gender",
                 "type": "short_text",
-                "value": "Other/Not Sure",
+                "value": "Non-binary",
               },
               "git_hub_username": Object {
                 "name": "GitHub Username",
@@ -1357,6 +1402,11 @@ exports[`Candidates should group candidates into hired regardless of status when
                 "value": null,
               },
               "job_source": null,
+              "pronouns": Object {
+                "name": "Pronouns",
+                "type": "short_text",
+                "value": "They/Them",
+              },
               "region": Object {
                 "name": "Region",
                 "type": "short_text",
@@ -1467,7 +1517,7 @@ exports[`Candidates should group candidates into rejected regardless of status w
               "gender": Object {
                 "name": "Gender",
                 "type": "short_text",
-                "value": "Other/Not Sure",
+                "value": "Non-binary",
               },
               "git_hub_username": Object {
                 "name": "GitHub Username",
@@ -1475,6 +1525,11 @@ exports[`Candidates should group candidates into rejected regardless of status w
                 "value": null,
               },
               "job_source": null,
+              "pronouns": Object {
+                "name": "Pronouns",
+                "type": "short_text",
+                "value": "They/Them",
+              },
               "region": Object {
                 "name": "Region",
                 "type": "short_text",
@@ -1573,7 +1628,7 @@ exports[`Candidates should group candidates into rejected regardless of status w
               "gender": Object {
                 "name": "Gender",
                 "type": "short_text",
-                "value": "Other/Not Sure",
+                "value": "Non-binary",
               },
               "git_hub_username": Object {
                 "name": "GitHub Username",
@@ -1581,6 +1636,11 @@ exports[`Candidates should group candidates into rejected regardless of status w
                 "value": null,
               },
               "job_source": null,
+              "pronouns": Object {
+                "name": "Pronouns",
+                "type": "short_text",
+                "value": "They/Them",
+              },
               "region": Object {
                 "name": "Region",
                 "type": "short_text",
