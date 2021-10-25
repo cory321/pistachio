@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 
 import Candidate from './Candidate';
 
@@ -58,7 +58,7 @@ function columnHeaders( stage ) {
 			<th>E-mail</th>
 			<th>Pronouns</th>
 			<th>Region</th>
-			<th className="actions" />
+			<th>Actions</th>
 		</tr>
 	);
 }
@@ -104,12 +104,16 @@ export default function Candidates( props ) {
 		return stages.indexOf( a ) - stages.indexOf( b );
 	} );
 
+	// These HoverRow state variables are lifted here for use by all HoverRows 
+	const [entry, setEntry] = useState( 0 );
+	const [exit, setExit] = useState( 0 );
+
 	return [
 		<p key={ 0 }>Active: { activeCount }</p>,
-		<table key={ 1 }>
+		<table key={ 1 } style={ { width: '100%', tableLayout: 'auto', } }>
 			<tbody>
 				{ groupedStages.map( stage =>
-					section( { ...props, stage, candidates: groupedByStage[ stage ] } )
+					section( { ...props, stage, entry, setEntry, exit, setExit, candidates: groupedByStage[ stage ] } )
 				) }
 			</tbody>
 		</table>,
