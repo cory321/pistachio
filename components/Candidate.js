@@ -4,6 +4,8 @@ import moment from 'moment';
 import allAt from '../lib/all-at';
 import { MISSING_COVER_LETTER_PATH } from '../reducers/filters';
 import A8cBadge from './A8cBadge';
+import Actions from './Actions';
+import HoverRow from './HoverRow';
 
 const coverLetterRegexps = MISSING_COVER_LETTER_PATH.split( '|' ).map(
 	path => new RegExp( path.split( '/' ).slice( -2, -1 ) )
@@ -171,7 +173,7 @@ export default class Candidate extends Component {
 		const activityHsl = `hsl( ${ activityHue }, 100%, ${ activityLum }% )`;
 
 		return (
-			<tr>
+			<HoverRow { ...this.props }>
 				<td className="needs-action">{ needsAction }</td>
 				<td>{ jobs }</td>
 				<td>{ nameLink }</td>
@@ -182,7 +184,8 @@ export default class Candidate extends Component {
 				<td>{ emails }</td>
 				<td>{ pronouns }</td>
 				<td>{ region }</td>
-			</tr>
+				<Actions { ...this.props } />
+			</HoverRow>
 		);
 	}
 }
