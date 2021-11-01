@@ -10,7 +10,7 @@
 * - Hover content can also be shown or hidden via button/keyboard, and
 *     once shown via button/keyboard, hover content remains shown until hidden via button/keyboard.
 */
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 // Updates to lastEnter and lastLeave don't directly cause state transitions
 // They don't need to be part of React state and can be set synchronously

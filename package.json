@@ -39,8 +39,8 @@
 		"jest": "^24.9.0",
 		"prettier": "npm:wp-prettier@1.19.1",
 		"random-fixture-data": "^2.0.19",
-		"react": "^16.4.0",
-		"react-dom": "^16.4.0",
+		"react": "^16.8.0",
+		"react-dom": "^16.8.0",
 		"react-redux": "^5.0.7",
 		"redux": "^4.0.0",
 		"unescape-html": "^1.1.0"

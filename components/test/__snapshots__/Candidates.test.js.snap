@@ -16,6 +16,12 @@ Array [
   </p>,
   <table
     key="1"
+    style={
+      Object {
+        "tableLayout": "auto",
+        "width": "100%",
+      }
+    }
   >
     <tbody>
       <tr
@@ -65,9 +71,9 @@ Array [
         <th>
           Region
         </th>
-        <th
-          className="actions"
-        />
+        <th>
+          Actions
+        </th>
       </tr>
       <Candidate
         candidate={
@@ -180,8 +186,12 @@ Array [
             "updated_at": "2018-08-15T06:02:58.075Z",
           }
         }
+        entry={0}
+        exit={0}
         filters={Array []}
         key="1"
+        setEntry={[Function]}
+        setExit={[Function]}
         stage="Application Review"
       />
       <Candidate
@@ -295,8 +305,12 @@ Array [
             "updated_at": "2018-08-15T06:02:58.075Z",
           }
         }
+        entry={0}
+        exit={0}
         filters={Array []}
         key="2"
+        setEntry={[Function]}
+        setExit={[Function]}
         stage="Application Review"
       />
       <tr
@@ -346,9 +360,9 @@ Array [
         <th>
           Region
         </th>
-        <th
-          className="actions"
-        />
+        <th>
+          Actions
+        </th>
       </tr>
       <Candidate
         candidate={
@@ -461,8 +475,12 @@ Array [
             "updated_at": "2018-08-15T06:02:58.075Z",
           }
         }
+        entry={0}
+        exit={0}
         filters={Array []}
         key="3"
+        setEntry={[Function]}
+        setExit={[Function]}
         stage="Pre-Interview Form"
       />
       <tr
@@ -512,9 +530,9 @@ Array [
         <th>
           Region
         </th>
-        <th
-          className="actions"
-        />
+        <th>
+          Actions
+        </th>
       </tr>
       <Candidate
         candidate={
@@ -627,8 +645,12 @@ Array [
             "updated_at": "2018-08-15T06:02:58.075Z",
           }
         }
+        entry={0}
+        exit={0}
         filters={Array []}
         key="4"
+        setEntry={[Function]}
+        setExit={[Function]}
         stage="Interview"
       />
       <tr
@@ -678,9 +700,9 @@ Array [
         <th>
           Region
         </th>
-        <th
-          className="actions"
-        />
+        <th>
+          Actions
+        </th>
       </tr>
       <Candidate
         candidate={
@@ -793,8 +815,12 @@ Array [
             "updated_at": "2018-08-15T06:02:58.075Z",
           }
         }
+        entry={0}
+        exit={0}
         filters={Array []}
         key="5"
+        setEntry={[Function]}
+        setExit={[Function]}
         stage="Hired"
       />
       <Candidate
@@ -908,8 +934,12 @@ Array [
             "updated_at": "2018-08-15T06:02:58.075Z",
           }
         }
+        entry={0}
+        exit={0}
         filters={Array []}
         key="6"
+        setEntry={[Function]}
+        setExit={[Function]}
         stage="Hired"
       />
       <tr
@@ -959,9 +989,9 @@ Array [
         <th>
           Region
         </th>
-        <th
-          className="actions"
-        />
+        <th>
+          Actions
+        </th>
       </tr>
       <Candidate
         candidate={
@@ -1074,8 +1104,12 @@ Array [
             "updated_at": "2018-08-15T06:02:58.075Z",
           }
         }
+        entry={0}
+        exit={0}
         filters={Array []}
         key="7"
+        setEntry={[Function]}
+        setExit={[Function]}
         stage="Rejected"
       />
       <Candidate
@@ -1189,8 +1223,12 @@ Array [
             "updated_at": "2018-08-15T06:02:58.075Z",
           }
         }
+        entry={0}
+        exit={0}
         filters={Array []}
         key="8"
+        setEntry={[Function]}
+        setExit={[Function]}
         stage="Rejected"
       />
     </tbody>
