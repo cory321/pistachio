@@ -10,11 +10,12 @@ Displays recent Gmail messages and imports them into Greenhouse.
 
 ## Installing
 
-1. `npm install`
-2. `npm start`
-3. Install `docker`
-4. Run `docker-compose up` and wait until it's ready
-5. `bin/setup.sh`
+1. Install the Node.js version listed in the "engines" section of package.json
+2. `npm install`
+3. `npm start`
+4. Install `docker`
+5. Run `docker-compose up` and wait until it's ready
+6. `bin/setup.sh`
 
 ### Notes for Windows users
 
