@@ -10,9 +10,9 @@ Displays recent Gmail messages and imports them into Greenhouse.
 
 ## Installing
 
-1. Install the Node.js version listed in the "engines" section of package.json
-2. `npm install`
-3. `npm start`
+1. Install the Node.js version listed in the "engines" section of package.json. We recommend using `nvm` to manage node installs. After installing `nvm`, you can run `nvm use` to set the correct node version in that terminal.
+2. `yarn install` (if yarn isn't available, enter `corepack enable` in the terminal then try again)
+3. `yarn start`
 4. Install `docker`
 5. Run `docker-compose up` and wait until it's ready
 6. `bin/setup.sh`
@@ -52,22 +52,22 @@ We like tests :) Make sure you run them before starting out!
 
 PHP unit tests can be run with:
 
-`npm run test-unit-php`, before you do this you should run the Docker containers in
-which these tests will be run in, by using: `npm run test-unit-php:run-docker`. You'll likely have
-to run `npm run test-unit-php:setup` the very first time as well, to set up some test instrumentation.
+`yarn test-unit-php`, before you do this you should run the Docker containers in
+which these tests will be run in, by using: `yarn test-unit-php:run-docker`. You'll likely have
+to run `yarn test-unit-php:setup` the very first time as well, to set up some test instrumentation.
 
 JavaScript unit tests can be run with:
 
-`npm run test-unit-js`
+`yarn test-unit-js`
 
 ## Coding standards
 
 For PHP, we use PHP Code Sniffer with the WordPress coding standards. You can run the linter
-with: `npm run lint-php`. You can attempt to fix any standard violations `phpcs` finds with
-`npm run lint-php:fix`.
+with: `yarn lint-php`. You can attempt to fix any standard violations `phpcs` finds with
+`yarn lint-php:fix`.
 
 The PHP linter runs in a Docker container, but you can always install `phpcs` with the WordPress
 coding standards locally, for integration with your IDE or text editor.
 
-For JavaScript, we use `eslint`. You can run `npm run lint-js`, or set up `eslint` to be run in your
+For JavaScript, we use `eslint`. You can run `yarn lint-js`, or set up `eslint` to be run in your
 text editor/IDE.

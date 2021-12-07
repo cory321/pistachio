@@ -31,3 +31,11 @@ export function error( err ) {
 		payload: err.toString(),
 	};
 }
+
+export function fetch( addresses ) {
+	throw 'Not Implemented';
+}
+
+export function fetchNew( addresses ) {
+	throw 'Not Implemented';
+}

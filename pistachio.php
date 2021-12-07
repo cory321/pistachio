@@ -47,7 +47,7 @@ add_action( 'admin_menu', 'pistachio_menu' );
  * Enqueue our scripts and styles.
  */
 function pistachio_enqueue() {
-	$dependencies_file = plugin_dir_path( __FILE__ ) . '/dist/index.asset.php';
+	$dependencies_file = plugin_dir_path( __FILE__ ) . '/dist/main.asset.php';
 	$script_dependencies = array( 'wp-polyfill' );
 	if ( file_exists( $dependencies_file ) ) {
 		$asset_manifest      = include $dependencies_file;
@@ -55,7 +55,7 @@ function pistachio_enqueue() {
 	}
 
 	// TODO: Don't load for every page.
-	wp_enqueue_script( 'pistachio', plugin_dir_url( __FILE__ ) . 'dist/index.js', $script_dependencies );
+	wp_enqueue_script( 'pistachio', plugin_dir_url( __FILE__ ) . 'dist/main.js', $script_dependencies );
 	// TODO: Figure out whether we want to put this through webpack or not.
 	wp_enqueue_style( 'pistachio', plugin_dir_url( __FILE__ ) . 'style.css' );
 }
