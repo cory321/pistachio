@@ -55,7 +55,7 @@ function pistachio_enqueue() {
 	}
 
 	// TODO: Don't load for every page.
-	wp_enqueue_script( 'pistachio', plugin_dir_url( __FILE__ ) . 'dist/main.js', $script_dependencies );
+	wp_enqueue_script( 'pistachio', plugin_dir_url( __FILE__ ) . 'dist/main.js', $script_dependencies, false, true );
 	// TODO: Figure out whether we want to put this through webpack or not.
 	wp_enqueue_style( 'pistachio', plugin_dir_url( __FILE__ ) . 'style.css' );
 }

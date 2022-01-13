@@ -25,13 +25,9 @@ function route() {
 window.addEventListener( 'hashchange', route );
 route();
 
-function render( Component ) {
-	ReactDOM.render(
-		<Provider store={ store }>
-			<Component />
-		</Provider>,
-		document.getElementById( 'pistachio' )
-	);
-}
-
-setTimeout( () => render( App ), 0 );
+ReactDOM.render(
+	<Provider store={ store }>
+		<App />
+	</Provider>,
+	document.getElementById( 'pistachio' )
+);
