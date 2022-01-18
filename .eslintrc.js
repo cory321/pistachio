@@ -1,7 +1,7 @@
 module.exports = {
 	root: true,
 	extends: [ 'wpcalypso/react', 'plugin:jest/recommended', 'prettier' ],
-	parser: 'babel-eslint',
+	parser: '@babel/eslint-parser',
 	env: {
 		browser: true,
 		'jest/globals': true,
