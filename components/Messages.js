@@ -9,15 +9,7 @@ import Attachments from './Attachments';
 function dateFormat( dateObject ) {
 	const [ date, time ] = dateObject.toISOString().split( 'T' );
 	return (
-		date
-			.split( '-' )
-			.slice( 1, 3 )
-			.join( '/' ) +
-		' ' +
-		time
-			.split( ':' )
-			.slice( 0, 2 )
-			.join( ':' )
+		date.split( '-' ).slice( 1, 3 ).join( '/' ) + ' ' + time.split( ':' ).slice( 0, 2 ).join( ':' )
 	);
 }
 
@@ -275,7 +267,11 @@ export default class Messages extends Component {
 		)[ 0 ];
 		// This candidate exists in Greenhouse already due to a previous application
 		const already = candidateEmail ? (
-			<a target="_blank" href={ 'https://app.greenhouse.io/people/' + candidateEmail.id }>
+			<a
+				target="_blank"
+				href={ 'https://app.greenhouse.io/people/' + candidateEmail.id }
+				rel="noreferrer"
+			>
 				Already in Greenhouse
 			</a>
 		) : null;
@@ -285,7 +281,11 @@ export default class Messages extends Component {
 		const greenhouseLink = greenhouseId ? (
 			<strong className="error">
 				Finish Import Manually:{ ' ' }
-				<a href={ `https://app.greenhouse.io/people/${ greenhouseId }` } target="_blank">
+				<a
+					href={ `https://app.greenhouse.io/people/${ greenhouseId }` }
+					target="_blank"
+					rel="noreferrer"
+				>
 					Greenhouse Details
 				</a>
 			</strong>

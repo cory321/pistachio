@@ -1,4 +1,11 @@
-const { jobs, stages, application_statuses, genders, pronouns, regions } = require( './fixture-data' );
+const {
+	jobs,
+	stages,
+	application_statuses,
+	genders,
+	pronouns,
+	regions,
+} = require( './fixture-data' );
 
 let id = 0;
 

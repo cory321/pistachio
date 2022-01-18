@@ -101,7 +101,7 @@ describe( 'filter reducer', () => {
 			} );
 		} );
 
-		describe( 'coordinator ID case ', () => {
+		describe( 'coordinator ID case', () => {
 			testAction( {
 				action: filterActions.coordinator,
 				op: 'intersection',

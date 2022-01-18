@@ -104,16 +104,24 @@ export default function Candidates( props ) {
 		return stages.indexOf( a ) - stages.indexOf( b );
 	} );
 
-	// These HoverRow state variables are lifted here for use by all HoverRows 
-	const [entry, setEntry] = useState( 0 );
-	const [exit, setExit] = useState( 0 );
+	// These HoverRow state variables are lifted here for use by all HoverRows
+	const [ entry, setEntry ] = useState( 0 );
+	const [ exit, setExit ] = useState( 0 );
 
 	return [
 		<p key={ 0 }>Active: { activeCount }</p>,
-		<table key={ 1 } style={ { width: '100%', tableLayout: 'auto', } }>
+		<table key={ 1 } style={ { width: '100%', tableLayout: 'auto' } }>
 			<tbody>
 				{ groupedStages.map( stage =>
-					section( { ...props, stage, entry, setEntry, exit, setExit, candidates: groupedByStage[ stage ] } )
+					section( {
+						...props,
+						stage,
+						entry,
+						setEntry,
+						exit,
+						setExit,
+						candidates: groupedByStage[ stage ],
+					} )
 				) }
 			</tbody>
 		</table>,

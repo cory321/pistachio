@@ -51,8 +51,9 @@ function RandomCandidate() {
 }
 
 /**
- *
  * slackChannel: boolean
+ *
+ * @param props
  */
 function Candidate( props ) {
 	const first_name = props.firstName;
