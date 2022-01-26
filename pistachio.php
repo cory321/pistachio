@@ -47,7 +47,7 @@ add_action( 'admin_menu', 'pistachio_menu' );
  * Enqueue our scripts and styles.
  */
 function pistachio_enqueue() {
-	$dependencies_file = plugin_dir_path( __FILE__ ) . '/dist/main.asset.php';
+	$dependencies_file   = plugin_dir_path( __FILE__ ) . '/dist/main.asset.php';
 	$script_dependencies = array( 'wp-polyfill' );
 	if ( file_exists( $dependencies_file ) ) {
 		$asset_manifest      = include $dependencies_file;
@@ -100,7 +100,7 @@ function candidate_post_type() {
 	register_rest_field(
 		'candidate',
 		'json',
-		[
+		array(
 			'get_callback'    =>
 			function( $object = '', $field_name = '', $request = array() ) {
 				return get_post_meta( $object['id'], $field_name, true );
@@ -109,7 +109,7 @@ function candidate_post_type() {
 			function( $value, $object, $field_name ) {
 				return update_post_meta( $object->ID, $field_name, $value );
 			},
-		]
+		)
 	);
 
 }

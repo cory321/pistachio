@@ -23,11 +23,11 @@ function import_fixtures() {
 	$json = json_decode( file_get_contents( 'candidates.json' ) );
 	foreach ( $json as $c ) {
 		$post_id = wp_insert_post(
-			[
+			array(
 				'post_title'  => $c->name,
 				'post_type'   => 'candidate',
 				'post_status' => 'publish',
-			]
+			)
 		);
 		$result  = update_post_meta( $post_id, 'json', $c );
 	}
@@ -38,12 +38,12 @@ function import_fixtures() {
  */
 function delete_all_candidates() {
 	$candidate_ids = get_posts(
-		[
+		array(
 			'post_type'      => 'candidate',
 			'post_status'    => 'any',
 			'fields'         => 'ids',
 			'posts_per_page' => -1,
-		]
+		)
 	);
 
 	foreach ( $candidate_ids as $candidate_id ) {
