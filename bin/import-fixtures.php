@@ -33,4 +33,27 @@ function import_fixtures() {
 	}
 }
 
+/**
+ * Deletes all candidates.
+ */
+function delete_all_candidates() {
+	$candidate_ids = get_posts(
+		[
+			'post_type'      => 'candidate',
+			'post_status'    => 'any',
+			'fields'         => 'ids',
+			'posts_per_page' => -1,
+		]
+	);
+
+	foreach ( $candidate_ids as $candidate_id ) {
+		wp_delete_post( $candidate_id, true );
+	}
+}
+
+
+if ( in_array( '--reset', $argv, true ) ) {
+	delete_all_candidates();
+}
+
 import_fixtures();
