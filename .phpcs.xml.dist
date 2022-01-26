@@ -24,7 +24,7 @@
 	<file>.</file>
 	<exclude-pattern>./vendor/*</exclude-pattern>
 	<exclude-pattern>./node_modules/*</exclude-pattern>
-	<exclude-pattern>./wordpress/*</exclude-pattern>
+	<exclude-pattern>./dist/*</exclude-pattern>
 
 	<!-- Do not require docblocks for unit tests -->
 	<rule ref="Squiz.Commenting.FunctionComment.Missing">
