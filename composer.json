@@ -15,5 +15,11 @@
 	"scripts": {
 		"format": "phpcbf --report-summary --report-source",
 		"lint": "phpcs"
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true,
+			"composer/installers": true
+		}
 	}
 }
