@@ -8,6 +8,9 @@
 		"wp-coding-standards/wpcs": "^1.0.0",
 		"phpcompatibility/phpcompatibility-wp": "*",
 		"yoast/phpunit-polyfills": "^1.0"
+		"yoast/phpunit-polyfills": "^1.0",
+		"phpunit/phpunit": "^8.5",
+		"wp-phpunit/wp-phpunit": "^5.9"
 	},
 	"require": {
 		"composer/installers": "~1.0"
