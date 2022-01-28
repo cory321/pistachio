@@ -53,7 +53,7 @@ function RandomCandidate() {
 /**
  * slackChannel: boolean
  *
- * @param props
+ * @param props Object of parameters to create a new Candidate
  */
 function Candidate( props ) {
 	const first_name = props.firstName;

@@ -28,7 +28,7 @@ export default class Filters extends Component {
 		};
 	}
 
-	componentWillReceiveProps( nextProps ) {
+	UNSAFE_componentWillReceiveProps( nextProps ) {
 		this.setState( {
 			status: this.which( nextProps.filters, STATUS_PATH ),
 			coordinator: this.which( nextProps.filters, COORDINATOR_PATH ),
@@ -44,7 +44,8 @@ export default class Filters extends Component {
 	}
 
 	select( event ) {
-		let { name, value } = event.target;
+		const name = event.target.name;
+		let value = event.target.value;
 		value = value ? [ value ] : [];
 
 		switch ( name ) {

@@ -4,7 +4,7 @@ import { ADD, ADD_MANY, REMOVE, TOGGLE_NEEDS_ACTION } from '../actions/candidate
 
 export default function candidates( state = [], action ) {
 	switch ( action.type ) {
-		case ADD:
+		case ADD: {
 			const index = findIndex( state, candidate => candidate.id === action.payload.id );
 			if ( ~index ) {
 				return [
@@ -15,17 +15,17 @@ export default function candidates( state = [], action ) {
 				];
 			}
 			return [ ...state, action.payload ];
-
+		}
 		case ADD_MANY:
 			return [ ...state, ...action.payload ];
-		case REMOVE:
+		case REMOVE: {
 			const removeIndex = findIndex( state, candidate => candidate.id === action.payload );
 			if ( ~removeIndex ) {
 				return [ ...state.slice( 0, removeIndex ), ...state.slice( removeIndex + 1 ) ];
 			}
 			return state;
-
-		case TOGGLE_NEEDS_ACTION:
+		}
+		case TOGGLE_NEEDS_ACTION: {
 			const toggleIndex = findIndex( state, candidate => candidate.id === action.payload );
 			if ( ~toggleIndex ) {
 				return [
@@ -35,6 +35,7 @@ export default function candidates( state = [], action ) {
 				];
 			}
 			return state;
+		}
 	}
 	return state;
 }

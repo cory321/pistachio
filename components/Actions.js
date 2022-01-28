@@ -34,7 +34,7 @@ export default function Actions( props ) {
 		</span>,
 	];
 
-	const actionsVisible = showActions || ( props.mouseIsOver && props.entry == 0 );
+	const actionsVisible = showActions || ( props.mouseIsOver && props.entry === 0 );
 
 	const actionStyle = {
 		visibility: actionsVisible ? 'visible' : 'hidden',

@@ -65,26 +65,30 @@ export default function filter( state = [], action ) {
 				return [ ...newState, { type: 'candidate', path, values: [ null ], op: 'intersection' } ];
 			}
 			return newState;
-		case COORDINATOR:
+		case COORDINATOR: {
 			path = COORDINATOR_PATH;
 			newState = [ ...state.filter( filter => path !== filter.path ) ];
 			if ( action.payload.length ) {
+				let coordinatorOp = 'intersection';
+
+				if ( 1 === action.payload[ 0 ] ) {
+					coordinatorOp = 'any';
+				} else if ( 0 === action.payload[ 0 ] ) {
+					coordinatorOp = 'empty';
+				}
+
 				return [
 					...newState,
 					{
 						type: 'candidate',
 						path,
 						values: action.payload,
-						op:
-							1 === action.payload[ 0 ]
-								? 'any'
-								: 0 === action.payload[ 0 ]
-								? 'empty'
-								: 'intersection',
+						op: coordinatorOp,
 					},
 				];
 			}
 			return newState;
+		}
 		case NEEDS_ACTION:
 			path = NEEDS_ACTION_PATH;
 			newState = [ ...state.filter( filter => path !== filter.path ) ];

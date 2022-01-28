@@ -25,7 +25,6 @@ function section( props ) {
 
 // @todo - need to handle multiple applications (over time) better
 function currentStage( candidate ) {
-	let stage;
 	let applications = candidate.applications.filter( application => ! application.prospect );
 	if ( ! applications.length ) {
 		return 'Prospect';
@@ -68,6 +67,10 @@ export default function Candidates( props ) {
 	const candidates =
 		props.candidates && props.candidates.map( c => Object.assign( {}, c.json, { id: c.id } ) ); // Post Meta field
 
+	// These HoverRow state variables are lifted here for use by all HoverRows
+	const [ entry, setEntry ] = useState( 0 );
+	const [ exit, setExit ] = useState( 0 );
+
 	if ( ! candidates || ! candidates.length ) {
 		return isFetching ? <p>Loading…</p> : <p>No matching candidates.</p>;
 	}
@@ -103,10 +106,6 @@ export default function Candidates( props ) {
 	const groupedStages = Object.keys( groupedByStage ).sort( ( a, b ) => {
 		return stages.indexOf( a ) - stages.indexOf( b );
 	} );
-
-	// These HoverRow state variables are lifted here for use by all HoverRows
-	const [ entry, setEntry ] = useState( 0 );
-	const [ exit, setExit ] = useState( 0 );
 
 	return [
 		<p key={ 0 }>Active: { activeCount }</p>,

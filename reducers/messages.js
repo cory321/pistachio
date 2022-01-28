@@ -27,12 +27,13 @@ export default function messages( state = [], action ) {
 			return addOne( state, action.payload );
 		case ADD_MANY:
 			return action.payload.reduce( addOne, state );
-		case SET_MANY:
+		case SET_MANY: {
 			const newState = action.payload.reduce( addOne, state );
 			const newIds = action.payload.map( message => message.id );
 
 			return newState.filter( message => newIds.includes( message.id ) );
-		case SET_NAME:
+		}
+		case SET_NAME: {
 			oldMessage = state.find( message => message.id === action.payload.id );
 			if ( ! oldMessage ) {
 				break;
@@ -59,6 +60,7 @@ export default function messages( state = [], action ) {
 			};
 
 			return addOne( state, newMessage );
+		}
 		case SET_META:
 			oldMessage = state.find( message => message.id === action.payload.id );
 			if ( ! oldMessage ) {

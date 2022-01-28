@@ -56,14 +56,17 @@ export function error( err ) {
 	};
 }
 
+// eslint-disable-next-line no-unused-vars
 export function fetch( query ) {
 	throw 'Not Implemented';
 }
 
+// eslint-disable-next-line no-unused-vars
 export function getAttachment( messageId, attachment ) {
 	throw 'Not Implemented';
 }
 
+// eslint-disable-next-line no-unused-vars
 export function addLabel( ids, labelId ) {
 	throw 'Not Implemented';
 }

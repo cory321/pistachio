@@ -18,5 +18,12 @@ module.exports = {
 
 		'import/no-extraneous-dependencies': [ 'error', { packageDir: './' } ],
 		'prettier/prettier': 'warn',
+
+		'no-shadow': 'off',
+	},
+	settings: {
+		react: {
+			version: 'detect',
+		},
 	},
 };

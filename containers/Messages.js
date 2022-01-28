@@ -14,7 +14,7 @@ class MessagesContainer extends Component {
 		this.fetch( props.query );
 	}
 
-	componentWillReceiveProps( nextProps ) {
+	UNSAFE_componentWillReceiveProps( nextProps ) {
 		if ( nextProps.query !== this.props.query ) {
 			this.fetch( nextProps.query );
 		}

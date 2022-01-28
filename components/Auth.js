@@ -18,7 +18,6 @@ export default class Auth extends Component {
 	}
 
 	render() {
-		const { auth } = this.props;
 		const { open } = this.state;
 
 		const services = [ 'slack', 'greenhouse', 'wpcom', 'github' ];

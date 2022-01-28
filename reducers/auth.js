@@ -7,10 +7,11 @@ export default function auth( state = {}, action ) {
 				...state,
 				[ action.payload.service ]: action.payload.data,
 			};
-		case LOG_OUT:
+		case LOG_OUT: {
 			const newState = { ...state };
 			delete newState[ action.payload.service ];
 			return newState;
+		}
 		case 'AUTH_CLEAR':
 			return {};
 	}

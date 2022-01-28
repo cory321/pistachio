@@ -2,7 +2,6 @@ import filterReducer, {
 	JOBS_PATH,
 	STATUS_PATH,
 	MISSING_COVER_LETTER_PATH,
-	MISSING_RESUME_PATH,
 	MISSING_DEMOGRAPHICS_PATH,
 	COORDINATOR_PATH,
 	NEEDS_ACTION_PATH,
@@ -20,7 +19,7 @@ describe( 'filter reducer', () => {
 		expect( state ).toEqual( [ 1, 2, 3, 4 ] );
 	} );
 
-	describe( 'the clear filter', () => {
+	it( 'should clear all filters when running the clear action', () => {
 		const state = filterReducer( [ 1, 2, 3, 4 ], filterActions.clear() );
 		expect( state ).toEqual( [] );
 	} );

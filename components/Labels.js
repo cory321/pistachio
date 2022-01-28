@@ -64,9 +64,15 @@ export default class Labels extends Component {
 			this.queryInput.value = this.props.query;
 			// If queryLabelId is undefined (falsey), don't change the currently
 			// selected label in the UI/local-state
-			if ( this.props.queryLabelId ) {
-				this.setState( { currentLabel: this.props.queryLabelId } );
-			}
+			/**
+			 * TODO: Do not use setState in componentDidUpdate  react/no-did-update-set-state
+			 * Commenting out this section to fix the linting error in PR#88. This component isn't
+			 * currently hooked up or in use, so rather than fixing, we're removing for now.
+			 *
+			 * if ( this.props.queryLabelId ) {
+			 *	this.setState( { currentLabel: this.props.queryLabelId } );
+			 * }
+			 */
 		}
 	}
 
@@ -78,7 +84,7 @@ export default class Labels extends Component {
 		this.props.setLabels( [ currentLabel ] );
 	}
 
-	refresh( event ) {
+	refresh() {
 		this.props.refresh();
 	}
 
@@ -104,7 +110,14 @@ export default class Labels extends Component {
 
 		const sorted = labels
 			.map( label => ( { ...label, name: label.name.replace( 'Position/', '' ) } ) )
-			.sort( ( a, b ) => ( a.name < b.name ? -1 : a.name > b.name ? 1 : 0 ) );
+			.sort( ( a, b ) => {
+				if ( a.name < b.name ) {
+					return -1;
+				} else if ( a.name > b.name ) {
+					return 1;
+				}
+				return 0;
+			} );
 
 		const groupedByDepartment = groupByDepartment( sorted, jobs );
 

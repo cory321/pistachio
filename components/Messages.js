@@ -27,7 +27,7 @@ class MessageName extends Component {
 		this.submit = this.submit.bind( this );
 	}
 
-	componentWillReceiveProps( nextProps ) {
+	UNSAFE_componentWillReceiveProps( nextProps ) {
 		if ( this.props.name !== nextProps.name ) {
 			this.setState( { name: nextProps.name, editing: false } );
 		}
@@ -98,7 +98,7 @@ export default class Messages extends Component {
 		this.toggleAttachments = this.toggleAttachments.bind( this );
 	}
 
-	componentWillReceiveProps( nextProps ) {
+	UNSAFE_componentWillReceiveProps( nextProps ) {
 		// Remove checked keys whose messages have gone away
 		// Remove checked keys whose messages have been imported to greenhouse but are still here
 		// (because of unimported attachments)
@@ -139,7 +139,9 @@ export default class Messages extends Component {
 
 		this.props
 			.addLabel( ids, this.props.importedLabelId )
-			.then( _ => alert( 'Done! To undo, remove the Imported label from the messages in Gmail.' ) );
+			.then( () =>
+				alert( 'Done! To undo, remove the Imported label from the messages in Gmail.' )
+			);
 	}
 
 	importToGreenhouse( event ) {
@@ -147,8 +149,10 @@ export default class Messages extends Component {
 
 		const ids = Object.keys( this.state.checked ).filter( id => this.state.checked[ id ] );
 		const attachmentIdsToExclude = [].concat( ...Object.values( this.state.excludedAttachments ) );
+		// eslint-disable-next-line no-console
 		console.log( 'to exclude', attachmentIdsToExclude );
 
+		// eslint-disable-next-line no-console
 		this.props.importToGreenhouse( ids, attachmentIdsToExclude ).then( console.log );
 	}
 
@@ -312,11 +316,13 @@ export default class Messages extends Component {
 
 		const failedImport = 'meta' in raw && 'failure' in raw.meta && raw.meta.failure;
 
-		const meta = greenhouseId
-			? greenhouseLink
-			: failedImport
-			? failedImportMessage( failedImport )
-			: null;
+		let meta = null;
+
+		if ( greenhouseId ) {
+			meta = greenhouseLink;
+		} else if ( failedImport ) {
+			meta = failedImportMessage( failedImport );
+		}
 
 		const imported = raw.labelIds.includes( importedLabelId ) ? (
 			<span className="imported">Imported</span>

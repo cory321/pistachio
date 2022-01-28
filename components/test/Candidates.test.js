@@ -39,6 +39,4 @@ describe( 'Candidates', () => {
 		}
 		expect( candidates ).toMatchSnapshot();
 	} );
-
-	it.skip( 'should filter when a filter is given', () => {} );
 } );

@@ -49,7 +49,7 @@ export default class Jobs extends Component {
 		};
 	}
 
-	componentWillReceiveProps( nextProps ) {
+	UNSAFE_componentWillReceiveProps( nextProps ) {
 		const departments = departmentsFromJobs( nextProps.jobs );
 		this.setState( {
 			departments,
@@ -62,8 +62,9 @@ export default class Jobs extends Component {
 			currentFilterName: event.target.value,
 		} );
 
-		let [ type, id ] = event.target.value.split( ':' );
-		id = parseInt( id, 10 );
+		const value = event.target.value.split( ':' );
+		const type = value[ 0 ];
+		const id = parseInt( value[ 1 ], 10 );
 
 		let jobIds;
 		switch ( type ) {

@@ -10,6 +10,7 @@ export function set( senderCounts ) {
 	};
 }
 
+// eslint-disable-next-line no-unused-vars
 export function fetch( addresses ) {
 	throw 'Not Implemented';
 }

@@ -32,10 +32,12 @@ export function error( err ) {
 	};
 }
 
+// eslint-disable-next-line no-unused-vars
 export function fetch( addresses ) {
 	throw 'Not Implemented';
 }
 
+// eslint-disable-next-line no-unused-vars
 export function fetchNew( addresses ) {
 	throw 'Not Implemented';
 }

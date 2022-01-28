@@ -1,10 +1,4 @@
 const { Candidate } = require( './fixture-generators' );
-const {
-	allCandidates,
-	hiredCandidates,
-	rejectedCandidates,
-	active_appReview_codeWrangler,
-	active_appReview_javaScriptEngineer,
-} = require( './candidate-configs' );
-
+const { allCandidates } = require( './candidate-configs' );
+// eslint-disable-next-line no-console
 console.log( JSON.stringify( allCandidates.map( Candidate ) ) );

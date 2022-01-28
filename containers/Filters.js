@@ -66,7 +66,7 @@ function mapStateToProps( state ) {
 		// This container (and its component) should be named CandidateFilters
 		filters: state.filters.filter( filter => 'candidate' === filter.type ),
 		coordinators,
-		currentUser: state.users.filter( user => user.id == greenhouseID )[ 0 ],
+		currentUser: state.users.filter( user => user.id == greenhouseID )[ 0 ], // eslint-disable-line eqeqeq
 	};
 }
 

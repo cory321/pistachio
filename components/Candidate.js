@@ -54,7 +54,7 @@ export default class Candidate extends Component {
 		};
 	}
 
-	componentWillReceiveProps( nextProps ) {
+	UNSAFE_componentWillReceiveProps( nextProps ) {
 		this.setState( {
 			coverLetter: coverLetter( nextProps.candidate ),
 			interviewTranscript: interviewTranscript( nextProps.candidate ),
@@ -130,21 +130,25 @@ export default class Candidate extends Component {
 		const a8cBadge = A8cBadge( {
 			emails: candidate.email_addresses.map( email_address => email_address.value ),
 		} );
-		const referral = a8cBadge ? (
-			a8cBadge
-		) : referredApplications.length ? (
-			<span
-				title={
-					referredApplications[ 0 ].credited_to
-						? referredApplications[ 0 ].credited_to.name
-						: 'unknown referrer'
-				}
-			>
-				💯
-			</span>
-		) : (
-			<Unimportant>—</Unimportant>
-		);
+
+		let referral = <Unimportant>—</Unimportant>;
+
+		if ( a8cBadge ) {
+			referral = a8cBadge;
+		} else if ( referredApplications.length ) {
+			referral = (
+				<span
+					title={
+						referredApplications[ 0 ].credited_to
+							? referredApplications[ 0 ].credited_to.name
+							: 'unknown referrer'
+					}
+				>
+					💯
+				</span>
+			);
+		}
+
 		const coordinator = isMine ? (
 			<strong>Me</strong>
 		) : (
