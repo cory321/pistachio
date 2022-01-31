@@ -18,7 +18,7 @@
 		"test-unit-php": "wp-env run phpunit 'phpunit -c /var/www/html/wp-content/plugins/pistachio/phpunit.xml.dist --verbose'",
 		"wp-env": "wp-env",
 		"wp-env:start": "wp-env start",
-		"wp-env:setup": "yarn run wp-env:composer-install && yarn run wp-env:activate-plugin && yarn run wp-env:load-fixtures",
+		"wp-env:setup": "yarn run wp-env:composer-install && yarn run wp-env:activate-plugin && yarn wp-env run cli wp option update blogname 'Pistachio' && yarn run wp-env:load-fixtures",
 		"wp-env:composer-install": "wp-env run composer install",
 		"wp-env:activate-plugin": "wp-env run cli wp plugin activate pistachio && wp-env run tests-cli wp plugin activate pistachio",
 		"wp-env:load-fixtures": "wp-env run cli \"sh -c 'cd /var/www/html/wp-content/plugins/pistachio && php bin/import-fixtures.php --reset'\"",
