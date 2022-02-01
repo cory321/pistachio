@@ -3,7 +3,7 @@ class Test_Candidates_REST_Endpoint extends WP_Test_REST_TestCase {
 	static $json_fixtures;
 
 	public static function wpSetUpBeforeClass() {
-		self::$json_fixtures = json_decode( file_get_contents( 'candidates.json' ) ); // TODO: Inefficient. Perhaps create a custom factory?
+		self::$json_fixtures = json_decode( file_get_contents( dirname( __DIR__ ) . '/candidates.json' ) ); // TODO: Inefficient. Perhaps create a custom factory?
 	}
 
 	public function test_routes_are_registered() {

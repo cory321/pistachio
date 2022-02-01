@@ -5,14 +5,22 @@
  * @package Pistachio
  */
 
+// Require composer dependencies.
+require_once dirname( __DIR__ ) . '/vendor/autoload.php';
+
 $_tests_dir = getenv( 'WP_TESTS_DIR' );
+
+// Try the `wp-phpunit` composer package.
+if ( ! $_tests_dir ) {
+	$_tests_dir = getenv( 'WP_PHPUNIT__DIR' );
+}
 
 if ( ! $_tests_dir ) {
 	$_tests_dir = rtrim( sys_get_temp_dir(), '/\\' ) . '/wordpress-tests-lib';
 }
 
 if ( ! file_exists( $_tests_dir . '/includes/functions.php' ) ) {
-	echo "Could not find $_tests_dir/includes/functions.php, have you run bin/install-wp-tests.sh ?" . PHP_EOL; // WPCS: XSS ok.
+	echo "Could not find $_tests_dir/includes/functions.php" . PHP_EOL; // WPCS: XSS ok.
 	exit( 1 );
 }
 
@@ -32,7 +40,7 @@ require_once $_phpunit_polyfills_lib;
  */
 function _manually_load_plugin() {
 	require dirname( dirname( __FILE__ ) ) . '/pistachio.php';
-	require dirname( dirname( __FILE__ ) ) . '/wordpress/wp-content/plugins/keyring/keyring.php';
+	require '/var/www/html/wp-content/plugins/keyring/keyring.php';
 }
 tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );
 

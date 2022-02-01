@@ -14,8 +14,8 @@ Displays recent Gmail messages and imports them into Greenhouse.
 2. `yarn install` (if yarn isn't available, enter `corepack enable` in the terminal then try again)
 3. `yarn start`
 4. Install `docker`
-5. Run `docker-compose up` and wait until it's ready
-6. `bin/setup.sh`
+5. Run `yarn wp-env:start` and wait until it's ready
+6. `yarn wp-env:setup`
 
 ### Notes for Windows users
 
@@ -44,7 +44,7 @@ git checkout -b master --track origin/master
 
 ## Doing
 
-Visit http://localhost:8082/wp-admin/admin.php?page=pistachio — you should see the UI.
+Visit http://localhost:8082/wp-admin/admin.php?page=pistachio — you should see the UI. The username is `admin` and the password is `password`.
 
 ## Tests
 
@@ -52,9 +52,7 @@ We like tests :) Make sure you run them before starting out!
 
 PHP unit tests can be run with:
 
-`yarn test-unit-php`, before you do this you should run the Docker containers in
-which these tests will be run in, by using: `yarn test-unit-php:run-docker`. You'll likely have
-to run `yarn test-unit-php:setup` the very first time as well, to set up some test instrumentation.
+`yarn test-unit-php`
 
 JavaScript unit tests can be run with:
 
