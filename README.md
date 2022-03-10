@@ -12,10 +12,17 @@ Displays recent Gmail messages and imports them into Greenhouse.
 
 1. Install the Node.js version listed in the "engines" section of package.json. We recommend using `nvm` to manage node installs. After installing `nvm`, you can run `nvm use` to set the correct node version in that terminal.
 2. `yarn install` (if yarn isn't available, enter `corepack enable` in the terminal then try again)
-3. `yarn start`
+3. `yarn start`. This will watch your filesystem for changes and recompile frontend assets if necessary. If you don't plan to work on the frontend, this step can be skipped.
 4. Install `docker`
-5. Run `yarn wp-env:start` and wait until it's ready
-6. `yarn wp-env:setup`
+5. Run `yarn wp-env:start` and wait until it's ready. This command creates the necessary Docker containers: a fully working WordPress install on port 8082, and a database. It also creates a container for tests, but you don't need to worry about it because you won't be accessing it directly.
+6. `yarn wp-env:setup`. This will finish up doing the necessary things needed to run the Pistachio plugin (like runnning composer install, activating the plugin, etc.).
+
+## Uninstalling
+
+If something related to the Docker setup breaks, there is an easy way to remove everything and start from scratch:
+
+1. `yarn wp-env:destroy`. This removes the created Docker containers, volumes, and networks that were created for this setup. This is a pretty harmless thing to do because only Docker-related infrastructure is removed; all the code in the repo is left untouched.
+2. `docker image prune`. This command will delete unused images that Docker regards as "dangling", which means that they are not being used by any container. This might remove images that you (or other Docker setups in your computer) might have downloaded. This is also pretty safe as any images needed by Docker will be downloaded upon request. The only downside to executing this command is having to re-download them, which can take considerable time depending on your internet connection speed.
 
 ### Notes for Windows users
 
