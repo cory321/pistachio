@@ -26,7 +26,7 @@ If something related to the Docker setup breaks, there is an easy way to remove 
 
 ### Notes for Windows users
 
-The [Windows Subsystem for Linux WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10) is required for running this project on Windows, and `docker-compose` should be run in the WSL terminal.
+The [Windows Subsystem for Linux WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10) is required for running this project on Windows, and the `yarn` commands should be run in the WSL terminal.
 If available, WSL 2 is recommended and shouldn't require any additional setup.
 
 #### Running Docker in WSL 1
