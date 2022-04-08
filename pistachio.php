@@ -40,9 +40,19 @@ function pistachio_menu() {
 		'edit.php?post_type=candidate',
 		null
 	);
+
+	// Omly loads resources when on pistachio admin page
+    add_action( 'load-toplevel_page_pistachio', 'pistachio_load_admin' );
 }
 add_action( 'admin_menu', 'pistachio_menu' );
 
+
+/**
+ * Loads resources for the Pistachio Admin
+ */
+function pistachio_load_admin() {
+	add_action( 'admin_enqueue_scripts', 'pistachio_enqueue', 10 );
+}
 /**
  * Enqueue our scripts and styles.
  */
@@ -54,12 +64,10 @@ function pistachio_enqueue() {
 		$script_dependencies = $asset_manifest['dependencies'];
 	}
 
-	// TODO: Don't load for every page.
 	wp_enqueue_script( 'pistachio', plugin_dir_url( __FILE__ ) . 'dist/main.js', $script_dependencies, false, true );
 	// TODO: Figure out whether we want to put this through webpack or not.
 	wp_enqueue_style( 'pistachio', plugin_dir_url( __FILE__ ) . 'style.css' );
 }
-add_action( 'admin_enqueue_scripts', 'pistachio_enqueue', 10 );
 
 /**
  * Register the Candidate Custom Post Type.
