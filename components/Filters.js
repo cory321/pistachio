@@ -82,13 +82,18 @@ export default class Filters extends Component {
 			! currentUser || currentUser.id === coordinator ? (
 				''
 			) : (
-				<button name="coordinator" value={ currentUser.id } onClick={ this.select }>
+				<button
+					className="button"
+					name="coordinator"
+					value={ currentUser.id }
+					onClick={ this.select }
+				>
 					Me
 				</button>
 			);
 		const anyButton =
 			coordinator !== '' ? (
-				<button name="coordinator" value="" onClick={ this.select }>
+				<button className="button" name="coordinator" value="" onClick={ this.select }>
 					Any
 				</button>
 			) : null;

@@ -1,15 +1,8 @@
-/* https://css-tricks.com/snippets/css/system-font-stack/ */
-body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-	padding: 0% 5% 2% 5%;
-	background-color: #e6e6e6;
-}
-
 #container {
 	background-color: #ffffff;
-	padding: 5px 50px 50px 50px;
-	border: 1px solid black;
-	mid-width: 1200px;
+	padding: 20px;
+	margin-right: 10px;
+	border: 1px solid #ccc;
 }
 
 .auths {
@@ -156,28 +149,98 @@ body {
 	display: none;
 }
 
-table {
-	border-collapse: collapse;
-}
-th, td {
-	border: 1px solid #ccc;
-}
-table td, table th {
-	text-align: center;
+.pistachio-table-container {
+	overflow-x: scroll;
+	overflow-y: hidden;
+	max-width: 100%;
 }
 
-th.actions, td.actions {
+table.pistachio-table {
 	border: none;
-	visibility: hidden;
+	box-shadow: none;
+	width: 100%;
 }
 
-tr:hover th.actions, tr:hover td.actions {
-	visibility: visible;
+.pistachio-table tr td:first-child,
+.pistachio-table tr th:first-child {
+	border-left: 1px solid #e4e4e4;
 }
 
-th.actions a, td.actions a {
-	text-decoration: none;
+.pistachio-table tr td:last-child,
+.pistachio-table tr th:last-child {
+	border-right: 1px solid #e4e4e4;
 }
+
+
+.pistachio-table tr.pistachio-table__title td {
+	border: none;
+}
+
+.pistachio-table tr.pistachio-table__title h2 {
+	margin-top: 40px;
+}
+
+.pistachio-table th {
+	font-weight: 600;
+}
+
+.pistachio-table th,
+.pistachio-table td {
+	box-shadow: inset 0 -1px 0 rgb(0 0 0 / 10%);
+	vertical-align: middle;
+}
+
+.actions-table {
+	border-collapse: collapse;
+	border: none;
+	width: 100%;
+}
+
+.actions-table tr td:first-of-type {
+	padding: 0;
+	box-shadow: none;
+	border: none;
+}
+
+.actions-table tr td {
+	padding: 0 10px;
+	position: relative;
+}
+
+.actions-table .button {
+	padding: 5px;
+}
+
+.actions-table svg {
+	display: flex;
+	transition: all .2s;
+}
+
+.actions-table .button--active svg {
+	left: 10px;
+	top: 3px;
+	transform: rotate(90deg);
+}
+
+.actions-list {
+	background: #fff;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	margin: 0;
+	padding: 8px 0;
+	position: absolute;
+	right: calc(100% + 4px);
+	top: -33.33%;
+	width: 260px;
+	z-index: 999;
+}
+
+.actions-item {
+	display: inline-block;
+	padding: 0 8px;
+	margin: 0;
+}
+
 ul {
 	padding: 0;
 	list-style: none;

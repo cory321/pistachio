@@ -9,8 +9,8 @@ function section( props ) {
 	delete candidateProps.candidates;
 
 	return [
-		<tr key={ stage }>
-			<td colSpan="5">
+		<tr key={ stage } className="pistachio-table__title">
+			<td colSpan="100%">
 				<h2>
 					{ stage } ({ candidates.length })
 				</h2>
@@ -109,20 +109,22 @@ export default function Candidates( props ) {
 
 	return [
 		<p key={ 0 }>Active: { activeCount }</p>,
-		<table key={ 1 } style={ { width: '100%', tableLayout: 'auto' } }>
-			<tbody>
-				{ groupedStages.map( stage =>
-					section( {
-						...props,
-						stage,
-						entry,
-						setEntry,
-						exit,
-						setExit,
-						candidates: groupedByStage[ stage ],
-					} )
-				) }
-			</tbody>
-		</table>,
+		<div className="pistachio-table-container" key={ 1 }>
+			<table className="pistachio-table wp-list-table widefat">
+				<tbody>
+					{ groupedStages.map( stage =>
+						section( {
+							...props,
+							stage,
+							entry,
+							setEntry,
+							exit,
+							setExit,
+							candidates: groupedByStage[ stage ],
+						} )
+					) }
+				</tbody>
+			</table>
+		</div>,
 	];
 }

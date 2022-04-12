@@ -95,7 +95,7 @@ export default class Candidate extends Component {
 			a => a.source && a.source.id === 13
 		);
 		const uploadCoverLetter = this.state.coverLetter ? null : (
-			<button onClick={ this.uploadCoverLetter } disabled={ isFetching }>
+			<button className="button" onClick={ this.uploadCoverLetter } disabled={ isFetching }>
 				Upload
 			</button>
 		);
@@ -160,7 +160,7 @@ export default class Candidate extends Component {
 			: add( candidate );
 		const pronouns = ( candidate.keyed_custom_fields.pronouns &&
 			candidate.keyed_custom_fields.pronouns.value ) || (
-			<button name="pronouns" onClick={ this.addPronouns }>
+			<button className="button" name="pronouns" onClick={ this.addPronouns }>
 				{ ' ' }
 				Add Pronouns
 			</button>

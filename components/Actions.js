@@ -44,9 +44,13 @@ export default function Actions( props ) {
 	};
 
 	const actionCells = actions.map( ( a, i ) => (
-		<td key={ `action-${ props.candidate.id }-${ i }` } style={ { border: 'none' } }>
-			<span style={ actionStyle }>{ add( props.candidate, a ) }</span>
-		</td>
+		<li
+			key={ `action-${ props.candidate.id }-${ i }` }
+			className="actions-item"
+			style={ { border: 'none', boxShadow: 'none' } }
+		>
+			{ add( props.candidate, a ) }
+		</li>
 	) );
 
 	const toggleShow = () => {
@@ -55,20 +59,45 @@ export default function Actions( props ) {
 		setShowClicked( true );
 		setTimeout( () => setShowClicked( false ), 50 );
 	};
+
+	const threeDots = (
+		<svg
+			width="24"
+			height="24"
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 24 24"
+			role="img"
+			aria-hidden="true"
+			focusable="false"
+		>
+			<path d="M13 19h-2v-2h2v2zm0-6h-2v-2h2v2zm0-6h-2V5h2v2z"></path>
+		</svg>
+	);
+
 	const showButton = (
-		<button onClick={ toggleShow }> { showActions ? '< Hide' : 'Show >' } </button>
+		<button
+			className={ showActions ? 'button button--active' : 'button' }
+			onClick={ toggleShow }
+			aria-label={ showActions ? 'Hide Actions' : 'Show Actions' }
+		>
+			{ threeDots }
+		</button>
 	);
 
 	const actionsTable = (
-		<table style={ { borderCollapse: 'collapse', border: 'none', width: '100%' } }>
+		<table className="actions-table">
 			<tbody>
 				<tr>
-					<td style={ { border: 'none' } }>{ showButton }</td>
-					{ actionCells }
+					<td>
+						{ showButton }
+						<ul className="actions-list" style={ actionStyle }>
+							{ actionCells }
+						</ul>
+					</td>
 				</tr>
 			</tbody>
 		</table>
 	);
 
-	return <td style={ { width: '280px' } }>{ actionsTable }</td>;
+	return <td>{ actionsTable }</td>;
 }
