@@ -46,7 +46,7 @@ git init
 git config core.autocrlf false
 git remote add origin <url>
 git fetch origin
-git checkout -b master --track origin/master
+git checkout -b trunk --track origin/trunk
 ```
 
 ## Doing
