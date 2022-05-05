@@ -41,8 +41,8 @@ function pistachio_menu() {
 		null
 	);
 
-	// Omly loads resources when on pistachio admin page
-    add_action( 'load-toplevel_page_pistachio', 'pistachio_load_admin' );
+	// Only loads resources when on pistachio admin page
+	add_action( 'load-toplevel_page_pistachio', 'pistachio_load_admin' );
 }
 add_action( 'admin_menu', 'pistachio_menu' );
 
