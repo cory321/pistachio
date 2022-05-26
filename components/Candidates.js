@@ -47,16 +47,14 @@ function currentStage( candidate ) {
 function columnHeaders( stage ) {
 	return (
 		<tr key={ stage + 'ths' }>
-			<th>Act?</th>
 			<th>Jobs</th>
 			<th>Name</th>
-			<th>Ref</th>
-			<th>Coordinator</th>
-			<th>Last Activity</th>
-			<th>Cover</th>
 			<th>E-mail</th>
 			<th>Pronouns</th>
 			<th>Region</th>
+			<th>Ref</th>
+			<th>Cover</th>
+			<th>Coordinator</th>
 			<th>Actions</th>
 		</tr>
 	);

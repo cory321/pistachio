@@ -19,7 +19,6 @@ class CandidateContainer extends Component {
 				refresh={ this.props.fetchOne }
 				uploadCoverLetter={ this.props.uploadCoverLetter }
 				addPronouns={ this.addPronouns }
-				toggleNeedsAction={ this.props.toggleNeedsAction }
 			/>
 		);
 	}

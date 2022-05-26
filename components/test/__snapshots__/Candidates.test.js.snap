@@ -41,25 +41,10 @@ Array [
           key="Application Reviewths"
         >
           <th>
-            Act?
-          </th>
-          <th>
             Jobs
           </th>
           <th>
             Name
-          </th>
-          <th>
-            Ref
-          </th>
-          <th>
-            Coordinator
-          </th>
-          <th>
-            Last Activity
-          </th>
-          <th>
-            Cover
           </th>
           <th>
             E-mail
@@ -69,6 +54,15 @@ Array [
           </th>
           <th>
             Region
+          </th>
+          <th>
+            Ref
+          </th>
+          <th>
+            Cover
+          </th>
+          <th>
+            Coordinator
           </th>
           <th>
             Actions
@@ -331,25 +325,10 @@ Array [
           key="Pre-Interview Formths"
         >
           <th>
-            Act?
-          </th>
-          <th>
             Jobs
           </th>
           <th>
             Name
-          </th>
-          <th>
-            Ref
-          </th>
-          <th>
-            Coordinator
-          </th>
-          <th>
-            Last Activity
-          </th>
-          <th>
-            Cover
           </th>
           <th>
             E-mail
@@ -359,6 +338,15 @@ Array [
           </th>
           <th>
             Region
+          </th>
+          <th>
+            Ref
+          </th>
+          <th>
+            Cover
+          </th>
+          <th>
+            Coordinator
           </th>
           <th>
             Actions
@@ -502,25 +490,10 @@ Array [
           key="Interviewths"
         >
           <th>
-            Act?
-          </th>
-          <th>
             Jobs
           </th>
           <th>
             Name
-          </th>
-          <th>
-            Ref
-          </th>
-          <th>
-            Coordinator
-          </th>
-          <th>
-            Last Activity
-          </th>
-          <th>
-            Cover
           </th>
           <th>
             E-mail
@@ -530,6 +503,15 @@ Array [
           </th>
           <th>
             Region
+          </th>
+          <th>
+            Ref
+          </th>
+          <th>
+            Cover
+          </th>
+          <th>
+            Coordinator
           </th>
           <th>
             Actions
@@ -673,25 +655,10 @@ Array [
           key="Hiredths"
         >
           <th>
-            Act?
-          </th>
-          <th>
             Jobs
           </th>
           <th>
             Name
-          </th>
-          <th>
-            Ref
-          </th>
-          <th>
-            Coordinator
-          </th>
-          <th>
-            Last Activity
-          </th>
-          <th>
-            Cover
           </th>
           <th>
             E-mail
@@ -701,6 +668,15 @@ Array [
           </th>
           <th>
             Region
+          </th>
+          <th>
+            Ref
+          </th>
+          <th>
+            Cover
+          </th>
+          <th>
+            Coordinator
           </th>
           <th>
             Actions
@@ -963,25 +939,10 @@ Array [
           key="Rejectedths"
         >
           <th>
-            Act?
-          </th>
-          <th>
             Jobs
           </th>
           <th>
             Name
-          </th>
-          <th>
-            Ref
-          </th>
-          <th>
-            Coordinator
-          </th>
-          <th>
-            Last Activity
-          </th>
-          <th>
-            Cover
           </th>
           <th>
             E-mail
@@ -991,6 +952,15 @@ Array [
           </th>
           <th>
             Region
+          </th>
+          <th>
+            Ref
+          </th>
+          <th>
+            Cover
+          </th>
+          <th>
+            Coordinator
           </th>
           <th>
             Actions

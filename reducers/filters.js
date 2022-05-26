@@ -6,7 +6,6 @@ import {
 	MISSING_EMAIL_ADDRESS,
 	MISSING_DEMOGRAPHICS,
 	COORDINATOR,
-	NEEDS_ACTION,
 } from '../actions/filters';
 
 export const JOBS_PATH = 'applications.jobs.id';
@@ -18,7 +17,6 @@ export const MISSING_COVER_LETTER_PATH =
 export const MISSING_EMAIL_ADDRESS_PATH = 'email_addresses.value';
 export const MISSING_DEMOGRAPHICS_PATH = 'keyed_custom_fields.pronouns|keyed_custom_fields.region';
 export const COORDINATOR_PATH = 'coordinator.id';
-export const NEEDS_ACTION_PATH = 'needsAction';
 
 export default function filter( state = [], action ) {
 	let path, newState;
@@ -89,13 +87,6 @@ export default function filter( state = [], action ) {
 			}
 			return newState;
 		}
-		case NEEDS_ACTION:
-			path = NEEDS_ACTION_PATH;
-			newState = [ ...state.filter( filter => path !== filter.path ) ];
-			if ( action.payload ) {
-				return [ ...newState, { type: 'candidate', path, values: [], op: 'any' } ];
-			}
-			return newState;
 		case CLEAR:
 			return [];
 	}

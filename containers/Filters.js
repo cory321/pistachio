@@ -18,7 +18,6 @@ function FiltersContainer( {
 	missingCoverLetter,
 	missingEmailAddress,
 	missingDemographics,
-	needsAction,
 } ) {
 	return (
 		<Filters
@@ -30,7 +29,6 @@ function FiltersContainer( {
 			missingCoverLetter={ missingCoverLetter }
 			missingEmailAddress={ missingEmailAddress }
 			missingDemographics={ missingDemographics }
-			needsAction={ needsAction }
 		/>
 	);
 }
@@ -77,7 +75,6 @@ function mapDispatchToProps( dispatch ) {
 		missingCoverLetter: isActive => dispatch( filters.missingCoverLetter( isActive ) ),
 		missingEmailAddress: isActive => dispatch( filters.missingEmailAddress( isActive ) ),
 		missingDemographics: isActive => dispatch( filters.missingDemographics( isActive ) ),
-		needsAction: isActive => dispatch( filters.needsAction( isActive ) ),
 	};
 }
 

@@ -4,7 +4,6 @@ import filterReducer, {
 	MISSING_COVER_LETTER_PATH,
 	MISSING_DEMOGRAPHICS_PATH,
 	COORDINATOR_PATH,
-	NEEDS_ACTION_PATH,
 } from '../filters';
 import { filters as filterActions } from '../../actions';
 
@@ -114,16 +113,6 @@ describe( 'filter reducer', () => {
 		} );
 	} );
 
-	describe( 'needs action filter', () => {
-		testAction( {
-			action: filterActions.needsAction,
-			op: 'any',
-			path: NEEDS_ACTION_PATH,
-			addPayload: true,
-			addResult: [],
-			removePayload: false,
-		} );
-	} );
 } );
 
 function testAction( {

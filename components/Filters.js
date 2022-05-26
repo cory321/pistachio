@@ -8,7 +8,6 @@ import {
 	MISSING_EMAIL_ADDRESS_PATH,
 	MISSING_DEMOGRAPHICS_PATH,
 	COORDINATOR_PATH,
-	NEEDS_ACTION_PATH,
 } from '../reducers/filters';
 
 export default class Filters extends Component {
@@ -24,7 +23,6 @@ export default class Filters extends Component {
 			missingCoverLetter: this.isActive( this.props.filters, MISSING_COVER_LETTER_PATH ),
 			missingEmailAddress: this.isActive( this.props.filters, MISSING_EMAIL_ADDRESS_PATH ),
 			missingDemographics: this.isActive( this.props.filters, MISSING_DEMOGRAPHICS_PATH ),
-			needsAction: this.isActive( this.props.filters, NEEDS_ACTION_PATH ),
 		};
 	}
 
@@ -35,7 +33,6 @@ export default class Filters extends Component {
 			missingCoverLetter: this.isActive( nextProps.filters, MISSING_COVER_LETTER_PATH ),
 			missingEmailAddress: this.isActive( nextProps.filters, MISSING_EMAIL_ADDRESS_PATH ),
 			missingDemographics: this.isActive( nextProps.filters, MISSING_DEMOGRAPHICS_PATH ),
-			needsAction: this.isActive( nextProps.filters, NEEDS_ACTION_PATH ),
 		} );
 	}
 
@@ -136,17 +133,6 @@ export default class Filters extends Component {
 				<details>
 					<summary>More filters</summary>
 					<ul>
-						<li>
-							<label>
-								<input
-									type="checkbox"
-									name="needsAction"
-									checked={ this.state.needsAction }
-									onChange={ this.checkbox }
-								/>{ ' ' }
-								Needs Action
-							</label>
-						</li>
 
 						<li>
 							<label>

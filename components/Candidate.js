@@ -40,7 +40,6 @@ export default class Candidate extends Component {
 		super( props );
 
 		for ( const func of [
-			'toggleNeedsAction',
 			'uploadCoverLetter',
 			'uploadTranscript',
 			'addPronouns',
@@ -59,10 +58,6 @@ export default class Candidate extends Component {
 			coverLetter: coverLetter( nextProps.candidate ),
 			interviewTranscript: interviewTranscript( nextProps.candidate ),
 		} );
-	}
-
-	toggleNeedsAction() {
-		this.props.toggleNeedsAction( this.props.candidate.id );
 	}
 
 	uploadCoverLetter( event ) {
@@ -104,16 +99,7 @@ export default class Candidate extends Component {
 		const activeApplications = candidate.applications.filter(
 			application => 'active' === application.status
 		).length;
-		// we need the || false, because the value can be undefined and then React thinks the component is uncontrolled
-		const needsAction = (
-			<label>
-				<input
-					type="checkbox"
-					checked={ candidate.needsAction || false }
-					onChange={ this.toggleNeedsAction }
-				/>
-			</label>
-		);
+		
 		const jobs = allAt( candidate, 'applications.jobs.name' )
 			.map( name => this.jobAcronym( name ) )
 			.join( ', ' );
@@ -169,25 +155,16 @@ export default class Candidate extends Component {
 			( candidate.keyed_custom_fields.region && candidate.keyed_custom_fields.region.value ) ||
 			add( candidate );
 
-		const LATE_ACTIVITY_DAYS = 7;
-		const daysSinceLastActivity = moment().diff( moment( candidate.last_activity ), 'day' );
-		const activityLum = activeApplications > 0 ? 75 : 100;
-		const activityHue =
-			100 - ( Math.min( daysSinceLastActivity, LATE_ACTIVITY_DAYS ) / LATE_ACTIVITY_DAYS ) * 100;
-		const activityHsl = `hsl( ${ activityHue }, 100%, ${ activityLum }% )`;
-
 		return (
 			<HoverRow { ...this.props }>
-				<td className="needs-action">{ needsAction }</td>
 				<td>{ jobs }</td>
 				<td>{ nameLink }</td>
-				<td>{ referral }</td>
-				<td>{ coordinator }</td>
-				<td style={ { backgroundColor: activityHsl } }>{ daysSinceLastActivity }</td>
-				<td>{ coverLetter }</td>
 				<td>{ emails }</td>
 				<td>{ pronouns }</td>
 				<td>{ region }</td>
+				<td>{ referral }</td>
+				<td>{ coverLetter }</td>
+				<td>{ coordinator }</td>
 				<Actions { ...this.props } />
 			</HoverRow>
 		);

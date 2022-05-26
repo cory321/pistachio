@@ -5,7 +5,6 @@ export const MISSING_COVER_LETTER = 'FILTER_MISSING_COVER_LETTER';
 export const MISSING_EMAIL_ADDRESS = 'FILTER_MISSING_EMAIL_ADDRESS';
 export const MISSING_DEMOGRAPHICS = 'FILTER_MISSING_DEMOGRAPHICS';
 export const COORDINATOR = 'FILTER_COORDINATOR';
-export const NEEDS_ACTION = 'FILTER_NEEDS_ACTION';
 
 export function clear() {
 	return {
@@ -52,12 +51,5 @@ export function coordinator( coordinators ) {
 	return {
 		type: COORDINATOR,
 		payload: coordinators,
-	};
-}
-
-export function needsAction( isActive ) {
-	return {
-		type: NEEDS_ACTION,
-		payload: isActive,
 	};
 }

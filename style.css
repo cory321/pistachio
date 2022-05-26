@@ -246,15 +246,6 @@ ul {
 	list-style: none;
 }
 
-.needs-action {
-	overflow: hidden;
-}
-
-.needs-action label {
-	margin: -2em;
-	padding: 2em;
-}
-
 .a8c {
 	color: rgb( 0, 135, 190 );
 	font-weight: bold;
