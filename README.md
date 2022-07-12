@@ -24,7 +24,44 @@ If something related to the Docker setup breaks, there is an easy way to remove 
 1. `yarn wp-env:destroy`. This removes the created Docker containers, volumes, and networks that were created for this setup. This is a pretty harmless thing to do because only Docker-related infrastructure is removed; all the code in the repo is left untouched.
 2. `docker image prune`. This command will delete unused images that Docker regards as "dangling", which means that they are not being used by any container. This might remove images that you (or other Docker setups in your computer) might have downloaded. This is also pretty safe as any images needed by Docker will be downloaded upon request. The only downside to executing this command is having to re-download them, which can take considerable time depending on your internet connection speed.
 
-### Notes for Windows users
+## Setting up Xdebug
+
+### Enabling Xdebug
+
+If you just need the step debugger: `npm run wp-env start -- --xdebug`
+
+If you also want the profiler and trace functionality:  `npm run wp-env start -- --xdebug=profile,trace,debug`
+
+After this step, you need to configure your IDE of choice to use Xdebug. We include instructions to use VSCode because it's the most common one, but you can configure your preferred IDE following these guidelines:
+
+- Listen to Xdebug in port 9003
+- File mapping: the directory "/var/www/html/wp-content/plugins/pistachio" in the Docker container should be mapped to the root of the project (where this README lives) in your host machine. 
+
+
+### Setting up VSCode for step debugging 
+
+If you are using VSCode you can install the php-debug extension `ext install php-debug` from the command palette, or you can visit the [php-debug  extension page for more information](https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug).
+
+To configure the php-debug adapter, use the following configuration in your `.vscode/launch.json` file. 
+
+```json
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Listen for Xdebug",
+			"type": "php",
+			"request": "launch",
+			"port": 9003,
+			"pathMappings": {
+				"/var/www/html/wp-content/plugins/pistachio": "${workspaceFolder}"
+			}
+		}
+	]
+}
+```
+
+## Notes for Windows users
 
 The [Windows Subsystem for Linux WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10) is required for running this project on Windows, and the `yarn` commands should be run in the WSL terminal.
 If available, WSL 2 is recommended and shouldn't require any additional setup.
