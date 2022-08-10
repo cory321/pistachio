@@ -5,7 +5,7 @@
 	"description": "The Green Nut",
 	"main": "main.js",
 	"scripts": {
-		"build": "cross-env SOURCEMAP=source-map NODE_ENV=development calypso-build --entry-reset --entry ./index.js --env WP ",
+		"build": "cross-env SOURCEMAP=source-map NODE_ENV=development WATCHPACK_POLLING=true calypso-build --entry-reset --entry ./index.js --env WP ",
 		"start": "yarn run build --watch",
 		"test": "yarn run test-unit-js ; yarn run test-unit-php",
 		"test-unit-js": "./node_modules/.bin/jest --verbose --expand",
