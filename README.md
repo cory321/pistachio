@@ -70,6 +70,12 @@ If available, WSL 2 is recommended and shouldn't require any additional setup.
 1. Follow the instructions in [this article](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly) to have docker running in WSL 1.
 2. When checking out this repository, make sure you do that inside the Windows filesystem (e.g. `c/Users/USERNAME/dev/pistachio-your-name`). This will ensure docker for windows has full access to it.
 
+#### Running Docker in WSL 2
+Some trial candidates have found it easier to get the application running under WSL 2. 
+1. Follow the [instructions here](https://docs.docker.com/desktop/windows/wsl/)
+2. As [suggested here](https://stackoverflow.com/questions/60708229/wsl2-cannot-connect-to-the-docker-daemon/72617404#72617404) turn off the 'Expose daemon' option under the Docker Desktop general settings.
+3. If there are problems connecting to Docker, eg. you get a "Could not connect to Docker. Are you sure it is running?" message try running `unset DOCKER_HOST` in the linux terminal.
+
 #### Line Endings
 Make sure you have **Linux line endings** and that Git doesn't convert them. Command `git config core.autocrlf` should return `false`. Shell scripts will not work in Linux containers if you use Windows line endings!
 If you already cloned repository with `autocrlf` = true, follow [this article](https://help.github.com/en/articles/dealing-with-line-endings#refreshing-a-repository-after-changing-line-endings) to change them.
