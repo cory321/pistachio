@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { compose } from '@wordpress/compose';
 import { merge } from 'lodash';
 
@@ -9,6 +10,16 @@ import { withSelect } from '@wordpress/data';
 import apiFetch from '@wordpress/api-fetch';
 
 class CandidateContainer extends Component {
+	componentDidUpdate( props ) {
+		if ( this.props.filters !== props.filters ) {
+			this.getCandidateFilters( props );
+		}
+	}
+
+	getCandidateFilters( props ) {
+		console.log( this.props.filters );
+	}
+
 	render() {
 		return (
 			<Candidates
@@ -19,6 +30,7 @@ class CandidateContainer extends Component {
 				refresh={ this.props.fetchOne }
 				uploadCoverLetter={ this.props.uploadCoverLetter }
 				addPronouns={ this.addPronouns }
+				filters={ this.props.filters }
 			/>
 		);
 	}
@@ -40,6 +52,12 @@ class CandidateContainer extends Component {
 	}
 }
 
+const mapStateToProps = state => {
+	return {
+		filters: state.filters,
+	};
+};
+
 export default compose( [
 	withSelect( select => {
 		return {
@@ -49,4 +67,5 @@ export default compose( [
 			currentUser: null,
 		};
 	} ),
+	connect( mapStateToProps ),
 ] )( CandidateContainer );
