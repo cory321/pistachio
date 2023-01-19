@@ -1,6 +1,6 @@
 import { findIndex } from 'lodash';
 
-import { ADD, ADD_MANY, REMOVE } from '../actions/candidates';
+import { ADD, ADD_MANY, REPLACE_ALL, REMOVE } from '../actions/candidates';
 
 export default function candidates( state = [], action ) {
 	switch ( action.type ) {
@@ -18,6 +18,10 @@ export default function candidates( state = [], action ) {
 		}
 		case ADD_MANY:
 			return [ ...state, ...action.payload ];
+
+		case REPLACE_ALL:
+			return action.payload;
+
 		case REMOVE: {
 			const removeIndex = findIndex( state, candidate => candidate.id === action.payload );
 			if ( ~removeIndex ) {

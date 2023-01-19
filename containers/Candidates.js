@@ -1,24 +1,25 @@
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchCandidatesAsync } from '../actions/candidates';
 import { merge } from 'lodash';
 
 import Candidates from '../components/Candidates';
 
 import '@wordpress/core-data';
-import { useSelect } from '@wordpress/data';
 import apiFetch from '@wordpress/api-fetch';
 
 const CandidateContainer = props => {
+	const dispatch = useDispatch();
 	const filters = useSelector( state => state.filters );
-	const { candidates, error, isFetching, currentUser } = useSelect( select => ( {
-		candidates: select( 'core' ).getEntityRecords( 'postType', 'candidate', { per_page: 300 } ),
-		error: null,
-		isFetching: false,
-		currentUser: null,
-	} ) );
+	const candidates = useSelector( state => state.candidates );
+	const { isFetching, error } = useSelector( state => state.fetchers.candidates );
 
 	useEffect( () => {
-		if ( filters !== props.filters ) {
+		dispatch( fetchCandidatesAsync() );
+	}, [] );
+
+	useEffect( () => {
+		if ( candidates && filters !== props.filters ) {
 			console.log( filters );
 		}
 	}, [ filters ] );
@@ -44,7 +45,7 @@ const CandidateContainer = props => {
 			candidates={ candidates }
 			error={ error }
 			isFetching={ isFetching }
-			currentUser={ currentUser }
+			currentUser={ props.currentUser }
 			refresh={ props.fetchOne }
 			uploadCoverLetter={ props.uploadCoverLetter }
 			addPronouns={ addPronouns }
