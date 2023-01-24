@@ -3,7 +3,7 @@ import { CANDIDATES_PATH } from '../config';
 
 export const ADD = 'CANDIDATES_ADD';
 export const ADD_MANY = 'CANDIDATES_ADD_MANY';
-export const REPLACE_ALL = 'CANDIDATES_REPLACE_ALL';
+export const UPDATE = 'CANDIDATES_UPDATE';
 export const REMOVE = 'CANDIDATES_REMOVE';
 export const FETCH = 'CANDIDATES_FETCH';
 export const SUCCESS = 'CANDIDATES_SUCCESS';
@@ -30,9 +30,9 @@ export function addMany( candidates ) {
 	};
 }
 
-export function replaceAll( candidates ) {
+export function update( candidates ) {
 	return {
-		type: REPLACE_ALL,
+		type: UPDATE,
 		payload: candidates,
 	};
 }
@@ -58,10 +58,11 @@ export function uploadCoverLetter() {
 export function fetchCandidatesAsync() {
 	return async dispatch => {
 		dispatch( { type: FETCH } );
+		// debugger;
 		try {
 			const candidates = await apiFetch( { path: CANDIDATES_PATH } );
 			dispatch( success( candidates ) );
-			dispatch( replaceAll( candidates ) );
+			dispatch( update( candidates ) );
 		} catch ( error ) {
 			dispatch( error( error ) );
 		}

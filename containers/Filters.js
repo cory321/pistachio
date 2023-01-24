@@ -38,7 +38,7 @@ function mapStateToProps( state ) {
 
 	const jobIdFilter = state.filters.filter( filter => JOBS_PATH === filter.path );
 	let filteredJobIds = [];
-	let candidatesOnJobIds = state.candidates;
+	let candidatesOnJobIds = state.candidates || [];
 
 	if ( jobIdFilter.length ) {
 		filteredJobIds = jobIdFilter[ 0 ].values;
@@ -48,17 +48,20 @@ function mapStateToProps( state ) {
 	}
 
 	// we need to go through a Map, so that we have only unique coordinatos
-	const coordinators = Array.from(
-		new Map(
-			candidatesOnJobIds
-				.filter( candidate => candidate.coordinator )
-				.map( candidate => [ candidate.coordinator.id, candidate.coordinator.name ] )
-		)
-			// the leading space is needed to make sure this coordinator is at the top of a sorted list
-			.set( 0, ' ∅ None' )
-			.set( 1, ' 👤 Somebody' ),
-		pair => ( { id: pair[ 0 ], name: pair[ 1 ] } )
-	).sort( ( a, b ) => a.name.localeCompare( b.name ) );
+	let coordinators = [];
+	if ( candidatesOnJobIds.length > 0 ) {
+		coordinators = Array.from(
+			new Map(
+				candidatesOnJobIds
+					.filter( candidate => candidate.coordinator )
+					.map( candidate => [ candidate.coordinator.id, candidate.coordinator.name ] )
+			)
+				// the leading space is needed to make sure this coordinator is at the top of a sorted list
+				.set( 0, ' ∅ None' )
+				.set( 1, ' 👤 Somebody' ),
+			pair => ( { id: pair[ 0 ], name: pair[ 1 ] } )
+		).sort( ( a, b ) => a.name.localeCompare( b.name ) );
+	}
 
 	return {
 		// This container (and its component) should be named CandidateFilters

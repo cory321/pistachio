@@ -8,14 +8,15 @@ import {
 	COORDINATOR,
 } from '../actions/filters';
 
-export const JOBS_PATH = 'applications.jobs.id';
-export const STATUS_PATH = 'applications.status';
+export const JOBS_PATH = 'json.applications.jobs.id';
+export const STATUS_PATH = 'json.applications.status';
 // The RegExp is weird because we're splitting on "."
 // We also split on "|" for alternate paths, so | cannot be used in the RegExp.
 export const MISSING_COVER_LETTER_PATH =
-	'attachments.filename./Cover[\\s\\S]Letter[\\s\\S]Intro/|attachments.filename./^cover_letter\\Stxt$/';
-export const MISSING_EMAIL_ADDRESS_PATH = 'email_addresses.value';
-export const MISSING_DEMOGRAPHICS_PATH = 'keyed_custom_fields.pronouns|keyed_custom_fields.region';
+	'json.attachments.filename./Cover[\\s\\S]Letter[\\s\\S]Intro/|attachments.filename./^cover_letter\\Stxt$/';
+export const MISSING_EMAIL_ADDRESS_PATH = 'json.email_addresses.value';
+export const MISSING_DEMOGRAPHICS_PATH =
+	'json.keyed_custom_fields.pronouns.value|json.keyed_custom_fields.region.value';
 export const COORDINATOR_PATH = 'coordinator.id';
 
 export default function filter( state = [], action ) {

@@ -1,6 +1,6 @@
 import { findIndex } from 'lodash';
 
-import { ADD, ADD_MANY, REPLACE_ALL, REMOVE } from '../actions/candidates';
+import { ADD, ADD_MANY, UPDATE, REMOVE } from '../actions/candidates';
 
 export default function candidates( state = [], action ) {
 	switch ( action.type ) {
@@ -19,7 +19,7 @@ export default function candidates( state = [], action ) {
 		case ADD_MANY:
 			return [ ...state, ...action.payload ];
 
-		case REPLACE_ALL:
+		case UPDATE:
 			return action.payload;
 
 		case REMOVE: {

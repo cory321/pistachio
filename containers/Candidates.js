@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchCandidatesAsync } from '../actions/candidates';
+import { update, fetchCandidatesAsync } from '../actions/candidates';
+import { filterCandidates } from '../filters/candidateFilters';
 import { merge } from 'lodash';
 
 import Candidates from '../components/Candidates';
@@ -12,6 +13,7 @@ const CandidateContainer = props => {
 	const dispatch = useDispatch();
 	const filters = useSelector( state => state.filters );
 	const candidates = useSelector( state => state.candidates );
+	const lastFetchedCandidates = useSelector( state => state.lastFetched.candidates );
 	const { isFetching, error } = useSelector( state => state.fetchers.candidates );
 
 	useEffect( () => {
@@ -19,8 +21,11 @@ const CandidateContainer = props => {
 	}, [] );
 
 	useEffect( () => {
-		if ( candidates && filters !== props.filters ) {
-			console.log( filters );
+		if ( filters !== props.filters ) {
+			if ( typeof lastFetchedCandidates === 'object' ) {
+				const filteredCandidates = filterCandidates( filters, lastFetchedCandidates );
+				dispatch( update( filteredCandidates ) );
+			}
 		}
 	}, [ filters ] );
 
@@ -49,7 +54,7 @@ const CandidateContainer = props => {
 			refresh={ props.fetchOne }
 			uploadCoverLetter={ props.uploadCoverLetter }
 			addPronouns={ addPronouns }
-			filters={ props.filters }
+			filters={ filters }
 		/>
 	);
 };
