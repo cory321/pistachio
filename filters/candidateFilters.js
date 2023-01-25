@@ -9,20 +9,23 @@ function getNestedValue( obj, pathString ) {
 }
 
 export function filterCandidates( filters, candidates ) {
-	return candidates.filter( candidate => {
-		return filters.every( filter => {
-			if ( filter.type === 'candidate' ) {
-				switch ( filter.op ) {
-					case 'intersection':
-						return intersectionOperation( candidate, filter.path ).includes( null );
-					case 'empty':
-						return getNestedValue( candidate, filter.path ).length === 0;
-					case 'any':
-						return true;
-					default:
-						return true;
+	if ( typeof candidates === 'object' ) {
+		return candidates.filter( candidate => {
+			return filters.every( filter => {
+				if ( filter.type === 'candidate' ) {
+					switch ( filter.op ) {
+						case 'intersection':
+							return intersectionOperation( candidate, filter.path ).includes( null );
+						case 'empty':
+							return getNestedValue( candidate, filter.path ).length === 0;
+						case 'any':
+							return true;
+						default:
+							return true;
+					}
 				}
-			}
+			} );
 		} );
-	} );
+	}
+	return [];
 }

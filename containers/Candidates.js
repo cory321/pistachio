@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { update, fetchCandidatesAsync } from '../actions/candidates';
 import { filterCandidates } from '../filters/candidateFilters';
@@ -15,6 +15,7 @@ const CandidateContainer = props => {
 	const candidates = useSelector( state => state.candidates );
 	const lastFetchedCandidates = useSelector( state => state.lastFetched.candidates );
 	const { isFetching, error } = useSelector( state => state.fetchers.candidates );
+	const filteredCandidates = filterCandidates( filters, lastFetchedCandidates );
 
 	useEffect( () => {
 		dispatch( fetchCandidatesAsync() );
@@ -22,10 +23,7 @@ const CandidateContainer = props => {
 
 	useEffect( () => {
 		if ( filters !== props.filters ) {
-			if ( typeof lastFetchedCandidates === 'object' ) {
-				const filteredCandidates = filterCandidates( filters, lastFetchedCandidates );
-				dispatch( update( filteredCandidates ) );
-			}
+			dispatch( update( filteredCandidates ) );
 		}
 	}, [ filters ] );
 
