@@ -1,17 +1,11 @@
-export function getNestedValues( obj, pathString ) {
+function intersectionOperation( obj, pathString ) {
+	const paths = pathString.split( '|' );
+	return paths.map( path => getNestedValue( obj, path ) );
+}
+
+function getNestedValue( obj, pathString ) {
 	if ( ! pathString ) return obj;
-	const props = pathString.split( '|' );
-	let result;
-	const results = [];
-	props.every( prop => {
-		const pathProps = prop.split( '.' );
-		result = pathProps.reduce( ( obj, prop ) => ( obj ? obj[ prop ] : undefined ), obj );
-		if ( result !== undefined ) {
-			results.push( result );
-		}
-		return results;
-	} );
-	return results;
+	return pathString.split( '.' ).reduce( ( obj, prop ) => ( obj ? obj[ prop ] : undefined ), obj );
 }
 
 export function filterCandidates( filters, candidates ) {
@@ -20,9 +14,9 @@ export function filterCandidates( filters, candidates ) {
 			if ( filter.type === 'candidate' ) {
 				switch ( filter.op ) {
 					case 'intersection':
-						return getNestedValues( candidate, filter.path ).includes( null );
+						return intersectionOperation( candidate, filter.path ).includes( null );
 					case 'empty':
-						return true;
+						return getNestedValue( candidate, filter.path ).length === 0;
 					case 'any':
 						return true;
 					default:

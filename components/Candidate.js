@@ -148,7 +148,6 @@ export default class Candidate extends Component {
 			( candidate.coordinator && candidate.coordinator.name ) || <Unimportant>none</Unimportant>
 		);
 		const coverLetter = this.state.coverLetter ? '☑' : uploadCoverLetter;
-		// debugger;
 		const emails = candidate.email_addresses.length
 			? candidate.email_addresses.map( e => e.value ).join( ', ' )
 			: add( candidate );
