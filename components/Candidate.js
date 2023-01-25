@@ -43,6 +43,7 @@ export default class Candidate extends Component {
 			'uploadCoverLetter',
 			'uploadTranscript',
 			'addPronouns',
+			'addEmailAddress',
 		] ) {
 			this[ func ] = this[ func ].bind( this );
 		}
@@ -72,6 +73,12 @@ export default class Candidate extends Component {
 		this.props.addPronouns( this.props.candidate, pronouns );
 	}
 
+	addEmailAddress( event ) {
+		event.preventDefault();
+		const emailAddress = window.prompt( 'Email Address?', '' ); // obviously we want to show a dropdown here :)
+		this.props.addEmailAddress( this.props.candidate, emailAddress );
+	}
+
 	uploadTranscript( event ) {
 		event.preventDefault();
 		this.props.uploadTranscript( this.props.candidate );
@@ -99,7 +106,7 @@ export default class Candidate extends Component {
 		const activeApplications = candidate.applications.filter(
 			application => 'active' === application.status
 		).length;
-		
+
 		const jobs = allAt( candidate, 'applications.jobs.name' )
 			.map( name => this.jobAcronym( name ) )
 			.join( ', ' );
@@ -141,6 +148,7 @@ export default class Candidate extends Component {
 			( candidate.coordinator && candidate.coordinator.name ) || <Unimportant>none</Unimportant>
 		);
 		const coverLetter = this.state.coverLetter ? '☑' : uploadCoverLetter;
+		// debugger;
 		const emails = candidate.email_addresses.length
 			? candidate.email_addresses.map( e => e.value ).join( ', ' )
 			: add( candidate );
