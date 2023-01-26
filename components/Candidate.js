@@ -75,7 +75,7 @@ export default class Candidate extends Component {
 
 	addEmailAddress( event ) {
 		event.preventDefault();
-		const emailAddress = window.prompt( 'Email Address?', '' ); // obviously we want to show a dropdown here :)
+		const emailAddress = window.prompt( 'Email Address?', '' );
 		this.props.addEmailAddress( this.props.candidate, emailAddress );
 	}
 

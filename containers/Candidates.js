@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { update, fetchCandidatesAsync } from '../actions/candidates';
 import { filterCandidates } from '../filters/candidateFilters';
