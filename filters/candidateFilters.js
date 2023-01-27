@@ -1,26 +1,26 @@
 import { intersection } from 'lodash';
 
-export function intersectionOp( candidate, filterPath, filterValues ) {
-	const filterPaths = filterPath
+function intersectionOp( candidate, filterPath, filterValues ) {
+	const candidateProp = filterPath
 		.split( '|' )
-		.map( path => getFilterPathFromCandidate( candidate, path ) );
-
-	const intersectionResults = intersection( filterPaths, filterValues );
-	return intersectionResults.length ? intersectionResults : false;
+		.map( path => getFilterPathFromCandidate( candidate, path ) )
+		.flat();
+	return intersection( candidateProp, filterValues ).length
+		? intersection( candidateProp, filterValues )
+		: false;
 }
 
-export function anyOp( candidate, filterValues ) {
-	// work on this next
+function anyOp( candidate, filterValues ) {
 	return true;
 }
 
-export function emptyOp( candidate, filterPath ) {
+function emptyOp( candidate, filterPath ) {
 	return filterPath.split( '|' ).some( path => {
 		return ! getFilterPathFromCandidate( candidate, path ).length;
 	} );
 }
 
-export function getFilterPathFromCandidate( candidate, filterPath ) {
+function getFilterPathFromCandidate( candidate, filterPath ) {
 	let current = candidate;
 	filterPath
 		.split( '.' )

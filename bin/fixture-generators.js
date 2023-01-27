@@ -98,7 +98,7 @@ function Candidate( props ) {
 				location: null,
 				prospect: false,
 				source: null,
-				status: 'active', // for now, lets make everyone active for testing. After, replace with props.status
+				status: props.status,
 			},
 		],
 		attachments: attachments,
