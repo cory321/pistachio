@@ -47,7 +47,7 @@ export default function filter( state = [], action ) {
 			path = MISSING_COVER_LETTER_PATH;
 			newState = [ ...state.filter( filter => path !== filter.path ) ];
 			if ( action.payload ) {
-				return [ ...newState, { type: 'candidate', path, values: [], op: 'regex' } ];
+				return [ ...newState, { type: 'candidate', path, values: [], op: 'empty' } ];
 			}
 			return newState;
 		case MISSING_EMAIL_ADDRESS:

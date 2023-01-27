@@ -1,31 +1,34 @@
-function intersectionOp( obj, pathString ) {
-	const paths = pathString.split( '|' );
-	return paths.map( path => getNestedValue( obj, path ) ).includes( null );
+import { intersection } from 'lodash';
+
+export function intersectionOp( candidate, filterPath, filterValues ) {
+	const filterPaths = filterPath
+		.split( '|' )
+		.map( path => getFilterPathFromCandidate( candidate, path ) );
+
+	const intersectionResults = intersection( filterPaths, filterValues );
+	return intersectionResults.length ? intersectionResults : false;
 }
 
-function anyOp( candidate, filter ) {
+export function anyOp( candidate, filterValues ) {
+	// work on this next
 	return true;
 }
 
-function emptyOp( candidate, filter ) {
-	return getNestedValue( candidate, filter ).length === 0;
+export function emptyOp( candidate, filterPath ) {
+	return filterPath.split( '|' ).some( path => {
+		return ! getFilterPathFromCandidate( candidate, path ).length;
+	} );
 }
 
-function getNestedValue( obj, pathString ) {
-	if ( ! pathString ) return obj;
-	return pathString.split( '.' ).reduce( ( obj, prop ) => ( obj ? obj[ prop ] : undefined ), obj );
-}
-
-function regexOp( candidate, filterPath ) {
-	const paths = filterPath.split( '|' ).map( path => path.split( '.' ).slice( 0, -1 ).join( '.' ) );
-
-	const regexps = filterPath
-		.split( '|' )
-		.map( path => new RegExp( path.split( '/' ).slice( -2, -1 ) ) );
-
-	return ! candidate.json.attachments
-		.map( attachment => attachment.filename )
-		.some( filename => regexps.some( regexp => regexp.test( filename ) ) );
+export function getFilterPathFromCandidate( candidate, filterPath ) {
+	let current = candidate;
+	filterPath
+		.split( '.' )
+		.forEach(
+			key =>
+				( current = Array.isArray( current ) ? current.map( val => val[ key ] ) : current[ key ] )
+		);
+	return current;
 }
 
 export function filterCandidates( filters, candidates ) {
@@ -35,13 +38,11 @@ export function filterCandidates( filters, candidates ) {
 				if ( filter.type === 'candidate' ) {
 					switch ( filter.op ) {
 						case 'intersection':
-							return intersectionOp( candidate, filter.path );
+							return intersectionOp( candidate, filter.path, filter.values );
 						case 'any':
 							return anyOp( candidate, filter.path );
 						case 'empty':
 							return emptyOp( candidate, filter.path );
-						case 'regex':
-							return regexOp( candidate, filter.path );
 						default:
 							return true;
 					}
