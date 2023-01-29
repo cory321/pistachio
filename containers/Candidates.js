@@ -17,11 +17,7 @@ const CandidateContainer = props => {
 		currentUser: null,
 	} ) );
 
-	useEffect( () => {
-		if ( filters !== props.filters ) {
-			console.log( filters );
-		}
-	}, [ filters ] );
+	console.log( filters );
 
 	const addPronouns = ( candidate, pronouns ) => {
 		apiFetch( {
