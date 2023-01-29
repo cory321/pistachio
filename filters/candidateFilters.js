@@ -32,23 +32,22 @@ function getFilterPathFromCandidate( candidate, filterPath ) {
 }
 
 export function filterCandidates( filters, candidates ) {
-	if ( typeof candidates === 'object' ) {
-		return candidates.filter( candidate => {
-			return filters.every( filter => {
-				if ( filter.type === 'candidate' ) {
-					switch ( filter.op ) {
-						case 'intersection':
-							return intersectionOp( candidate, filter.path, filter.values );
-						case 'any':
-							return anyOp( candidate, filter.path );
-						case 'empty':
-							return emptyOp( candidate, filter.path );
-						default:
-							return true;
-					}
+	return candidates.filter( candidate => {
+		return filters.every( filter => {
+			if ( filter.type === 'candidate' ) {
+				switch ( filter.op ) {
+					case 'intersection':
+						return intersectionOp( candidate, filter.path, filter.values );
+					case 'any':
+						return anyOp( candidate, filter.path );
+					case 'empty':
+						return emptyOp( candidate, filter.path );
+					default:
+						return true;
 				}
-			} );
+			}
 		} );
-	}
+	} );
+
 	return [];
 }
