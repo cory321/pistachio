@@ -3,7 +3,6 @@ import { CANDIDATES_PATH } from '../config';
 
 export const ADD = 'CANDIDATES_ADD';
 export const ADD_MANY = 'CANDIDATES_ADD_MANY';
-export const UPDATE = 'CANDIDATES_UPDATE';
 export const REMOVE = 'CANDIDATES_REMOVE';
 export const FETCH = 'CANDIDATES_FETCH';
 export const SUCCESS = 'CANDIDATES_SUCCESS';
@@ -26,13 +25,6 @@ export function remove( candidateId ) {
 export function addMany( candidates ) {
 	return {
 		type: ADD_MANY,
-		payload: candidates,
-	};
-}
-
-export function update( candidates ) {
-	return {
-		type: UPDATE,
 		payload: candidates,
 	};
 }
@@ -62,7 +54,7 @@ export function fetchCandidatesAsync() {
 		try {
 			const candidates = await apiFetch( { path: CANDIDATES_PATH } );
 			dispatch( success( candidates ) );
-			dispatch( update( candidates ) );
+			dispatch( addMany( candidates ) );
 		} catch ( error ) {
 			dispatch( error( error ) );
 		}

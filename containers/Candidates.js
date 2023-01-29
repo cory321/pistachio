@@ -12,20 +12,12 @@ import apiFetch from '@wordpress/api-fetch';
 const CandidateContainer = props => {
 	const dispatch = useDispatch();
 	const filters = useSelector( state => state.filters );
-	const candidates = useSelector( state => state.candidates );
-	const lastFetchedCandidates = useSelector( state => state.lastFetched.candidates );
+	const candidates = useSelector( state => filterCandidates( filters, state.candidates ) );
 	const { isFetching, error } = useSelector( state => state.fetchers.candidates );
-	const filteredCandidates = filterCandidates( filters, lastFetchedCandidates );
 
 	useEffect( () => {
 		dispatch( fetchCandidatesAsync() );
 	}, [] );
-
-	useEffect( () => {
-		if ( filters !== props.filters ) {
-			dispatch( update( filteredCandidates ) );
-		}
-	}, [ filters ] );
 
 	const addPronouns = ( candidate, pronouns ) => {
 		apiFetch( {
