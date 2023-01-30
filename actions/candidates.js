@@ -53,8 +53,8 @@ export function fetchCandidatesAsync() {
 		// debugger;
 		try {
 			const candidates = await apiFetch( { path: CANDIDATES_PATH } );
-			dispatch( success( candidates ) );
 			dispatch( addMany( candidates ) );
+			dispatch( success( candidates ) );
 		} catch ( error ) {
 			dispatch( error( error ) );
 		}

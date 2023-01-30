@@ -153,7 +153,12 @@ export default class Candidate extends Component {
 			: add( candidate );
 		const pronouns = ( candidate.keyed_custom_fields.pronouns &&
 			candidate.keyed_custom_fields.pronouns.value ) || (
-			<button className="button" name="pronouns" onClick={ this.addPronouns }>
+			<button
+				className="button"
+				name="pronouns"
+				onClick={ this.addPronouns }
+				disabled={ isFetching }
+			>
 				{ ' ' }
 				Add Pronouns
 			</button>

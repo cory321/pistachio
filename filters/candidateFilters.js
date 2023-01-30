@@ -1,13 +1,13 @@
 import { intersection } from 'lodash';
 
 function intersectionOp( candidate, filterPath, filterValues ) {
-	const candidateProp = filterPath
+	const candidateProps = filterPath
 		.split( '|' )
 		.map( path => getFilterPathFromCandidate( candidate, path ) )
 		.flat();
 
-	return intersection( candidateProp, filterValues ).length
-		? intersection( candidateProp, filterValues )
+	return intersection( candidateProps, filterValues ).length
+		? intersection( candidateProps, filterValues )
 		: false;
 }
 
@@ -32,22 +32,20 @@ function getFilterPathFromCandidate( candidate, filterPath ) {
 }
 
 export function filterCandidates( filters, candidates ) {
-	return candidates.filter( candidate => {
-		return filters.every( filter => {
-			if ( filter.type === 'candidate' ) {
-				switch ( filter.op ) {
-					case 'intersection':
-						return intersectionOp( candidate, filter.path, filter.values );
-					case 'any':
-						return anyOp( candidate, filter.path, filter.values );
-					case 'empty':
-						return emptyOp( candidate, filter.path );
-					default:
-						return true;
+	return (
+		candidates.filter( candidate => {
+			return filters.every( filter => {
+				if ( filter.type === 'candidate' ) {
+					switch ( filter.op ) {
+						case 'intersection':
+							return intersectionOp( candidate, filter.path, filter.values );
+						case 'any':
+							return anyOp( candidate, filter.path, filter.values );
+						case 'empty':
+							return emptyOp( candidate, filter.path );
+					}
 				}
-			}
-		} );
-	} );
-
-	return [];
+			} );
+		} ) || candidates
+	);
 }
