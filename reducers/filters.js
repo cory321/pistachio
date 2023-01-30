@@ -17,7 +17,7 @@ export const MISSING_COVER_LETTER_PATH =
 export const MISSING_EMAIL_ADDRESS_PATH = 'json.email_addresses';
 export const MISSING_DEMOGRAPHICS_PATH =
 	'json.keyed_custom_fields.pronouns.value|json.keyed_custom_fields.region.value';
-export const COORDINATOR_PATH = 'coordinator.id';
+export const COORDINATOR_PATH = 'json.coordinator.id';
 
 export default function filter( state = [], action ) {
 	let path, newState;
@@ -75,6 +75,8 @@ export default function filter( state = [], action ) {
 				} else if ( 0 === action.payload[ 0 ] ) {
 					coordinatorOp = 'empty';
 				}
+
+				// debugger;
 
 				return [
 					...newState,

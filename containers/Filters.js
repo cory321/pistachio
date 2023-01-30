@@ -39,11 +39,14 @@ function mapStateToProps( state ) {
 	const jobIdFilter = state.filters.filter( filter => JOBS_PATH === filter.path );
 	let filteredJobIds = [];
 	let candidatesOnJobIds = state.candidates || [];
+	// debugger;
 
 	if ( jobIdFilter.length ) {
 		filteredJobIds = jobIdFilter[ 0 ].values;
 		candidatesOnJobIds = candidatesOnJobIds.filter( candidate =>
-			allAt( candidate, 'applications.jobs.id' ).some( jobId => filteredJobIds.includes( jobId ) )
+			allAt( candidate, 'json.applications.jobs.id' ).some( jobId =>
+				filteredJobIds.includes( jobId )
+			)
 		);
 	}
 
@@ -53,8 +56,8 @@ function mapStateToProps( state ) {
 		coordinators = Array.from(
 			new Map(
 				candidatesOnJobIds
-					.filter( candidate => candidate.coordinator )
-					.map( candidate => [ candidate.coordinator.id, candidate.coordinator.name ] )
+					.filter( candidate => candidate.json.coordinator )
+					.map( candidate => [ candidate.json.coordinator.id, candidate.json.coordinator.name ] )
 			)
 				// the leading space is needed to make sure this coordinator is at the top of a sorted list
 				.set( 0, ' ∅ None' )
