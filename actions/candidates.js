@@ -50,7 +50,7 @@ export function uploadCoverLetter() {
 export function fetchCandidatesAsync() {
 	return async dispatch => {
 		dispatch( { type: FETCH } );
-		// debugger;
+
 		try {
 			const candidates = await apiFetch( { path: CANDIDATES_PATH } );
 			dispatch( addMany( candidates ) );

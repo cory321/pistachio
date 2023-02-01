@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { update, fetchCandidatesAsync } from '../actions/candidates';
-import { filterCandidates } from '../filters/candidateFilters';
+import { fetchCandidatesAsync } from '../actions/candidates';
+import { filterCollectionWith } from '../lib/all-at';
 import { merge } from 'lodash';
 
 import Candidates from '../components/Candidates';
@@ -12,7 +12,7 @@ import apiFetch from '@wordpress/api-fetch';
 const CandidateContainer = props => {
 	const dispatch = useDispatch();
 	const filters = useSelector( state => state.filters );
-	const candidates = useSelector( state => filterCandidates( filters, state.candidates ) );
+	const candidates = useSelector( state => filterCollectionWith( state.candidates, filters ) );
 	const { isFetching, error } = useSelector( state => state.fetchers.candidates );
 
 	useEffect( () => {
