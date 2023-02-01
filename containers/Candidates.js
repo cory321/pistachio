@@ -1,29 +1,23 @@
-import React, { Component } from 'react';
-import { compose } from '@wordpress/compose';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { merge } from 'lodash';
 
 import Candidates from '../components/Candidates';
 
 import '@wordpress/core-data';
-import { withSelect } from '@wordpress/data';
+import { useSelect } from '@wordpress/data';
 import apiFetch from '@wordpress/api-fetch';
 
-class CandidateContainer extends Component {
-	render() {
-		return (
-			<Candidates
-				candidates={ this.props.candidates }
-				error={ this.props.error }
-				isFetching={ this.props.isFetching }
-				currentUser={ this.props.currentUser }
-				refresh={ this.props.fetchOne }
-				uploadCoverLetter={ this.props.uploadCoverLetter }
-				addPronouns={ this.addPronouns }
-			/>
-		);
-	}
+const CandidateContainer = props => {
+	const filters = useSelector( state => state.filters );
+	const { candidates, error, isFetching, currentUser } = useSelect( select => ( {
+		candidates: select( 'core' ).getEntityRecords( 'postType', 'candidate', { per_page: 300 } ),
+		error: null,
+		isFetching: false,
+		currentUser: null,
+	} ) );
 
-	addPronouns( candidate, pronouns ) {
+	const addPronouns = ( candidate, pronouns ) => {
 		apiFetch( {
 			path: '/wp/v2/candidates/' + candidate.id,
 			method: 'POST',
@@ -37,16 +31,20 @@ class CandidateContainer extends Component {
 				} ),
 			},
 		} );
-	}
-}
+	};
 
-export default compose( [
-	withSelect( select => {
-		return {
-			candidates: select( 'core' ).getEntityRecords( 'postType', 'candidate', { per_page: 300 } ),
-			error: null,
-			isFetching: false,
-			currentUser: null,
-		};
-	} ),
-] )( CandidateContainer );
+	return (
+		<Candidates
+			candidates={ candidates }
+			error={ error }
+			isFetching={ isFetching }
+			currentUser={ currentUser }
+			refresh={ props.fetchOne }
+			uploadCoverLetter={ props.uploadCoverLetter }
+			addPronouns={ addPronouns }
+			filters={ props.filters }
+		/>
+	);
+};
+
+export default CandidateContainer;
