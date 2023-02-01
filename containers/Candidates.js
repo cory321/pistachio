@@ -1,21 +1,23 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchCandidatesAsync } from '../actions/candidates';
 import { merge } from 'lodash';
 
 import Candidates from '../components/Candidates';
 
 import '@wordpress/core-data';
-import { useSelect } from '@wordpress/data';
 import apiFetch from '@wordpress/api-fetch';
 
 const CandidateContainer = props => {
+	const dispatch = useDispatch();
 	const filters = useSelector( state => state.filters );
-	const { candidates, error, isFetching, currentUser } = useSelect( select => ( {
-		candidates: select( 'core' ).getEntityRecords( 'postType', 'candidate', { per_page: 300 } ),
-		error: null,
-		isFetching: false,
-		currentUser: null,
-	} ) );
+	const candidates = useSelector( state => state.candidates );
+	const { isFetching, error } = useSelector( state => state.fetchers.candidates );
+	const currentUser = null;
+
+	useEffect( () => {
+		dispatch( fetchCandidatesAsync() );
+	}, [] );
 
 	const addPronouns = ( candidate, pronouns ) => {
 		apiFetch( {
@@ -42,7 +44,7 @@ const CandidateContainer = props => {
 			refresh={ props.fetchOne }
 			uploadCoverLetter={ props.uploadCoverLetter }
 			addPronouns={ addPronouns }
-			filters={ props.filters }
+			filters={ filters }
 		/>
 	);
 };
