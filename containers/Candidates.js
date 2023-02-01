@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { merge } from 'lodash';
 
@@ -16,8 +16,6 @@ const CandidateContainer = props => {
 		isFetching: false,
 		currentUser: null,
 	} ) );
-
-	console.log( filters );
 
 	const addPronouns = ( candidate, pronouns ) => {
 		apiFetch( {
