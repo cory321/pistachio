@@ -27,7 +27,7 @@ function RandomCandidate() {
 		firstName: data.first_name,
 		lastName: data.last_name,
 		username: data.random_element( [ null, data.username ] ),
-		email: data.email,
+		email: data.random_element( [ null, data.email ] ),
 		jobs: [ data.random_element( Object.values( jobs ) ) ],
 		status: data.random_element( Object.values( application_statuses ) ),
 		stage: data.random_element( [
@@ -104,7 +104,10 @@ function Candidate( props ) {
 		attachments: attachments,
 		coordinator: props.coordinator,
 		created_at: '2018-08-15T06:02:57.176Z',
-		email_addresses: [ { value: props.email, type: 'personal' } ],
+		email_addresses: generateEmailField( {
+			value: props.email,
+			type: 'personal',
+		} ),
 		name: full_name,
 		first_name: first_name,
 		last_name: last_name,
@@ -123,7 +126,7 @@ function Candidate( props ) {
 			job_source: null,
 			region: generateCustomField( {
 				name: 'Region',
-				value: data.region,
+				value: props.region,
 			} ),
 			slack_channel: generateCustomField( {
 				name: 'Slack Channel',
@@ -142,6 +145,13 @@ function generateCustomField( { name, value } ) {
 		value,
 		type: 'short_text',
 	};
+}
+
+function generateEmailField( { value, type } ) {
+	if ( value ) {
+		return [ { value, type } ];
+	}
+	return [];
 }
 
 module.exports = {
