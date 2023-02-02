@@ -164,7 +164,7 @@ Array [
                 "region": Object {
                   "name": "Region",
                   "type": "short_text",
-                  "value": undefined,
+                  "value": "Americas",
                 },
                 "slack_channel": Object {
                   "name": "Slack Channel",
@@ -283,7 +283,7 @@ Array [
                 "region": Object {
                   "name": "Region",
                   "type": "short_text",
-                  "value": undefined,
+                  "value": "Americas",
                 },
                 "slack_channel": Object {
                   "name": "Slack Channel",
@@ -448,7 +448,7 @@ Array [
                 "region": Object {
                   "name": "Region",
                   "type": "short_text",
-                  "value": undefined,
+                  "value": "Americas",
                 },
                 "slack_channel": Object {
                   "name": "Slack Channel",
@@ -613,7 +613,7 @@ Array [
                 "region": Object {
                   "name": "Region",
                   "type": "short_text",
-                  "value": undefined,
+                  "value": "Americas",
                 },
                 "slack_channel": Object {
                   "name": "Slack Channel",
@@ -778,7 +778,7 @@ Array [
                 "region": Object {
                   "name": "Region",
                   "type": "short_text",
-                  "value": undefined,
+                  "value": "Americas",
                 },
                 "slack_channel": Object {
                   "name": "Slack Channel",
@@ -897,7 +897,7 @@ Array [
                 "region": Object {
                   "name": "Region",
                   "type": "short_text",
-                  "value": undefined,
+                  "value": "Americas",
                 },
                 "slack_channel": Object {
                   "name": "Slack Channel",
@@ -1062,7 +1062,7 @@ Array [
                 "region": Object {
                   "name": "Region",
                   "type": "short_text",
-                  "value": undefined,
+                  "value": "Americas",
                 },
                 "slack_channel": Object {
                   "name": "Slack Channel",
@@ -1181,7 +1181,7 @@ Array [
                 "region": Object {
                   "name": "Region",
                   "type": "short_text",
-                  "value": undefined,
+                  "value": "Americas",
                 },
                 "slack_channel": Object {
                   "name": "Slack Channel",
@@ -1311,7 +1311,7 @@ exports[`Candidates should group candidates into hired regardless of status when
               "region": Object {
                 "name": "Region",
                 "type": "short_text",
-                "value": undefined,
+                "value": "Americas",
               },
               "slack_channel": Object {
                 "name": "Slack Channel",
@@ -1422,7 +1422,7 @@ exports[`Candidates should group candidates into hired regardless of status when
               "region": Object {
                 "name": "Region",
                 "type": "short_text",
-                "value": undefined,
+                "value": "Americas",
               },
               "slack_channel": Object {
                 "name": "Slack Channel",
@@ -1545,7 +1545,7 @@ exports[`Candidates should group candidates into rejected regardless of status w
               "region": Object {
                 "name": "Region",
                 "type": "short_text",
-                "value": undefined,
+                "value": "Americas",
               },
               "slack_channel": Object {
                 "name": "Slack Channel",
@@ -1656,7 +1656,7 @@ exports[`Candidates should group candidates into rejected regardless of status w
               "region": Object {
                 "name": "Region",
                 "type": "short_text",
-                "value": undefined,
+                "value": "Americas",
               },
               "slack_channel": Object {
                 "name": "Slack Channel",
