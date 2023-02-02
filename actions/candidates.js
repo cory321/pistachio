@@ -55,8 +55,8 @@ export function fetchCandidatesAsync() {
 			const candidates = await apiFetch( { path: '/wp/v2/candidates/?per_page=300' } );
 			dispatch( addMany( candidates ) );
 			dispatch( success( candidates ) );
-		} catch ( error ) {
-			dispatch( error( error ) );
+		} catch ( err ) {
+			dispatch( error( err ) );
 		}
 	};
 }
