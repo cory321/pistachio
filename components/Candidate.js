@@ -87,8 +87,9 @@ export default class Candidate extends Component {
 	jobAcronym( jobName ) {
 		const special = {
 			'VIP Developer': 'VIP',
+			'Human (Resources) Wrangler': 'HR',
 		};
-		return special[ jobName ] || jobName.replace( /[a-z ]/g, '' ).substr( 0, 2 );
+		return special[ jobName ] || jobName.replace( /[a-z ()]/g, '' ).substr( 0, 2 );
 	}
 
 	render() {
