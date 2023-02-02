@@ -43,6 +43,7 @@ export default class Candidate extends Component {
 			'uploadCoverLetter',
 			'uploadTranscript',
 			'addPronouns',
+			'addEmailAddress',
 		] ) {
 			this[ func ] = this[ func ].bind( this );
 		}
@@ -72,6 +73,12 @@ export default class Candidate extends Component {
 		this.props.addPronouns( this.props.candidate, pronouns );
 	}
 
+	addEmailAddress( event ) {
+		event.preventDefault();
+		const emailAddress = window.prompt( 'Email Address?', '' );
+		this.props.addEmailAddress( this.props.candidate, emailAddress );
+	}
+
 	uploadTranscript( event ) {
 		event.preventDefault();
 		this.props.uploadTranscript( this.props.candidate );
@@ -99,7 +106,7 @@ export default class Candidate extends Component {
 		const activeApplications = candidate.applications.filter(
 			application => 'active' === application.status
 		).length;
-		
+
 		const jobs = allAt( candidate, 'applications.jobs.name' )
 			.map( name => this.jobAcronym( name ) )
 			.join( ', ' );
@@ -146,7 +153,12 @@ export default class Candidate extends Component {
 			: add( candidate );
 		const pronouns = ( candidate.keyed_custom_fields.pronouns &&
 			candidate.keyed_custom_fields.pronouns.value ) || (
-			<button className="button" name="pronouns" onClick={ this.addPronouns }>
+			<button
+				className="button"
+				name="pronouns"
+				onClick={ this.addPronouns }
+				disabled={ isFetching }
+			>
 				{ ' ' }
 				Add Pronouns
 			</button>
