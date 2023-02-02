@@ -1,0 +1,133 @@
+[
+    {
+      "name": "Code Wrangler",
+      "id": 2,
+      "departments": [
+        {
+          "name": "Web",
+          "id": 45284,
+          "external_id": null,
+          "parent_id": 44211,
+          "child_ids": []
+        }
+      ],
+      "offices": [
+        {
+          "name": "Web",
+          "id": 44811,
+          "external_id": null,
+          "parent_id": 43792,
+          "child_ids": [],
+          "location": {
+            "name": null
+          }
+        }
+      ],
+      "status": "open"
+    },
+    {
+      "name": "JavaScript Engineer",
+      "id": 3,
+      "departments": [
+        {
+          "name": "Web",
+          "id": 45284,
+          "external_id": null,
+          "parent_id": 44211,
+          "child_ids": []
+        }
+      ],
+      "offices": [
+        {
+          "name": "Web",
+          "id": 44811,
+          "external_id": null,
+          "parent_id": 43792,
+          "child_ids": [],
+          "location": {
+            "name": null
+          }
+        }
+      ],
+      "status": "open"
+    },
+    {
+      "name": "Human (Resources) Wrangler",
+      "id": 4,
+      "departments": [
+        {
+          "name": "Human Resources",
+          "id": 45286,
+          "external_id": null,
+          "parent_id": null,
+          "child_ids": []
+        }
+      ],
+      "offices": [
+        {
+          "name": "Human Resources",
+          "id": 44812,
+          "external_id": null,
+          "parent_id": null,
+          "child_ids": [],
+          "location": {
+            "name": null
+          }
+        }
+      ],
+      "status": "open"
+    },
+    {
+      "name": "Marketing Data Analyst",
+      "id": 5,
+      "departments": [
+        {
+          "name": "Marketing",
+          "id": 45285,
+          "external_id": null,
+          "parent_id": null,
+          "child_ids": []
+        }
+      ],
+      "offices": [
+        {
+          "name": "Marketing",
+          "id": 44813,
+          "external_id": null,
+          "parent_id": null,
+          "child_ids": [],
+          "location": {
+            "name": null
+          }
+        }
+      ],
+      "status": "open"
+    },
+    {
+      "name": "Customer Marketing Wrangler",
+      "id": 6,
+      "departments": [
+        {
+          "name": "Marketing",
+          "id": 45285,
+          "external_id": null,
+          "parent_id": null,
+          "child_ids": []
+        }
+      ],
+      "offices": [
+        {
+          "name": "Marketing",
+          "id": 44813,
+          "external_id": null,
+          "parent_id": null,
+          "child_ids": [],
+          "location": {
+            "name": null
+          }
+        }
+      ],
+      "status": "open"
+    }
+  ]
+  
