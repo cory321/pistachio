@@ -43,22 +43,27 @@ function mapStateToProps( state ) {
 	if ( jobIdFilter.length ) {
 		filteredJobIds = jobIdFilter[ 0 ].values;
 		candidatesOnJobIds = candidatesOnJobIds.filter( candidate =>
-			allAt( candidate, 'applications.jobs.id' ).some( jobId => filteredJobIds.includes( jobId ) )
+			allAt( candidate, 'json.applications.jobs.id' ).some( jobId =>
+				filteredJobIds.includes( jobId )
+			)
 		);
 	}
 
 	// we need to go through a Map, so that we have only unique coordinatos
-	const coordinators = Array.from(
-		new Map(
-			candidatesOnJobIds
-				.filter( candidate => candidate.coordinator )
-				.map( candidate => [ candidate.coordinator.id, candidate.coordinator.name ] )
-		)
-			// the leading space is needed to make sure this coordinator is at the top of a sorted list
-			.set( 0, ' ∅ None' )
-			.set( 1, ' 👤 Somebody' ),
-		pair => ( { id: pair[ 0 ], name: pair[ 1 ] } )
-	).sort( ( a, b ) => a.name.localeCompare( b.name ) );
+	let coordinators = [];
+	if ( candidatesOnJobIds.length > 0 ) {
+		coordinators = Array.from(
+			new Map(
+				candidatesOnJobIds
+					.filter( candidate => candidate.json.coordinator )
+					.map( candidate => [ candidate.json.coordinator.id, candidate.json.coordinator.name ] )
+			)
+				// the leading space is needed to make sure this coordinator is at the top of a sorted list
+				.set( 0, ' ∅ None' )
+				.set( 1, ' 👤 Somebody' ),
+			pair => ( { id: pair[ 0 ], name: pair[ 1 ] } )
+		).sort( ( a, b ) => a.name.localeCompare( b.name ) );
+	}
 
 	return {
 		// This container (and its component) should be named CandidateFilters

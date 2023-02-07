@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { jobs, filters } from '../actions';
 import { JOBS_PATH } from '../reducers/filters';
+import jobs_data_temp_source from '../jobs.json';
 
 import Jobs from '../components/Jobs';
 
@@ -16,30 +17,7 @@ class JobsContainer extends Component {
 			props.fetch()
 		} */
 
-		props.add( {
-			name: 'Code Wrangler',
-			departments: [
-				{
-					child_ids: [],
-					external_id: null,
-					id: 45284,
-					name: 'Web',
-					parent_id: 44211,
-				},
-			],
-			id: 576226,
-			offices: [
-				{
-					child_ids: [],
-					external_id: null,
-					id: 44811,
-					location: { name: null },
-					name: 'Web',
-					parent_id: 43792,
-				},
-			],
-			status: 'open',
-		} );
+		props.addMany( jobs_data_temp_source );
 	}
 
 	render() {
@@ -71,6 +49,7 @@ function mapDispatchToProps( dispatch ) {
 		fetchNew: () => dispatch( jobs.fetchNew() ),
 		filter: job_ids => dispatch( filters.jobs( job_ids ) ),
 		add: j => dispatch( jobs.add( j ) ),
+		addMany: j => dispatch( jobs.addMany( j ) ),
 	};
 }
 
