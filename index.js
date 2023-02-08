@@ -1,21 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, combineReducers, compose } from 'redux';
+import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
+import { register, createReduxStore } from '@wordpress/data';
+import { pistachioStoreConfig } from './data';
+import { PISTACHIO_STORE } from './data/constants';
 import thunk from 'redux-thunk';
 
 import App from './components/App';
 import { change as hashChange } from './actions/route';
 import * as reducers from './reducers';
-import { applyMiddleware } from 'redux';
+
+const pistachioStore = createReduxStore( PISTACHIO_STORE, pistachioStoreConfig );
+register( pistachioStore );
 
 function createReducer( reducers ) {
 	return combineReducers( reducers );
 }
 
-const reducer = createReducer( reducers );
+const reducerRedux = createReducer( reducers );
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore( reducer, composeEnhancers( applyMiddleware( thunk ) ) );
+const store = createStore( reducerRedux, composeEnhancers( applyMiddleware( thunk ) ) );
 
 function route() {
 	store.dispatch( hashChange( window.location.hash.slice( 1 ) ) );

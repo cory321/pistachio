@@ -28,6 +28,10 @@ export function addMany( candidates ) {
 	};
 }
 
+export function fetch() {
+	return { type: FETCH };
+}
+
 export function success( fetchStart ) {
 	return {
 		type: SUCCESS,
@@ -46,10 +50,17 @@ export function uploadCoverLetter() {
 	throw 'Not implemented';
 }
 
+export function fetchFromAPI( path ) {
+	return {
+		type: 'FETCH_FROM_API',
+		path,
+	};
+}
+
 // create a thunk to fetch candidates
 export function fetchCandidatesAsync() {
 	return async dispatch => {
-		dispatch( { type: FETCH } );
+		dispatch( fetch() );
 
 		try {
 			const candidates = await apiFetch( { path: '/wp/v2/candidates/?per_page=300' } );

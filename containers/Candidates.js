@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchCandidatesAsync } from '../actions/candidates';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { filterCollectionWith } from '../lib/all-at';
 import { merge } from 'lodash';
 
@@ -8,17 +7,14 @@ import Candidates from '../components/Candidates';
 
 import '@wordpress/core-data';
 import apiFetch from '@wordpress/api-fetch';
+import { useSelect } from '@wordpress/data';
 
 const CandidateContainer = props => {
-	const dispatch = useDispatch();
 	const filters = useSelector( state => state.filters );
-	const candidates = useSelector( state => filterCollectionWith( state.candidates, filters ) );
+	const candidates = useSelect( select => select( 'pistachio/data' ).getCandidates() );
+	const filteredCandidates = filterCollectionWith( candidates, filters );
 	const { isFetching, error } = useSelector( state => state.fetchers.candidates );
 	const currentUser = null;
-
-	useEffect( () => {
-		dispatch( fetchCandidatesAsync() );
-	}, [] );
 
 	const addPronouns = ( candidate, pronouns ) => {
 		apiFetch( {
@@ -38,7 +34,7 @@ const CandidateContainer = props => {
 
 	return (
 		<Candidates
-			candidates={ candidates }
+			candidates={ filteredCandidates }
 			error={ error }
 			isFetching={ isFetching }
 			currentUser={ currentUser }
