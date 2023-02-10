@@ -8,10 +8,10 @@ import { combineReducers } from '@wordpress/data';
 
 const reducer = combineReducers( reducers );
 
-export const pistachioStoreConfig = {
+export const pistachioConfig = {
 	reducer,
 	actions,
 	selectors,
-	controls,
 	resolvers,
+	controls,
 };

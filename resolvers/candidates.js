@@ -1,11 +1,14 @@
-import * as actions from '../actions/candidates';
+import { fetch, test, fetchFromAPI, addMany, success, error } from '../actions/candidates';
 import { CANDIDATES_PATH } from '../data/constants';
 
 export function* getCandidates() {
+	yield fetch();
 	try {
-		const candidates = yield actions.fetchFromAPI( CANDIDATES_PATH );
-		return candidates ? actions.addMany( candidates ) : candidates;
+		const candidates = yield fetchFromAPI( CANDIDATES_PATH );
+		yield addMany( candidates );
+		yield success( candidates );
 	} catch ( err ) {
-		return actions.error( err );
+		yield error( err );
 	}
+	return;
 }

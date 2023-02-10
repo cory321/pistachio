@@ -1,3 +1,3 @@
-import getCandidates from './candidates';
+import { getCandidates, getCandidateFetchers } from './candidates';
 
-export { getCandidates };
+export { getCandidates, getCandidateFetchers };

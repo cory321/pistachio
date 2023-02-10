@@ -2,6 +2,8 @@ import apiFetch from '@wordpress/api-fetch';
 
 export const ADD = 'CANDIDATES_ADD';
 export const ADD_MANY = 'CANDIDATES_ADD_MANY';
+export const UPDATE = 'CANDIDATES_UPDATE';
+export const UPDATE_PRONOUNS = 'CANDIDATES_UPDATE_PRONOUNS';
 export const REMOVE = 'CANDIDATES_REMOVE';
 export const FETCH = 'CANDIDATES_FETCH';
 export const SUCCESS = 'CANDIDATES_SUCCESS';
@@ -14,13 +16,6 @@ export function add( candidate ) {
 	};
 }
 
-export function remove( candidateId ) {
-	return {
-		type: REMOVE,
-		payload: candidateId,
-	};
-}
-
 export function addMany( candidates ) {
 	return {
 		type: ADD_MANY,
@@ -28,8 +23,29 @@ export function addMany( candidates ) {
 	};
 }
 
+export function update( id, updatedCandidate ) {
+	return {
+		type: UPDATE,
+		payload: {
+			id,
+			updatedCandidate,
+		},
+	};
+}
+
+export function remove( candidateId ) {
+	return {
+		type: REMOVE,
+		payload: candidateId,
+	};
+}
+
 export function fetch() {
 	return { type: FETCH };
+}
+
+export function test() {
+	return { type: 'TEST' };
 }
 
 export function success( fetchStart ) {
@@ -55,6 +71,27 @@ export function fetchFromAPI( path ) {
 		type: 'FETCH_FROM_API',
 		path,
 	};
+}
+export function updatePronouns( candidate, pronouns ) {
+	return {
+		type: UPDATE_PRONOUNS,
+		candidate,
+		pronouns,
+	};
+}
+
+export function* addPronouns( candidate, pronouns ) {
+	try {
+		const result = yield updatePronouns( candidate, pronouns );
+		debugger;
+		if ( result ) {
+			return result;
+		}
+	} catch ( err ) {
+		console.error( err );
+		yield error( err );
+	}
+	return;
 }
 
 // create a thunk to fetch candidates
