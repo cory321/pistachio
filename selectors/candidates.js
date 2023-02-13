@@ -2,6 +2,6 @@ export function getCandidates( state ) {
 	return state.candidates || [];
 }
 
-export function getCandidateFetchers( state ) {
+export function candidatesAreFetching( state ) {
 	return state.fetchers.candidates || [];
 }

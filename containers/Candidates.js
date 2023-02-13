@@ -5,17 +5,19 @@ import { filterCollectionWith } from '../lib/all-at';
 import Candidates from '../components/Candidates';
 
 import '@wordpress/core-data';
-import { PISTACHIO_STORE_NAME } from '../data/constants';
-import { useSelect, useDispatch, useRegistry, select } from '@wordpress/data';
+import { PISTACHIO_STORE } from '../data/constants';
+import { useSelect, useRegistry } from '@wordpress/data';
 
 const CandidateContainer = props => {
-	const filters = useSelector( state => state.filters );
-	const candidates = useSelect( select => select( PISTACHIO_STORE_NAME ).getCandidates() );
+	const filters = useSelect( select => select( PISTACHIO_STORE ).getFilters() );
+	const candidates = useSelect( select => select( PISTACHIO_STORE ).getCandidates() );
 	const filteredCandidates = filterCollectionWith( candidates, filters );
 	const { isFetching, error } = useSelect( select =>
-		select( PISTACHIO_STORE_NAME ).getCandidateFetchers()
+		select( PISTACHIO_STORE ).candidatesAreFetching()
 	);
 	const currentUser = null;
+
+	console.log( useRegistry() );
 
 	return (
 		<Candidates
