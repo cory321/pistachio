@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withSelect, withDispatch } from '@wordpress/data';
+import { compose } from '@wordpress/compose';
+import { PISTACHIO_STORE } from '../data/constants';
 
 import { jobs, filters } from '../actions';
 import { JOBS_PATH } from '../reducers/filters';
