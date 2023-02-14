@@ -1,3 +1,5 @@
+import { createReduxStore } from '@wordpress/data';
+import { PISTACHIO } from './constants';
 import * as nestedActions from '../actions';
 import * as reducers from '../reducers';
 import * as selectors from '../selectors';
@@ -7,7 +9,6 @@ import controls from '../controls';
 import { combineReducers } from '@wordpress/data';
 
 const reducer = combineReducers( reducers );
-
 const actions = {};
 
 // Flatten and format nested actions like this: candidates.addMany -> addManyCandidates
@@ -21,10 +22,12 @@ Object.entries( nestedActions ).forEach( ( [ moduleName, moduleActions ] ) => {
 		} );
 } );
 
-export const pistachioConfig = {
+const config = {
 	reducer,
 	actions,
 	selectors,
 	resolvers,
 	controls,
 };
+
+export const pistachioStore = createReduxStore( PISTACHIO, config );

@@ -2,6 +2,7 @@ import { getCandidates, candidatesAreFetching } from './candidates';
 import { getFilters } from './filters';
 import { getGreenhouseAuth, getGreenhouseAuthId } from './auth';
 import { getUsers } from './users';
+import { getJobs, jobsAreFetching } from './jobs';
 
 export {
 	getCandidates,
@@ -10,4 +11,6 @@ export {
 	getGreenhouseAuth,
 	getGreenhouseAuthId,
 	getUsers,
+	getJobs,
+	jobsAreFetching,
 };

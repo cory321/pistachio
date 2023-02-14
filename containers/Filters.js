@@ -1,7 +1,7 @@
 import React from 'react';
 import { withSelect, withDispatch } from '@wordpress/data';
 import { compose } from '@wordpress/compose';
-import { PISTACHIO_STORE } from '../data/constants';
+import { PISTACHIO } from '../data/constants';
 import allAt from '../lib/all-at';
 
 import { JOBS_PATH } from '../reducers/filters';
@@ -33,11 +33,16 @@ function FiltersContainer( {
 }
 
 const mapStateToProps = withSelect( select => {
-	const store = select( PISTACHIO_STORE );
+	const store = select( PISTACHIO );
+	const { getEntityRecords } = select( 'core' );
+	const { hasFinishedResolution } = select( 'core/data' );
+	const query = [ 'postType', 'candidate', { per_page: 300 } ];
+	const candidates = getEntityRecords( ...query );
+	const hasFinishedLoading = hasFinishedResolution( 'core', 'getEntityRecords', query );
 	const greenhouseID = ( store.getGreenhouseAuth() && store.getGreenhouseAuth().id ) || 0;
 	const jobIdFilter = store.getFilters().filter( filter => JOBS_PATH === filter.path );
 	let filteredJobIds = [];
-	let candidatesOnJobIds = store.getCandidates();
+	let candidatesOnJobIds = candidates;
 
 	if ( jobIdFilter.length ) {
 		filteredJobIds = jobIdFilter[ 0 ].values;
@@ -50,7 +55,7 @@ const mapStateToProps = withSelect( select => {
 
 	// we need to go through a Map, so that we have only unique coordinators
 	let coordinators = [];
-	if ( candidatesOnJobIds.length > 0 ) {
+	if ( hasFinishedLoading ) {
 		coordinators = Array.from(
 			new Map(
 				candidatesOnJobIds
@@ -73,7 +78,7 @@ const mapStateToProps = withSelect( select => {
 } );
 
 const mapDispatchToProps = withDispatch( dispatch => {
-	const actions = dispatch( PISTACHIO_STORE );
+	const actions = dispatch( PISTACHIO );
 	return {
 		status: status => actions.statusFilters( status ),
 		coordinator: coordinator => actions.coordinatorFilters( coordinator ),

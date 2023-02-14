@@ -1,23 +1,22 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { filterCollectionWith } from '../lib/all-at';
 
 import Candidates from '../components/Candidates';
 
 import '@wordpress/core-data';
-import { PISTACHIO_STORE } from '../data/constants';
-import { useSelect, useRegistry } from '@wordpress/data';
+import { PISTACHIO } from '../data/constants';
+import { useSelect } from '@wordpress/data';
 
 const CandidateContainer = props => {
-	const filters = useSelect( select => select( PISTACHIO_STORE ).getFilters() );
-	const candidates = useSelect( select => select( PISTACHIO_STORE ).getCandidates() );
-	const filteredCandidates = filterCollectionWith( candidates, filters );
-	const { isFetching, error } = useSelect( select =>
-		select( PISTACHIO_STORE ).candidatesAreFetching()
+	const query = [ 'postType', 'candidate', { per_page: 300 } ];
+	const candidates = useSelect( select => select( 'core' ).getEntityRecords( ...query ) ) || [];
+	const filters = useSelect( select => select( PISTACHIO ).getFilters() );
+	const isFetching = useSelect( select =>
+		select( 'core/data' ).isResolving( 'core', 'getEntityRecords', query )
 	);
+	const filteredCandidates = filterCollectionWith( candidates, filters );
+	const error = null;
 	const currentUser = null;
-
-	console.log( useRegistry() );
 
 	return (
 		<Candidates

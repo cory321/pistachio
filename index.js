@@ -2,9 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
-import { register, createReduxStore } from '@wordpress/data';
-import { pistachioConfig } from './data';
-import { PISTACHIO_STORE } from './data/constants';
+import { register } from '@wordpress/data';
+import { pistachioStore } from './data';
 import thunk from 'redux-thunk';
 
 import App from './components/App';
@@ -19,7 +18,6 @@ const reducerRedux = createReducer( reducers );
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore( reducerRedux, composeEnhancers( applyMiddleware( thunk ) ) );
 
-const pistachioStore = createReduxStore( PISTACHIO_STORE, pistachioConfig );
 register( pistachioStore );
 
 function route() {
