@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchCandidatesAsync } from '../actions/candidates';
+import React from 'react';
 import { filterCollectionWith } from '../lib/all-at';
 import { merge } from 'lodash';
 
@@ -8,18 +6,19 @@ import Candidates from '../components/Candidates';
 
 import '@wordpress/core-data';
 import apiFetch from '@wordpress/api-fetch';
+import { useSelect } from '@wordpress/data';
+import { PISTACHIO } from '../data/constants';
 
 const CandidateContainer = props => {
-	const dispatch = useDispatch();
-	const filters = useSelector( state => state.filters );
-	const candidates = useSelector( state => filterCollectionWith( state.candidates, filters ) );
-	const { isFetching, error } = useSelector( state => state.fetchers.candidates );
+	const query = [ 'postType', 'candidate', { per_page: 300 } ];
+	const candidates = useSelect( select => select( 'core' ).getEntityRecords( ...query ) ) || [];
+	const filters = useSelect( select => select( PISTACHIO ).getFilters() );
+	const isFetching = useSelect( select =>
+		select( 'core/data' ).isResolving( 'core', 'getEntityRecords', query )
+	);
+	const filteredCandidates = filterCollectionWith( candidates, filters );
+	const error = null;
 	const currentUser = null;
-
-	useEffect( () => {
-		dispatch( fetchCandidatesAsync() );
-	}, [] );
-
 	const addPronouns = ( candidate, pronouns ) => {
 		apiFetch( {
 			path: '/wp/v2/candidates/' + candidate.id,
@@ -38,7 +37,7 @@ const CandidateContainer = props => {
 
 	return (
 		<Candidates
-			candidates={ candidates }
+			candidates={ filteredCandidates }
 			error={ error }
 			isFetching={ isFetching }
 			currentUser={ currentUser }

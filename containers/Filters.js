@@ -1,9 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
-
+import { withSelect, withDispatch } from '@wordpress/data';
+import { compose } from '@wordpress/compose';
+import { PISTACHIO } from '../data/constants';
 import allAt from '../lib/all-at';
-
-import { filters } from '../actions';
 
 import { JOBS_PATH } from '../reducers/filters';
 
@@ -33,12 +32,17 @@ function FiltersContainer( {
 	);
 }
 
-function mapStateToProps( state ) {
-	const greenhouseID = ( state.auth.greenhouse && state.auth.greenhouse.id ) || 0;
-
-	const jobIdFilter = state.filters.filter( filter => JOBS_PATH === filter.path );
+const mapStateToProps = withSelect( select => {
+	const store = select( PISTACHIO );
+	const { getEntityRecords } = select( 'core' );
+	const { hasFinishedResolution } = select( 'core/data' );
+	const query = [ 'postType', 'candidate', { per_page: 300 } ];
+	const candidates = getEntityRecords( ...query );
+	const hasFinishedLoading = hasFinishedResolution( 'core', 'getEntityRecords', query );
+	const greenhouseID = ( store.getGreenhouseAuth() && store.getGreenhouseAuth().id ) || 0;
+	const jobIdFilter = store.getFilters().filter( filter => JOBS_PATH === filter.path );
 	let filteredJobIds = [];
-	let candidatesOnJobIds = state.candidates;
+	let candidatesOnJobIds = candidates;
 
 	if ( jobIdFilter.length ) {
 		filteredJobIds = jobIdFilter[ 0 ].values;
@@ -49,9 +53,9 @@ function mapStateToProps( state ) {
 		);
 	}
 
-	// we need to go through a Map, so that we have only unique coordinatos
+	// we need to go through a Map, so that we have only unique coordinators
 	let coordinators = [];
-	if ( candidatesOnJobIds.length > 0 ) {
+	if ( hasFinishedLoading ) {
 		coordinators = Array.from(
 			new Map(
 				candidatesOnJobIds
@@ -67,20 +71,21 @@ function mapStateToProps( state ) {
 
 	return {
 		// This container (and its component) should be named CandidateFilters
-		filters: state.filters.filter( filter => 'candidate' === filter.type ),
+		filters: store.getFilters().filter( filter => 'candidate' === filter.type ),
 		coordinators,
-		currentUser: state.users.filter( user => user.id == greenhouseID )[ 0 ], // eslint-disable-line eqeqeq
+		currentUser: store.getUsers().filter( user => user.id == greenhouseID )[ 0 ], // eslint-disable-line eqeqeq
 	};
-}
+} );
 
-function mapDispatchToProps( dispatch ) {
+const mapDispatchToProps = withDispatch( dispatch => {
+	const actions = dispatch( PISTACHIO );
 	return {
-		status: status => dispatch( filters.status( status ) ),
-		coordinator: coordinator => dispatch( filters.coordinator( coordinator ) ),
-		missingCoverLetter: isActive => dispatch( filters.missingCoverLetter( isActive ) ),
-		missingEmailAddress: isActive => dispatch( filters.missingEmailAddress( isActive ) ),
-		missingDemographics: isActive => dispatch( filters.missingDemographics( isActive ) ),
+		status: status => actions.statusFilters( status ),
+		coordinator: coordinator => actions.coordinatorFilters( coordinator ),
+		missingCoverLetter: isActive => actions.missingCoverLetterFilters( isActive ),
+		missingEmailAddress: isActive => actions.missingEmailAddressFilters( isActive ),
+		missingDemographics: isActive => actions.missingDemographicsFilters( isActive ),
 	};
-}
+} );
 
-export default connect( mapStateToProps, mapDispatchToProps )( FiltersContainer );
+export default compose( mapStateToProps, mapDispatchToProps )( FiltersContainer );

@@ -1,7 +1,7 @@
 import { Component } from 'react';
-import { connect } from 'react-redux';
-
-import { users } from '../actions';
+import { withSelect, withDispatch } from '@wordpress/data';
+import { compose } from '@wordpress/compose';
+import { PISTACHIO } from '../data/constants';
 
 class UsersContainer extends Component {
 	constructor( props ) {
@@ -25,16 +25,16 @@ class UsersContainer extends Component {
 	}
 }
 
-function mapStateToProps( state ) {
+const mapStateToProps = withSelect( select => {
 	return {
-		users: state.users,
+		users: select( PISTACHIO ).getUsers(),
 	};
-}
+} );
 
-function mapDispatchToProps( dispatch ) {
+const mapDispatchToProps = withDispatch( dispatch => {
 	return {
-		add: u => dispatch( users.add( u ) ),
+		add: u => dispatch( PISTACHIO ).addUsers( u ),
 	};
-}
+} );
 
-export default connect( mapStateToProps, mapDispatchToProps )( UsersContainer );
+export default compose( mapStateToProps, mapDispatchToProps )( UsersContainer );

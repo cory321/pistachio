@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-
-import { jobs, filters } from '../actions';
+import { withSelect, withDispatch } from '@wordpress/data';
+import { compose } from '@wordpress/compose';
+import { PISTACHIO } from '../data/constants';
 import { JOBS_PATH } from '../reducers/filters';
 import jobs_data_temp_source from '../jobs.json';
 
@@ -32,25 +32,28 @@ class JobsContainer extends Component {
 	}
 }
 
-function mapStateToProps( state ) {
+const mapStateToProps = withSelect( select => {
+	const store = select( PISTACHIO );
 	return {
-		jobs: state.jobs,
-		error: state.fetchers.jobs.error,
+		jobs: store.getJobs(),
+		error: store.isFetchingJobs().error,
 		currentFilter:
-			state.filters
+			store
+				.getFilters()
 				.filter( filter => filter.path === JOBS_PATH )
 				.map( filter => filter.values )[ 0 ] || [],
 	};
-}
+} );
 
-function mapDispatchToProps( dispatch ) {
+const mapDispatchToProps = withDispatch( dispatch => {
+	const actions = dispatch( PISTACHIO );
 	return {
-		fetch: () => dispatch( jobs.fetch() ),
-		fetchNew: () => dispatch( jobs.fetchNew() ),
-		filter: job_ids => dispatch( filters.jobs( job_ids ) ),
-		add: j => dispatch( jobs.add( j ) ),
-		addMany: j => dispatch( jobs.addMany( j ) ),
+		fetch: () => actions.fetchJobs(),
+		fetchNew: () => actions.fetchNewJobs(),
+		filter: job_ids => actions.jobsFilters( job_ids ),
+		add: j => actions.addJobs( j ),
+		addMany: j => actions.addManyJobs( j ),
 	};
-}
+} );
 
-export default connect( mapStateToProps, mapDispatchToProps )( JobsContainer );
+export default compose( mapStateToProps, mapDispatchToProps )( JobsContainer );
