@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import { register } from '@wordpress/data';
 import { pistachioStore } from './data';
-import thunk from 'redux-thunk';
 
 import App from './components/App';
 import { change as hashChange } from './actions/route';
@@ -14,9 +13,12 @@ function createReducer( reducers ) {
 	return combineReducers( reducers );
 }
 
-const reducerRedux = createReducer( reducers );
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore( reducerRedux, composeEnhancers( applyMiddleware( thunk ) ) );
+const reducer = createReducer( reducers );
+
+const store = createStore(
+	reducer,
+	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 register( pistachioStore );
 
