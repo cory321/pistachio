@@ -5,11 +5,12 @@ import { merge } from 'lodash';
 import Candidates from '../components/Candidates';
 
 import '@wordpress/core-data';
-import apiFetch from '@wordpress/api-fetch';
-import { useSelect } from '@wordpress/data';
+import { useSelect, useDispatch } from '@wordpress/data';
 import { PISTACHIO } from '../data/constants';
 
 const CandidateContainer = props => {
+	const { saveEntityRecord } = useDispatch( 'core' );
+	const { errorCandidates } = useDispatch( PISTACHIO );
 	const query = [ 'postType', 'candidate', { per_page: 300 } ];
 	const candidates = useSelect( select => select( 'core' ).getEntityRecords( ...query ) ) || [];
 	const filters = useSelect( select => select( PISTACHIO ).getFilters() );
@@ -19,19 +20,40 @@ const CandidateContainer = props => {
 	const filteredCandidates = filterCollectionWith( candidates, filters );
 	const error = null;
 	const currentUser = null;
-	const addPronouns = ( candidate, pronouns ) => {
-		apiFetch( {
-			path: '/wp/v2/candidates/' + candidate.id,
-			method: 'POST',
-			data: {
-				json: merge( {}, candidate, {
-					keyed_custom_fields: {
-						pronouns: {
-							value: pronouns,
-						},
+
+	const updatePronouns = ( candidate, pronouns ) => {
+		const updatedCandidate = {
+			id: candidate.id,
+			json: merge( {}, candidate, {
+				keyed_custom_fields: {
+					pronouns: {
+						value: pronouns,
 					},
-				} ),
-			},
+				},
+			} ),
+		};
+		saveEntityRecord( 'postType', 'candidate', updatedCandidate, {
+			throwOnError: true,
+		} ).catch( error => {
+			errorCandidates( error.message );
+		} );
+	};
+
+	const updateRegion = ( candidate, region ) => {
+		const updatedCandidate = {
+			id: candidate.id,
+			json: merge( {}, candidate, {
+				keyed_custom_fields: {
+					region: {
+						value: region,
+					},
+				},
+			} ),
+		};
+		saveEntityRecord( 'postType', 'candidate', updatedCandidate, {
+			throwOnError: true,
+		} ).catch( error => {
+			errorCandidates( error.message );
 		} );
 	};
 
@@ -43,7 +65,8 @@ const CandidateContainer = props => {
 			currentUser={ currentUser }
 			refresh={ props.fetchOne }
 			uploadCoverLetter={ props.uploadCoverLetter }
-			addPronouns={ addPronouns }
+			updatePronouns={ updatePronouns }
+			updateRegion={ updateRegion }
 			filters={ filters }
 		/>
 	);

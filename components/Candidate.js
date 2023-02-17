@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import moment from 'moment';
+import EditField from './shared/EditField';
+import AddField from './shared/AddField';
 
 import allAt from '../lib/all-at';
 import { MISSING_COVER_LETTER_PATH } from '../reducers/filters';
@@ -39,12 +40,7 @@ export default class Candidate extends Component {
 	constructor( props ) {
 		super( props );
 
-		for ( const func of [
-			'uploadCoverLetter',
-			'uploadTranscript',
-			'addPronouns',
-			'addEmailAddress',
-		] ) {
+		for ( const func of [ 'uploadCoverLetter', 'uploadTranscript', 'addEmailAddress' ] ) {
 			this[ func ] = this[ func ].bind( this );
 		}
 
@@ -67,12 +63,6 @@ export default class Candidate extends Component {
 		this.props.uploadCoverLetter( this.props.candidate );
 	}
 
-	addPronouns( event ) {
-		event.preventDefault();
-		const pronouns = window.prompt( 'Pronouns?', '' ); // obviously we want to show a dropdown here :)
-		this.props.addPronouns( this.props.candidate, pronouns );
-	}
-
 	addEmailAddress( event ) {
 		event.preventDefault();
 		const emailAddress = window.prompt( 'Email Address?', '' );
@@ -93,7 +83,7 @@ export default class Candidate extends Component {
 	}
 
 	render() {
-		const { candidate, currentUser, isFetching } = this.props;
+		const { candidate, currentUser, updatePronouns, updateRegion, isFetching } = this.props;
 		const referredApplications = candidate.applications.filter(
 			a => a.source && a.source.id === 13
 		);
@@ -152,21 +142,38 @@ export default class Candidate extends Component {
 		const emails = candidate.email_addresses.length
 			? candidate.email_addresses.map( e => e.value ).join( ', ' )
 			: add( candidate );
-		const pronouns = ( candidate.keyed_custom_fields.pronouns &&
-			candidate.keyed_custom_fields.pronouns.value ) || (
-			<button
-				className="button"
-				name="pronouns"
-				onClick={ this.addPronouns }
+
+		const pronouns = candidate.keyed_custom_fields.pronouns?.value ? (
+			<EditField
+				candidate={ candidate }
+				editValue={ candidate.keyed_custom_fields.pronouns.value }
+				onSave={ updatePronouns }
 				disabled={ isFetching }
-			>
-				{ ' ' }
-				Add Pronouns
-			</button>
+			/>
+		) : (
+			<AddField
+				candidate={ candidate }
+				onSave={ updatePronouns }
+				buttonText={ 'Add Pronouns' }
+				disabled={ isFetching }
+			/>
 		);
-		const region =
-			( candidate.keyed_custom_fields.region && candidate.keyed_custom_fields.region.value ) ||
-			add( candidate );
+
+		const region = candidate.keyed_custom_fields.region?.value ? (
+			<EditField
+				candidate={ candidate }
+				editValue={ candidate.keyed_custom_fields.region.value }
+				onSave={ updateRegion }
+				disabled={ isFetching }
+			/>
+		) : (
+			<AddField
+				candidate={ candidate }
+				onSave={ updateRegion }
+				buttonText={ 'Add Region' }
+				disabled={ isFetching }
+			/>
+		);
 
 		return (
 			<HoverRow { ...this.props }>

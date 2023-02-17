@@ -289,6 +289,14 @@ ul {
 	background-color: red;
 }
 
+button.edit-field-btn {
+    cursor: pointer;
+    padding: 0.05em 0.2em;
+    margin: 0 0 0 0.625em;
+    background: none;
+    border: none;
+}
+
 button.primary ~ button.danger {
 	margin-left: 2em;
 }
@@ -354,6 +362,14 @@ svg path {
 
 svg:active path {
 	fill: lightblue;
+}
+
+svg.edit-icon path, svg.save-icon path {
+    fill: rgb( 0, 135, 190 ); 
+}
+ 
+svg.cancel-icon path {
+    fill: rgb(210, 67, 11); 
 }
 
 form.fn {
